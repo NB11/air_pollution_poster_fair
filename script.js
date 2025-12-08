@@ -30,11 +30,11 @@ function initMap() {
                 }
             ]
         },
-        center: [-111.9432838092529, 40.69022637827863], // Center on Salt Lake City
-        zoom: 12, // Zoom level for Salt Lake City
+        center: [-111.94, 40.69], // Center on Salt Lake City (matches image center)
+        zoom: 13, // Zoom level for Salt Lake City (zoomed in a bit to see the image)
         minZoom: 10, // Minimum zoom level - prevents zooming out too much
         maxZoom: 16.4, // MAXIMUM ZOOM LIMIT - Change this value to adjust how far users can zoom in (higher = more zoom)
-        antialias: true
+        antialias: false // Disable antialiasing to preserve raw pixels
     });
 
     // Add custom base map switcher control first (will be on top)
@@ -42,12 +42,17 @@ function initMap() {
     
     // Add navigation controls (will be below switcher)
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
-    map.addControl(new maplibregl.ScaleControl(), 'bottom-left');
+    map.addControl(new maplibregl.ScaleControl(), 'top-right');
 
     // Wait for map to load before adding data
     map.on('load', () => {
         loadSaharaGeoJSON();
         setupEventHandlers();
+        // Load composite raster layer with month selector
+        initCompositeLayer();
+        // Optional: Load small tile (comment out if not needed)
+        // loadPNGRasterLayer('map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0.png', 
+        //                   'map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0_bounds.json');
     });
     
     // Initialize carousel when DOM is ready
@@ -191,6 +196,289 @@ async function loadSaharaGeoJSON() {
         alert('Error loading Sahara desert data. Please check the console for details.');
     }
 }
+
+// Composite layer management
+let currentCompositeYear = '2023';
+let currentCompositeMonth = '01'; // Default to January
+
+// Available months per year (update as you add more composites)
+const availableMonths = {
+    '2023': ['01', '02'] // January, February
+};
+
+// Initialize composite layer with year/month slider
+function initCompositeLayer() {
+    // Load default month (January)
+    loadCompositeLayer('2023', '01');
+    
+    // Set up year selector
+    const yearSelector = document.getElementById('year-selector');
+    if (yearSelector) {
+        yearSelector.addEventListener('change', (e) => {
+            const year = e.target.value;
+            currentCompositeYear = year;
+            
+            // Update slider - keep max at 12 (all months)
+            const monthSlider = document.getElementById('month-slider');
+            if (monthSlider) {
+                // If current month is not available, reset to first available
+                if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
+                    currentCompositeMonth = availableMonths[year][0];
+                    const firstMonthNum = parseInt(currentCompositeMonth);
+                    monthSlider.value = firstMonthNum;
+                    if (window.updateMonthDisplay) {
+                        window.updateMonthDisplay();
+                    }
+                }
+            }
+            
+            // Reload current month with new year
+            loadCompositeLayer(year, currentCompositeMonth);
+        });
+    }
+    
+    // Set up month slider
+    const monthSlider = document.getElementById('month-slider');
+    const monthDisplay = document.getElementById('month-display');
+    
+    // Update display function (defined outside so it can be reused)
+    const updateMonthDisplay = () => {
+        if (!monthSlider || !monthDisplay) return;
+        const monthNum = parseInt(monthSlider.value);
+        const monthStr = String(monthNum).padStart(2, '0');
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                          'July', 'August', 'September', 'October', 'November', 'December'];
+        monthDisplay.textContent = `${monthNames[monthNum - 1]} ${currentCompositeYear}`;
+    };
+    
+    if (monthSlider && monthDisplay) {
+        // Set max to 12 (all months) - slider can slide through all months
+        monthSlider.max = 12;
+        monthSlider.min = 1;
+        monthSlider.step = 1;
+        
+        // Update display when slider changes
+        monthSlider.addEventListener('input', (e) => {
+            const monthNum = parseInt(e.target.value);
+            const monthStr = String(monthNum).padStart(2, '0');
+            
+            // Update display immediately
+            updateMonthDisplay();
+            
+            // Check if this month is available, if so load it
+            if (availableMonths[currentCompositeYear] && availableMonths[currentCompositeYear].includes(monthStr)) {
+                currentCompositeMonth = monthStr;
+                // Load the composite for selected month
+                loadCompositeLayer(currentCompositeYear, monthStr);
+            } else {
+                // Month not available - could show a message or just don't load
+                console.log(`Month ${monthStr} not available for year ${currentCompositeYear}`);
+            }
+        });
+        
+        // Initialize display
+        updateMonthDisplay();
+    }
+    
+    // Make updateMonthDisplay available for year selector
+    window.updateMonthDisplay = updateMonthDisplay;
+}
+
+// Load composite PNG raster layer for a specific year and month
+async function loadCompositeLayer(year, month) {
+    const pngPath = `map/s2/composits/SALT_LAKE_CITY_${year}_large_${year}_${month}_S2_composite.png`;
+    const boundsPath = `map/s2/composits/SALT_LAKE_CITY_${year}_large_${year}_${month}_S2_composite_bounds.json`;
+    
+    console.log(`📅 Loading composite for ${year}-${month}:`, pngPath);
+    
+    currentCompositeYear = year;
+    currentCompositeMonth = month;
+    
+    // Remove existing composite layer if present
+    if (map.getSource('composite-raster-source')) {
+        map.removeSource('composite-raster-source');
+    }
+    if (map.getLayer('composite-raster-layer')) {
+        map.removeLayer('composite-raster-layer');
+    }
+    
+    // Load the new composite
+    await loadPNGRasterLayer(pngPath, boundsPath, 'composite-raster-source', 'composite-raster-layer');
+}
+
+// Load PNG Raster layer with bounds JSON (recommended method)
+// This is faster and more reliable than loading GeoTIFF directly
+async function loadPNGRasterLayer(pngPath, boundsPath, sourceId = 'png-raster-source', layerId = 'png-raster-layer') {
+    try {
+        console.log('📖 Loading PNG raster:', pngPath);
+        
+        // Load bounds JSON file
+        const boundsResponse = await fetch(boundsPath);
+        if (!boundsResponse.ok) {
+            console.log(`⚠️ Bounds file not found at ${boundsPath}, skipping...`);
+            return;
+        }
+        
+        const boundsData = await boundsResponse.json();
+        const geometry = boundsData.features[0].geometry;
+        const coordinates = geometry.coordinates[0];
+        
+        // Extract corner coordinates [lng, lat]
+        // Assuming coordinates are: [top-left, top-right, bottom-right, bottom-left, top-left (closing)]
+        const topLeft = coordinates[0];
+        const topRight = coordinates[1];
+        const bottomRight = coordinates[2];
+        const bottomLeft = coordinates[3];
+        
+        console.log('📍 Bounds coordinates:', {
+            topLeft,
+            topRight,
+            bottomRight,
+            bottomLeft,
+            crs: boundsData.features[0].properties?.target_crs || 'unknown'
+        });
+        
+        // Log the image center for debugging
+        const centerLng = (topLeft[0] + bottomRight[0]) / 2;
+        const centerLat = (topLeft[1] + bottomRight[1]) / 2;
+        console.log(`📍 Image center: [${centerLng}, ${centerLat}]`);
+        console.log(`📍 Image size: ${Math.abs(topRight[0] - topLeft[0])}° longitude x ${Math.abs(topLeft[1] - bottomLeft[1])}° latitude`);
+        
+        // Remove existing source/layer if present (only if using default IDs)
+        if (sourceId === 'png-raster-source' && map.getSource('png-raster-source')) {
+            map.removeSource('png-raster-source');
+        }
+        if (layerId === 'png-raster-layer' && map.getLayer('png-raster-layer')) {
+            map.removeLayer('png-raster-layer');
+        }
+        
+        console.log('📤 Adding image source with coordinates:', {
+            topLeft,
+            topRight,
+            bottomRight,
+            bottomLeft
+        });
+        
+        // Add image source with 4 corner coordinates
+        try {
+            map.addSource(sourceId, {
+                type: 'image',
+                url: pngPath,
+                coordinates: [
+                    topLeft,     // top-left [lng, lat]
+                    topRight,    // top-right [lng, lat]
+                    bottomRight, // bottom-right [lng, lat]
+                    bottomLeft   // bottom-left [lng, lat]
+                ]
+            });
+            console.log(`✅ Image source added: ${sourceId}`);
+        } catch (error) {
+            console.error('❌ Error adding image source:', error);
+            return;
+        }
+        
+        // Add raster layer with RGB channels - add it ON TOP of everything
+        try {
+            map.addLayer({
+                id: layerId,
+                type: 'raster',
+                source: sourceId,
+                paint: {
+                    'raster-opacity': 1.0, // Full opacity to see the image clearly
+                    'raster-resampling': 'nearest' // Use nearest neighbor to preserve raw pixels, no interpolation/blurring
+                }
+            });
+            console.log(`✅ PNG raster layer added to map: ${layerId}`);
+            
+            // Move layer to top to ensure it's visible
+            if (map.getLayer('png-raster-layer')) {
+                // Try to move it to the top
+                const layers = map.getStyle().layers;
+                const topLayer = layers[layers.length - 1].id;
+                if (topLayer !== 'png-raster-layer') {
+                    map.moveLayer('png-raster-layer');
+                    console.log('✅ Moved layer to top');
+                }
+            }
+        } catch (error) {
+            console.error('❌ Error adding raster layer:', error);
+            return;
+        }
+        
+        console.log('📍 Image bounds:', {
+            topLeft: topLeft,
+            bottomRight: bottomRight,
+            center: [(topLeft[0] + bottomRight[0]) / 2, (topLeft[1] + bottomRight[1]) / 2]
+        });
+        
+        // Verify the layer was added
+        if (map.getLayer('png-raster-layer')) {
+            console.log('✅ Layer verified in map');
+        } else {
+            console.error('❌ Layer not found in map after adding!');
+        }
+        
+    } catch (error) {
+        console.error('❌ Error loading PNG raster:', error);
+        console.log('PNG raster data not available:', error.message);
+    }
+}
+
+// Load RGB Raster layer (PNG with bounds JSON)
+// To use this:
+// 1. Prepare your RGB image (PNG format) with 3 channels (Red, Green, Blue)
+// 2. Create a bounds JSON file with corner coordinates
+// 3. Place files in data/ folder (e.g., data/rgb_data.png and data/rgb_data_bounds.json)
+// 4. Update the file paths below
+async function loadRGBRaster() {
+    try {
+        // Load bounds JSON file - UPDATE THIS PATH
+        const boundsResponse = await fetch('data/rgb_data_bounds.json');
+        if (!boundsResponse.ok) {
+            console.log('RGB raster data not found, skipping...');
+            return;
+        }
+        
+        const boundsData = await boundsResponse.json();
+        const coordinates = boundsData.geometry.coordinates[0];
+        
+        // Extract corner coordinates [lng, lat]
+        const topLeft = coordinates[0];
+        const topRight = coordinates[1];
+        const bottomRight = coordinates[2];
+        const bottomLeft = coordinates[3];
+        
+        // Add image source with 4 corner coordinates - UPDATE THIS PATH
+        map.addSource('rgb-raster', {
+            type: 'image',
+            url: 'data/rgb_data.png', // UPDATE: Path to your RGB image
+            coordinates: [
+                topLeft,     // top-left [lng, lat]
+                topRight,    // top-right [lng, lat]
+                bottomRight, // bottom-right [lng, lat]
+                bottomLeft   // bottom-left [lng, lat]
+            ]
+        });
+        
+        // Add raster layer with RGB channels
+        map.addLayer({
+            id: 'rgb-raster-layer',
+            type: 'raster',
+            source: 'rgb-raster',
+            paint: {
+                'raster-opacity': 0.8, // Adjust opacity as needed
+                'raster-resampling': 'linear' // Use linear resampling for better quality
+            }
+        }, 'satellite-layer'); // Add above satellite layer
+        
+        console.log('✅ RGB raster layer loaded successfully');
+        
+    } catch (error) {
+        console.log('RGB raster data not available:', error.message);
+    }
+}
+
+// GeoTIFF loading is now handled in geotiff-loader.js
 
 // Load ALOS PALSAR raster layer (PNG with bounds JSON)
 // To use this: 
@@ -370,10 +658,9 @@ function setupEventHandlers() {
     });
     
     
-    // References button
+    // References button - opens info popup
     document.getElementById('references-btn').addEventListener('click', () => {
-        // TODO: Add references popup or modal functionality
-        alert('References button clicked - add your references content here');
+        showInfoPopup();
     });
     
     // Close popup handlers
@@ -398,31 +685,57 @@ function setupEventHandlers() {
     
 }
 
-// Mobile Toggle Functionality
+// Mobile Toggle Functionality - Opens Info Popup
 function initMobileToggle() {
     const toggleBtn = document.getElementById('mobile-toggle');
-    const toggleLabel = document.getElementById('toggle-label');
-    const appContainer = document.querySelector('.app-container');
-    let isInfoPanelActive = false;
+    const infoPopup = document.getElementById('info-popup');
+    const popupClose = document.querySelector('.info-popup-close');
+    const popupOverlay = document.querySelector('.info-popup-overlay');
     
-    if (!toggleBtn) return; // Only run on mobile or if button exists
+    if (!toggleBtn || !infoPopup) return; // Only run if elements exist
     
+    // Open popup when button is clicked
     toggleBtn.addEventListener('click', () => {
-        isInfoPanelActive = !isInfoPanelActive;
-        
-        if (isInfoPanelActive) {
-            // Show info panel, dim map
-            appContainer.classList.add('info-panel-active');
-            toggleLabel.textContent = 'Show Map';
-        } else {
-            // Show map, hide info panel
-            appContainer.classList.remove('info-panel-active');
-            toggleLabel.textContent = 'Show Info';
-        }
+        showInfoPopup();
     });
     
-    // Initialize: start with map view (info panel hidden)
-    toggleLabel.textContent = 'Show Info';
+    // Close popup handlers
+    if (popupClose) {
+        popupClose.addEventListener('click', () => {
+            hideInfoPopup();
+        });
+    }
+    
+    if (popupOverlay) {
+        popupOverlay.addEventListener('click', () => {
+            hideInfoPopup();
+        });
+    }
+    
+    // Close popup on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !infoPopup.classList.contains('hidden')) {
+            hideInfoPopup();
+        }
+    });
+}
+
+function showInfoPopup() {
+    const infoPopup = document.getElementById('info-popup');
+    if (infoPopup) {
+        infoPopup.classList.remove('hidden');
+        // Prevent body scroll when popup is open
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideInfoPopup() {
+    const infoPopup = document.getElementById('info-popup');
+    if (infoPopup) {
+        infoPopup.classList.add('hidden');
+        // Restore body scroll
+        document.body.style.overflow = '';
+    }
 }
 
 // Show image popup

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/geotiff@2.0.7/dist-browser/geotiff.js"></script>
+    <script src="geotiff-loader.js"></script>
 </head>
 <body>
     <div class="app-container">
@@ -67,6 +69,40 @@
                 </div>
             </div>
             
+            <!-- Year/Month Slider Widget -->
+            <div class="floating-widget time-selector-widget">
+                <div class="time-selector-content">
+                    <div class="year-selector-container">
+                        <label for="year-selector" class="year-selector-label">Year:</label>
+                        <select id="year-selector" class="year-selector">
+                            <option value="2023">2023</option>
+                            <!-- Add more years as needed -->
+                        </select>
+                    </div>
+                    <div class="month-slider-container">
+                        <label for="month-slider" class="month-slider-label">Month:</label>
+                        <div class="month-slider-wrapper">
+                            <input type="range" id="month-slider" class="month-slider" min="1" max="12" value="1" step="1">
+                            <div class="month-slider-labels">
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                                <span>May</span>
+                                <span>Jun</span>
+                                <span>Jul</span>
+                                <span>Aug</span>
+                                <span>Sep</span>
+                                <span>Oct</span>
+                                <span>Nov</span>
+                                <span>Dec</span>
+                            </div>
+                        </div>
+                        <div class="month-display" id="month-display">January 2023</div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Floating References Button -->
             <div class="floating-widget references-widget">
                 <button id="references-btn" class="references-btn">References</button>
@@ -74,8 +110,42 @@
             
             <!-- Mobile Toggle Button -->
             <button id="mobile-toggle" class="mobile-toggle-btn">
-                <span class="toggle-label" id="toggle-label">Show Map</span>
+                <span class="toggle-label" id="toggle-label">Info</span>
             </button>
+            
+            <!-- Info Popup Modal -->
+            <div id="info-popup" class="info-popup hidden">
+                <div class="info-popup-overlay"></div>
+                <div class="info-popup-content">
+                    <button class="info-popup-close">&times;</button>
+                    <h2 class="info-popup-title">Information</h2>
+                    <div class="info-popup-sections">
+                        <div class="info-section">
+                            <h3 class="info-section-title">GitHub Repository</h3>
+                            <div id="github-content" class="info-section-content">
+                                <p>Source code and documentation available on GitHub:</p>
+                                <a href="https://github.com/yourusername/air-pollution-estimation" target="_blank" rel="noopener noreferrer" class="info-link">github.com/yourusername/air-pollution-estimation</a>
+                            </div>
+                        </div>
+                        <div class="info-section">
+                            <h3 class="info-section-title">Literature References</h3>
+                            <div id="references-content" class="info-section-content">
+                                <p><strong>1. Smith, J., & Doe, A. (2023).</strong> "Air Pollution Estimation Using Machine Learning." <em>Environmental Science Journal</em>, 45(2), 123-145.</p>
+                                <p><strong>2. Johnson, M., et al. (2022).</strong> "Remote Sensing Applications in Air Quality Monitoring." <em>Remote Sensing</em>, 14(8), 1987. <a href="#" target="_blank" rel="noopener noreferrer" class="info-link">DOI: 10.1234/rs.2022.1987</a></p>
+                                <p><strong>3. Chen, L., & Wang, Y. (2021).</strong> "Spatial Analysis of Urban Air Pollution Patterns." <em>Atmospheric Environment</em>, 256, 118432.</p>
+                            </div>
+                        </div>
+                        <div class="info-section">
+                            <h3 class="info-section-title">Additional Information</h3>
+                            <div id="additional-content" class="info-section-content">
+                                <p><strong>Data Sources:</strong> Satellite imagery from Sentinel-5P, ground-based monitoring stations, and meteorological data.</p>
+                                <p><strong>Methodology:</strong> Machine learning model trained on historical air quality data and satellite observations.</p>
+                                <p><strong>Contact:</strong> For questions or collaboration, please reach out via GitHub or email at your.email@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Floating Feature Info Widget -->
             <div id="feature-info" class="floating-widget feature-widget hidden">

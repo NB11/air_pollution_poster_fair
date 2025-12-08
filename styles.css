@@ -184,6 +184,163 @@ body {
     color: white;
 }
 
+/* Year/Month Slider Widget */
+.time-selector-widget {
+    bottom: 20px;
+    left: 315px;
+    right: 20px;
+    width: auto;
+    padding: 1rem 1.5rem;
+    background: #000000;
+    color: white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 57px;
+    line-height: 1.5;
+}
+
+.time-selector-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.year-selector-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.year-selector-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.year-selector {
+    padding: 0.625rem 1rem;
+    background: #333333;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.9%205.4s9.3-1.8%2012.9-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%;
+    background-size: 0.65em auto;
+    padding-right: 2.5em;
+    min-width: 100px;
+    transition: all 0.2s;
+}
+
+.year-selector:hover {
+    background-color: #404040;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.year-selector:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.month-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.month-slider-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.month-slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.month-slider {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.month-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.month-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.month-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.month-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+.month-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0 2px;
+}
+
+.month-display {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 140px;
+}
+
 .references-widget {
     bottom: 20px;
     left: 20px;
@@ -487,6 +644,12 @@ select:focus {
     border: none !important;
 }
 
+/* Rotate scale bar 90 degrees (vertical orientation) */
+.maplibregl-ctrl-scale {
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+
 .base-map-btn {
     font-family: 'Poppins', sans-serif;
     padding: 0.5rem;
@@ -530,6 +693,162 @@ select:focus {
     display: none;
 }
 
+/* Desktop: Make info popup accessible */
+@media (min-width: 769px) {
+    .info-popup-content {
+        max-width: 600px;
+        width: 90%;
+    }
+}
+
+/* Info Popup Modal */
+.info-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-popup.hidden {
+    display: none;
+}
+
+.info-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.info-popup-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 80vh;
+    width: 500px;
+    z-index: 10001;
+    background: #000000;
+    color: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Custom Scrollbar Styling */
+.info-popup-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.info-popup-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.info-popup-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.info-popup-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox scrollbar styling */
+.info-popup-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+.info-popup-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-popup-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.info-section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+.info-section-content {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.info-section-content p {
+    margin: 0 0 0.5rem 0;
+}
+
+.info-section-content p:last-child {
+    margin-bottom: 0;
+}
+
+.info-link {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.2s;
+    display: inline-block;
+}
+
+.info-link:hover {
+    opacity: 0.7;
+}
+
+.info-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s;
+    z-index: 10002;
+}
+
+.info-popup-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .mobile-toggle-btn {
@@ -564,28 +883,33 @@ select:focus {
         pointer-events: none;
     }
     
-    /* Hide widgets by default on mobile - show map view */
-    .title-widget,
-    .explanation-widget,
-    .references-widget {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+    /* Info popup responsive styles */
+    .info-popup-content {
+        max-width: 95vw;
+        max-height: 85vh;
+        width: calc(100vw - 40px);
+        padding: 1.5rem;
     }
     
-    /* Show widgets when info panel is active */
-    .info-panel-active .title-widget,
-    .info-panel-active .explanation-widget,
-    .info-panel-active .references-widget {
-        opacity: 1;
-        pointer-events: auto;
+    .info-popup-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
     }
     
-    /* Hide map when info panel is active */
-    .info-panel-active #map-view {
-        opacity: 0.3;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
+    .info-popup-sections {
+        gap: 1.25rem;
+    }
+    
+    .info-section-title {
+        font-size: 1rem;
+    }
+    
+    .info-popup-close {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 36px;
+        height: 36px;
     }
     
     .floating-widget {
@@ -631,8 +955,49 @@ select:focus {
         padding-bottom: 0.5rem;
     }
     
+    .time-selector-widget {
+        bottom: 20px;
+        left: 10px;
+        right: 10px;
+        width: calc(100vw - 20px);
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .time-selector-content {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .year-selector-container {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .month-slider-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .month-slider-wrapper {
+        width: 100%;
+    }
+    
+    .month-slider-labels {
+        font-size: 0.65rem;
+    }
+    
+    .month-display {
+        font-size: 0.875rem;
+        width: 100%;
+        min-width: auto;
+    }
+    
     .references-widget {
-        bottom: 80px;
+        bottom: 20px;
         left: 10px;
         width: calc(100vw - 20px);
         position: fixed;

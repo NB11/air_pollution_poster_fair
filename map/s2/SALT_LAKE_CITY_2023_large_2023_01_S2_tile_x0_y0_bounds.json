@@ -1,0 +1,42 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -111.95,
+              40.7
+            ],
+            [
+              -111.93,
+              40.7
+            ],
+            [
+              -111.93,
+              40.68
+            ],
+            [
+              -111.95,
+              40.68
+            ],
+            [
+              -111.95,
+              40.7
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "source_crs": "PROJCS[\"WGS 84 / UTM zone 12N\",GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",-111],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+        "target_crs": "EPSG:4326",
+        "width": 210,
+        "height": 210,
+        "num_bands": 12
+      }
+    }
+  ]
+}
