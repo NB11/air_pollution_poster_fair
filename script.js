@@ -398,6 +398,33 @@ function setupEventHandlers() {
     
 }
 
+// Mobile Toggle Functionality
+function initMobileToggle() {
+    const toggleBtn = document.getElementById('mobile-toggle');
+    const toggleLabel = document.getElementById('toggle-label');
+    const appContainer = document.querySelector('.app-container');
+    let isInfoPanelActive = false;
+    
+    if (!toggleBtn) return; // Only run on mobile or if button exists
+    
+    toggleBtn.addEventListener('click', () => {
+        isInfoPanelActive = !isInfoPanelActive;
+        
+        if (isInfoPanelActive) {
+            // Show info panel, dim map
+            appContainer.classList.add('info-panel-active');
+            toggleLabel.textContent = 'Show Map';
+        } else {
+            // Show map, hide info panel
+            appContainer.classList.remove('info-panel-active');
+            toggleLabel.textContent = 'Show Info';
+        }
+    });
+    
+    // Initialize: start with map view (info panel hidden)
+    toggleLabel.textContent = 'Show Info';
+}
+
 // Show image popup
 function showImagePopup() {
     const popup = document.getElementById('image-popup');
@@ -661,8 +688,12 @@ function initExplanationCarousel() {
 
 // Initialize map when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMap);
+    document.addEventListener('DOMContentLoaded', () => {
+        initMap();
+        initMobileToggle();
+    });
 } else {
     initMap();
+    initMobileToggle();
 }
 

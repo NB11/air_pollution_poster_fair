@@ -34,6 +34,10 @@ body {
     height: 100%;
 }
 
+#map-view {
+    transition: opacity 0.3s ease;
+}
+
 /* Floating Widgets */
 .floating-widget {
     position: absolute;
@@ -521,8 +525,69 @@ select:focus {
     height: 20px;
 }
 
+/* Mobile Toggle Button */
+.mobile-toggle-btn {
+    display: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+    .mobile-toggle-btn {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100vw - 40px);
+        max-width: 400px;
+        padding: 1rem 1.5rem;
+        background: #000000;
+        color: white;
+        border: none;
+        border-radius: var(--radius);
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        z-index: 3000;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-toggle-btn:active {
+        transform: translateX(-50%) scale(0.98);
+    }
+    
+    .toggle-label {
+        pointer-events: none;
+    }
+    
+    /* Hide widgets by default on mobile - show map view */
+    .title-widget,
+    .explanation-widget,
+    .references-widget {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Show widgets when info panel is active */
+    .info-panel-active .title-widget,
+    .info-panel-active .explanation-widget,
+    .info-panel-active .references-widget {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    /* Hide map when info panel is active */
+    .info-panel-active #map-view {
+        opacity: 0.3;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    
     .floating-widget {
         width: calc(100vw - 20px);
     }
@@ -532,6 +597,8 @@ select:focus {
         left: 10px;
         padding: 0.75rem 1rem;
         width: calc(100vw - 20px);
+        position: fixed;
+        z-index: 2000;
     }
     
     .title-widget h1 {
@@ -539,14 +606,15 @@ select:focus {
     }
     
     .explanation-widget {
-        top: 200px;
+        top: 80px;
         left: 10px;
         width: calc(100vw - 20px);
-        bottom: 100px;
-        position: absolute;
+        height: calc(100vh - 180px);
+        position: fixed;
         background: #000000;
         color: white;
         overflow: hidden;
+        z-index: 1500;
     }
     
     .carousel-slide {
@@ -556,18 +624,41 @@ select:focus {
     .carousel-indicators {
         padding: 0.75rem 1rem;
     }
-        .references-widget {
-        top: 120px;
-        bottom: 20px;
+    
+    .slide-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .references-widget {
+        bottom: 80px;
         left: 10px;
         width: calc(100vw - 20px);
-        position: absolute;
+        position: fixed;
+        z-index: 1500;
     }
     
     .feature-widget {
         top: 10px;
         right: 10px;
         width: calc(100vw - 20px);
+        max-width: calc(100vw - 20px);
+    }
+    
+    /* Improve touch targets */
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .indicator.active {
+        width: 28px;
+    }
+    
+    .references-btn {
+        padding: 1.25rem 1.5rem;
+        font-size: 1.125rem;
     }
 }
 
