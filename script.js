@@ -793,7 +793,10 @@ function initMobileTabSwitcher() {
     const appContainer = document.querySelector('.app-container');
     
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const tabName = tab.getAttribute('data-tab');
             
             // Update active state
