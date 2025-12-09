@@ -1,1 +1,5 @@
 data_processing/
+
+# Large GeoTIFF files (exceed GitHub's 100MB limit)
+*.tif
+map/s2/composits/*.tif
