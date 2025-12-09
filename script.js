@@ -52,6 +52,7 @@ function initMap() {
         initCompositeLayer();
         // Initialize mobile tab switcher
         initMobileTabSwitcher();
+        initMobileInfoCarousel();
         // Optional: Load small tile (comment out if not needed)
         // loadPNGRasterLayer('map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0.png', 
         //                   'map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0_bounds.json');
@@ -820,6 +821,105 @@ function initMobileTabSwitcher() {
             }
         });
     });
+}
+
+// Mobile Info Carousel functionality
+function initMobileInfoCarousel() {
+    const carousel = document.querySelector('.mobile-info-carousel');
+    if (!carousel) return;
+    
+    const container = document.querySelector('.mobile-info-carousel-container');
+    const indicators = document.querySelectorAll('.mobile-info-indicator');
+    const slides = document.querySelectorAll('.mobile-info-slide');
+    
+    if (!container || !indicators.length || !slides.length) return;
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isDragging = false;
+    
+    // Touch events for mobile
+    container.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+    }, { passive: true });
+    
+    container.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            touchEndX = e.touches[0].clientX;
+        }
+    }, { passive: true });
+    
+    container.addEventListener('touchend', () => {
+        if (isDragging) {
+            handleSwipe();
+            isDragging = false;
+        }
+    });
+    
+    // Indicator click events
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                nextSlide();
+            } else {
+                // Swipe right - previous slide
+                prevSlide();
+            }
+        }
+    }
+    
+    function goToSlide(index) {
+        if (index < 0 || index >= totalSlides) return;
+        
+        currentSlide = index;
+        updateCarousel();
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+    
+    function updateCarousel() {
+        // Update slides
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            if (index === currentSlide) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    }
+    
+    // Initialize
+    updateCarousel();
 }
 
 function showInfoPopup() {

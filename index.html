@@ -157,32 +157,76 @@
             
             <!-- Mobile Tab Switcher (only visible on mobile) -->
             <div class="mobile-tab-switcher">
+                <!-- Month Selector (shown when Predictions tab is active) -->
+                <div class="mobile-month-selector">
+                    <div class="mobile-month-selector-content">
+                        <div class="mobile-controls-row">
+                            <button class="mobile-control-btn" id="mobile-pollutant-btn">O3</button>
+                            <button class="mobile-control-btn" id="mobile-year-btn">2023</button>
+                        </div>
+                        <div class="mobile-month-slider-wrapper">
+                            <input type="range" id="mobile-month-slider" class="mobile-month-slider" min="1" max="12" value="1" step="1">
+                            <div class="mobile-month-slider-labels">
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                                <span>May</span>
+                                <span>Jun</span>
+                                <span>Jul</span>
+                                <span>Aug</span>
+                                <span>Sep</span>
+                                <span>Oct</span>
+                                <span>Nov</span>
+                                <span>Dec</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Info Content (shown when Info tab is active) -->
+                <div class="mobile-info-selector">
+                    <div class="mobile-info-content">
+                        <h1 class="mobile-info-title">Air Pollution Estimation</h1>
+                        <p class="mobile-info-subtitle">Interactive Map</p>
+                        <div class="mobile-info-carousel">
+                            <div class="mobile-info-carousel-container">
+                                <div class="mobile-info-slide active">
+                                    <h2 class="mobile-info-slide-title">Introduction</h2>
+                                    <p>This interactive map provides air pollution estimation data. Explore the map to view pollution levels and related information.</p>
+                                </div>
+                                <div class="mobile-info-slide">
+                                    <h2 class="mobile-info-slide-title">Data Collection</h2>
+                                    <p>Page 2 content goes here. Add your second explanation or information section.</p>
+                                </div>
+                                <div class="mobile-info-slide">
+                                    <h2 class="mobile-info-slide-title">Data set</h2>
+                                    <p>Page 3 content goes here. Add your third explanation or information section.</p>
+                                </div>
+                                <div class="mobile-info-slide">
+                                    <h2 class="mobile-info-slide-title">Model</h2>
+                                    <p>Page 4 content goes here. Add your fourth explanation or information section.</p>
+                                </div>
+                                <div class="mobile-info-slide">
+                                    <h2 class="mobile-info-slide-title">Results</h2>
+                                    <p>Page 5 content goes here. Add your fifth explanation or information section.</p>
+                                </div>
+                            </div>
+                            <div class="mobile-info-carousel-indicators">
+                                <span class="mobile-info-indicator active" data-slide="0"></span>
+                                <span class="mobile-info-indicator" data-slide="1"></span>
+                                <span class="mobile-info-indicator" data-slide="2"></span>
+                                <span class="mobile-info-indicator" data-slide="3"></span>
+                                <span class="mobile-info-indicator" data-slide="4"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="mobile-tab-slider">
                     <div class="mobile-tab-track">
                         <button class="mobile-tab active" data-tab="predictions">Predictions</button>
                         <button class="mobile-tab" data-tab="info">Info</button>
                     </div>
                     <div class="mobile-tab-indicator"></div>
-                </div>
-                <!-- Month Selector (shown when Predictions tab is active) -->
-                <div class="mobile-month-selector">
-                    <div class="mobile-month-slider-wrapper">
-                        <input type="range" id="mobile-month-slider" class="mobile-month-slider" min="1" max="12" value="1" step="1">
-                        <div class="mobile-month-slider-labels">
-                            <span>Jan</span>
-                            <span>Feb</span>
-                            <span>Mar</span>
-                            <span>Apr</span>
-                            <span>May</span>
-                            <span>Jun</span>
-                            <span>Jul</span>
-                            <span>Aug</span>
-                            <span>Sep</span>
-                            <span>Oct</span>
-                            <span>Nov</span>
-                            <span>Dec</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
