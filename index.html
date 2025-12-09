@@ -154,6 +154,37 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Mobile Tab Switcher (only visible on mobile) -->
+            <div class="mobile-tab-switcher">
+                <div class="mobile-tab-slider">
+                    <div class="mobile-tab-track">
+                        <button class="mobile-tab active" data-tab="predictions">Predictions</button>
+                        <button class="mobile-tab" data-tab="info">Info</button>
+                    </div>
+                    <div class="mobile-tab-indicator"></div>
+                </div>
+                <!-- Month Selector (shown when Predictions tab is active) -->
+                <div class="mobile-month-selector">
+                    <div class="mobile-month-slider-wrapper">
+                        <input type="range" id="mobile-month-slider" class="mobile-month-slider" min="1" max="12" value="1" step="1">
+                        <div class="mobile-month-slider-labels">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Aug</span>
+                            <span>Sep</span>
+                            <span>Oct</span>
+                            <span>Nov</span>
+                            <span>Dec</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

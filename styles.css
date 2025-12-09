@@ -672,6 +672,11 @@ select:focus {
     display: none;
 }
 
+/* Mobile Tab Switcher - Hidden on desktop */
+.mobile-tab-switcher {
+    display: none;
+}
+
 /* Desktop: Make info popup accessible */
 @media (min-width: 769px) {
     .info-popup-content {
@@ -934,28 +939,9 @@ select:focus {
         padding-bottom: 0.5rem;
     }
     
+    /* Hide time selector widget on mobile */
     .time-selector-widget {
-        bottom: 20px;
-        left: 10px;
-        right: 10px;
-        width: calc(100vw - 20px);
-        padding: 0.75rem 1rem;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-    }
-    
-    .time-selector-content {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-    }
-    
-    .month-slider-wrapper {
-        width: 100%;
-    }
-    
-    .month-slider-labels {
-        font-size: 0.65rem;
+        display: none !important;
     }
     
     .references-widget {
@@ -986,6 +972,230 @@ select:focus {
     .references-btn {
         padding: 1.25rem 1.5rem;
         font-size: 1.125rem;
+    }
+    
+    /* Hide title widget on mobile by default */
+    .title-widget {
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    /* Show title when Info tab is active */
+    .mobile-info-active .title-widget {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        top: 10px;
+        left: 10px;
+        width: calc(100vw - 20px);
+        position: fixed;
+        z-index: 2000;
+    }
+    
+    /* Hide explanation widget on mobile by default */
+    .explanation-widget {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    /* Show explanation when Info tab is active */
+    .mobile-info-active .explanation-widget {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        top: 80px;
+        left: 10px;
+        width: calc(100vw - 20px);
+        height: calc(100vh - 200px);
+        position: fixed;
+        background: #000000;
+        color: white;
+        overflow: hidden;
+        z-index: 1500;
+    }
+    
+    /* Hide all map controls on mobile */
+    .maplibregl-ctrl {
+        display: none !important;
+    }
+    
+    /* Hide base map switcher on mobile */
+    .base-map-switcher {
+        display: none !important;
+    }
+    
+    /* Mobile Tab Switcher - Show on mobile */
+    .mobile-tab-switcher {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100vw - 40px);
+        max-width: 400px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        z-index: 3000;
+        padding: 0.75rem 1rem 1rem 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .mobile-tab-slider {
+        position: relative;
+        display: flex;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 4px;
+    }
+    
+    .mobile-tab-track {
+        display: flex;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .mobile-tab {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        border-radius: 6px;
+        position: relative;
+        z-index: 3;
+    }
+    
+    .mobile-tab.active {
+        color: #ffffff;
+    }
+    
+    .mobile-tab-indicator {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        height: calc(100% - 8px);
+        width: calc(50% - 4px);
+        background: #000000;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 6px;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1;
+    }
+    
+    /* Move indicator when Info tab is active */
+    .mobile-tab-switcher.info-active .mobile-tab-indicator {
+        transform: translateX(100%);
+    }
+    
+    /* Mobile Month Selector */
+    .mobile-month-selector {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out, margin-top 0.5s ease-in-out, padding-top 0.5s ease-in-out;
+        pointer-events: none;
+    }
+    
+    .mobile-tab-switcher:not(.info-active) .mobile-month-selector {
+        opacity: 1;
+        max-height: 200px;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out, margin-top 0.5s ease-in-out, padding-top 0.5s ease-in-out;
+    }
+    
+    .mobile-tab-switcher.info-active .mobile-month-selector {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-10px);
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        pointer-events: none;
+        transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out, margin-top 0.5s ease-in-out, padding-top 0.5s ease-in-out, border-top 0.5s ease-in-out;
+    }
+    
+    .mobile-month-slider-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .mobile-month-slider {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        margin: 0;
+    }
+    
+    .mobile-month-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        background: #ffffff;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .mobile-month-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    }
+    
+    .mobile-month-slider::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        background: #ffffff;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+    }
+    
+    .mobile-month-slider::-moz-range-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    }
+    
+    .mobile-month-slider-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 0 2px;
+    }
+    
+    /* Hide references widget on mobile */
+    .references-widget {
+        display: none;
+    }
+    
+    /* Hide mobile toggle button (replaced by tab switcher) */
+    .mobile-toggle-btn {
+        display: none;
     }
 }
 

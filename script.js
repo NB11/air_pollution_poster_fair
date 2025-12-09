@@ -50,6 +50,8 @@ function initMap() {
         setupEventHandlers();
         // Load composite raster layer with month selector
         initCompositeLayer();
+        // Initialize mobile tab switcher
+        initMobileTabSwitcher();
         // Optional: Load small tile (comment out if not needed)
         // loadPNGRasterLayer('map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0.png', 
         //                   'map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0_bounds.json');
@@ -250,14 +252,29 @@ function initCompositeLayer() {
                 yearSelector.textContent = year;
                 yearDropdown.style.display = 'none';
                 
-                // Update slider - keep max at 12 (all months)
+                // Update sliders - keep max at 12 (all months)
                 const monthSlider = document.getElementById('month-slider');
-                if (monthSlider) {
-                    // If current month is not available, reset to first available
-                    if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
-                        currentCompositeMonth = availableMonths[year][0];
-                        const firstMonthNum = parseInt(currentCompositeMonth);
+                const mobileMonthSlider = document.getElementById('mobile-month-slider');
+                
+                // If current month is not available, reset to first available
+                if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
+                    currentCompositeMonth = availableMonths[year][0];
+                    const firstMonthNum = parseInt(currentCompositeMonth);
+                    
+                    if (monthSlider) {
                         monthSlider.value = firstMonthNum;
+                    }
+                    if (mobileMonthSlider) {
+                        mobileMonthSlider.value = firstMonthNum;
+                    }
+                } else {
+                    // Sync both sliders with current month
+                    const currentMonthNum = parseInt(currentCompositeMonth);
+                    if (monthSlider) {
+                        monthSlider.value = currentMonthNum;
+                    }
+                    if (mobileMonthSlider) {
+                        mobileMonthSlider.value = currentMonthNum;
                     }
                 }
                 
@@ -267,9 +284,35 @@ function initCompositeLayer() {
         });
     }
     
-    // Set up month slider
+    // Set up month slider (desktop)
     const monthSlider = document.getElementById('month-slider');
     const monthDisplay = document.getElementById('month-display');
+    
+    // Set up mobile month slider
+    const mobileMonthSlider = document.getElementById('mobile-month-slider');
+    
+    // Function to handle month change
+    function handleMonthChange(monthNum, sourceSlider) {
+        const monthStr = String(monthNum).padStart(2, '0');
+        
+        // Sync both sliders
+        if (monthSlider && sourceSlider !== monthSlider) {
+            monthSlider.value = monthNum;
+        }
+        if (mobileMonthSlider && sourceSlider !== mobileMonthSlider) {
+            mobileMonthSlider.value = monthNum;
+        }
+        
+        // Check if this month is available, if so load it
+        if (availableMonths[currentCompositeYear] && availableMonths[currentCompositeYear].includes(monthStr)) {
+            currentCompositeMonth = monthStr;
+            // Load the composite for selected month
+            loadCompositeLayer(currentCompositeYear, monthStr);
+        } else {
+            // Month not available - could show a message or just don't load
+            console.log(`Month ${monthStr} not available for year ${currentCompositeYear}`);
+        }
+    }
     
     if (monthSlider) {
         // Set max to 12 (all months) - slider can slide through all months
@@ -280,17 +323,25 @@ function initCompositeLayer() {
         // Update when slider changes
         monthSlider.addEventListener('input', (e) => {
             const monthNum = parseInt(e.target.value);
-            const monthStr = String(monthNum).padStart(2, '0');
-            
-            // Check if this month is available, if so load it
-            if (availableMonths[currentCompositeYear] && availableMonths[currentCompositeYear].includes(monthStr)) {
-                currentCompositeMonth = monthStr;
-                // Load the composite for selected month
-                loadCompositeLayer(currentCompositeYear, monthStr);
-            } else {
-                // Month not available - could show a message or just don't load
-                console.log(`Month ${monthStr} not available for year ${currentCompositeYear}`);
-            }
+            handleMonthChange(monthNum, monthSlider);
+        });
+    }
+    
+    if (mobileMonthSlider) {
+        // Set max to 12 (all months) - slider can slide through all months
+        mobileMonthSlider.max = 12;
+        mobileMonthSlider.min = 1;
+        mobileMonthSlider.step = 1;
+        
+        // Sync initial value with desktop slider
+        if (monthSlider) {
+            mobileMonthSlider.value = monthSlider.value;
+        }
+        
+        // Update when slider changes
+        mobileMonthSlider.addEventListener('input', (e) => {
+            const monthNum = parseInt(e.target.value);
+            handleMonthChange(monthNum, mobileMonthSlider);
         });
     }
 }
@@ -728,6 +779,46 @@ function initMobileToggle() {
         if (e.key === 'Escape' && !infoPopup.classList.contains('hidden')) {
             hideInfoPopup();
         }
+    });
+}
+
+// Mobile Tab Switcher Functionality
+function initMobileTabSwitcher() {
+    const tabSwitcher = document.querySelector('.mobile-tab-switcher');
+    if (!tabSwitcher) return; // Only run if element exists
+    
+    const tabs = document.querySelectorAll('.mobile-tab');
+    const indicator = document.querySelector('.mobile-tab-indicator');
+    const appContainer = document.querySelector('.app-container');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabName = tab.getAttribute('data-tab');
+            
+            // Update active state
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Move indicator and update switcher state
+            if (indicator) {
+                const tabIndex = Array.from(tabs).indexOf(tab);
+                indicator.style.transform = `translateX(${tabIndex * 100}%)`;
+            }
+            
+            // Update switcher class for indicator positioning
+            if (tabName === 'info') {
+                tabSwitcher.classList.add('info-active');
+            } else {
+                tabSwitcher.classList.remove('info-active');
+            }
+            
+            // Toggle content visibility
+            if (tabName === 'info') {
+                appContainer.classList.add('mobile-info-active');
+            } else {
+                appContainer.classList.remove('mobile-info-active');
+            }
+        });
     });
 }
 
