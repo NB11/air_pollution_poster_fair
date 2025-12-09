@@ -786,11 +786,12 @@ function initMobileToggle() {
 // Mobile Tab Switcher Functionality
 function initMobileTabSwitcher() {
     const tabSwitcher = document.querySelector('.mobile-tab-switcher');
+    const infoPanel = document.getElementById('mobile-info-panel');
     if (!tabSwitcher) return; // Only run if element exists
     
     const tabs = document.querySelectorAll('.mobile-tab');
     const indicator = document.querySelector('.mobile-tab-indicator');
-    const appContainer = document.querySelector('.app-container');
+    const monthSelector = document.querySelector('.mobile-month-selector');
     
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
@@ -803,24 +804,31 @@ function initMobileTabSwitcher() {
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
             
-            // Move indicator and update switcher state
+            // Move indicator
             if (indicator) {
                 const tabIndex = Array.from(tabs).indexOf(tab);
                 indicator.style.transform = `translateX(${tabIndex * 100}%)`;
             }
             
-            // Update switcher class for indicator positioning
+            // Toggle info panel and month selector
             if (tabName === 'info') {
+                // Show info panel, hide month selector
+                if (infoPanel) {
+                    infoPanel.classList.add('visible');
+                }
+                if (monthSelector) {
+                    monthSelector.style.display = 'none';
+                }
                 tabSwitcher.classList.add('info-active');
             } else {
+                // Hide info panel, show month selector
+                if (infoPanel) {
+                    infoPanel.classList.remove('visible');
+                }
+                if (monthSelector) {
+                    monthSelector.style.display = 'block';
+                }
                 tabSwitcher.classList.remove('info-active');
-            }
-            
-            // Toggle content visibility
-            if (tabName === 'info') {
-                appContainer.classList.add('mobile-info-active');
-            } else {
-                appContainer.classList.remove('mobile-info-active');
             }
         });
     });
@@ -828,38 +836,57 @@ function initMobileTabSwitcher() {
 
 // Mobile Info Carousel functionality
 function initMobileInfoCarousel() {
-    const carousel = document.querySelector('.mobile-info-carousel');
-    if (!carousel) return;
+    const infoPanel = document.getElementById('mobile-info-panel');
+    if (!infoPanel) return;
     
-    const container = document.querySelector('.mobile-info-carousel-container');
-    const indicators = document.querySelectorAll('.mobile-info-indicator');
-    const slides = document.querySelectorAll('.mobile-info-slide');
+    const content = infoPanel.querySelector('.mobile-info-panel-content');
+    const container = infoPanel.querySelector('.mobile-info-carousel-container');
+    const indicators = infoPanel.querySelectorAll('.mobile-info-indicator');
+    const slides = infoPanel.querySelectorAll('.mobile-info-slide');
     
-    if (!container || !indicators.length || !slides.length) return;
+    if (!content || !container || !indicators.length || !slides.length) return;
     
     let currentSlide = 0;
     const totalSlides = slides.length;
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
     let isDragging = false;
+    let isHorizontalSwipe = null;
     
-    // Touch events for mobile
-    container.addEventListener('touchstart', (e) => {
+    // Touch events on the entire content area for better swipe detection
+    content.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchEndX = touchStartX;
+        touchEndY = touchStartY;
         isDragging = true;
+        isHorizontalSwipe = null;
     }, { passive: true });
     
-    container.addEventListener('touchmove', (e) => {
-        if (isDragging) {
-            touchEndX = e.touches[0].clientX;
+    content.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+        
+        // Determine if this is a horizontal or vertical swipe
+        if (isHorizontalSwipe === null) {
+            const diffX = Math.abs(touchEndX - touchStartX);
+            const diffY = Math.abs(touchEndY - touchStartY);
+            if (diffX > 10 || diffY > 10) {
+                isHorizontalSwipe = diffX > diffY;
+            }
         }
     }, { passive: true });
     
-    container.addEventListener('touchend', () => {
-        if (isDragging) {
+    content.addEventListener('touchend', () => {
+        if (isDragging && isHorizontalSwipe) {
             handleSwipe();
-            isDragging = false;
         }
+        isDragging = false;
+        isHorizontalSwipe = null;
     });
     
     // Indicator click events
@@ -870,44 +897,52 @@ function initMobileInfoCarousel() {
     });
     
     function handleSwipe() {
-        const swipeThreshold = 50;
+        const swipeThreshold = 40;
         const diff = touchStartX - touchEndX;
         
         if (Math.abs(diff) > swipeThreshold) {
             if (diff > 0) {
                 // Swipe left - next slide
-                nextSlide();
+                nextSlide('left');
             } else {
                 // Swipe right - previous slide
-                prevSlide();
+                prevSlide('right');
             }
         }
     }
     
-    function goToSlide(index) {
+    function goToSlide(index, direction = null) {
         if (index < 0 || index >= totalSlides) return;
         
+        const oldSlide = currentSlide;
         currentSlide = index;
-        updateCarousel();
+        updateCarousel(direction || (index > oldSlide ? 'left' : 'right'));
     }
     
-    function nextSlide() {
+    function nextSlide(direction = 'left') {
         currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
+        updateCarousel(direction);
     }
     
-    function prevSlide() {
+    function prevSlide(direction = 'right') {
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
+        updateCarousel(direction);
     }
     
-    function updateCarousel() {
-        // Update slides
+    function updateCarousel(direction = null) {
+        // Update slides with animation
         slides.forEach((slide, index) => {
+            slide.classList.remove('active', 'slide-left', 'slide-right');
+            
             if (index === currentSlide) {
                 slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
+                if (direction) {
+                    slide.classList.add(direction === 'left' ? 'slide-from-right' : 'slide-from-left');
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        slide.classList.remove('slide-from-right', 'slide-from-left');
+                    }, 300);
+                }
             }
         });
         

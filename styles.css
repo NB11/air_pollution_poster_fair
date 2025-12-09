@@ -677,6 +677,11 @@ select:focus {
     display: none;
 }
 
+/* Mobile Info Panel - Hidden on desktop */
+.mobile-info-panel {
+    display: none;
+}
+
 /* Desktop: Make info popup accessible */
 @media (min-width: 769px) {
     .info-popup-content {
@@ -1002,8 +1007,7 @@ select:focus {
         left: 10px;
         right: 10px;
         width: calc(100vw - 20px);
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(10px);
+        background: #000000;
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 12px;
         z-index: 3000;
@@ -1011,6 +1015,13 @@ select:focus {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         box-sizing: border-box;
         max-height: calc(100vh - 20px - env(safe-area-inset-bottom));
+        transition: border-radius 0.35s ease-out;
+    }
+    
+    /* When info panel is visible, connect with it */
+    .mobile-tab-switcher.info-active {
+        border-radius: 0 0 12px 12px; /* Only round bottom corners */
+        border-top: none;
     }
     
     .mobile-tab-slider {
@@ -1114,65 +1125,53 @@ select:focus {
         margin-bottom: 0.75rem;
         padding-bottom: 0.75rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out, margin-bottom 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-        pointer-events: none;
     }
     
-    .mobile-tab-switcher:not(.info-active) .mobile-month-selector {
-        opacity: 1;
-        max-height: 200px;
-        transform: translateY(0);
-        pointer-events: auto;
-        transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out, margin-bottom 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-    }
-    
-    .mobile-tab-switcher.info-active .mobile-month-selector {
-        opacity: 0;
-        max-height: 0;
-        transform: translateY(-10px);
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-        pointer-events: none;
-        transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out, margin-bottom 0.5s ease-in-out, padding-bottom 0.5s ease-in-out, border-bottom 0.5s ease-in-out;
-    }
-    
-    /* Mobile Info Selector */
-    .mobile-info-selector {
+    /* ============================================
+       MOBILE INFO PANEL - Expands up from tab switcher
+       ============================================ */
+    .mobile-info-panel {
+        display: flex; /* Override desktop display: none */
+        flex-direction: column;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 80px;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-        display: none;
-        z-index: 3001;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 0 0 1rem 1rem;
+        left: 10px;
+        right: 10px;
+        top: 10px; /* All the way to the top */
+        bottom: 78px; /* Connect with tab switcher (aligns with tab slider top) */
+        background: #000000;
+        border-radius: 12px 12px 0 0; /* Only round top corners */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: none; /* No bottom border - connects to tab switcher */
+        z-index: 2500;
+        overflow: hidden;
+        
+        /* Hidden state - collapsed into the switcher */
+        transform-origin: bottom center;
+        transform: scaleY(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.25s ease-out, 
+                    visibility 0.35s;
     }
     
-    .mobile-tab-switcher.info-active .mobile-info-selector {
-        display: block !important;
+    /* Visible state - expanded upward */
+    .mobile-info-panel.visible {
+        transform: scaleY(1);
+        opacity: 1;
+        visibility: visible;
     }
     
-    .mobile-info-content {
+    .mobile-info-panel-content {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
         padding: 1.5rem;
-        padding-bottom: 120px;
-        min-height: 100%;
+        flex: 1;
+        min-height: 0; /* Allow shrinking for flexbox */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         box-sizing: border-box;
+        touch-action: pan-y pinch-zoom; /* Allow vertical scroll but detect horizontal swipes */
     }
     
     .mobile-info-title {
@@ -1192,25 +1191,66 @@ select:focus {
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
+        margin-top: 0.5rem;
+        flex: 1;
+        min-height: 0; /* Allow shrinking */
     }
     
     .mobile-info-carousel-container {
         display: flex;
         overflow: hidden;
         position: relative;
-        touch-action: pan-y;
     }
     
     .mobile-info-slide {
         min-width: 100%;
         width: 100%;
         display: none;
-        overflow-y: auto;
         box-sizing: border-box;
+        opacity: 0;
+        transform: translateX(0);
     }
     
     .mobile-info-slide.active {
         display: block;
+        opacity: 1;
+        animation: fadeIn 0.25s ease-out;
+    }
+    
+    /* Slide animations */
+    .mobile-info-slide.slide-from-right {
+        animation: slideFromRight 0.3s ease-out;
+    }
+    
+    .mobile-info-slide.slide-from-left {
+        animation: slideFromLeft 0.3s ease-out;
+    }
+    
+    @keyframes slideFromRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideFromLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
     
     .mobile-info-slide-title {
@@ -1234,8 +1274,10 @@ select:focus {
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
-        padding-top: 0.75rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem 0;
+        background: #000000;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0; /* Don't shrink */
     }
     
     .mobile-info-indicator {
