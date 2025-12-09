@@ -207,23 +207,8 @@ body {
     width: 100%;
 }
 
-.year-selector-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-shrink: 0;
-}
-
-.year-selector-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: white;
-    margin: 0;
-    white-space: nowrap;
-}
-
-.year-selector {
-    padding: 0.625rem 1rem;
+.year-selector-btn {
+    padding: 0.5rem 1rem;
     background: #333333;
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -232,41 +217,47 @@ body {
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.9%205.4s9.3-1.8%2012.9-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 0.7em top 50%;
-    background-size: 0.65em auto;
-    padding-right: 2.5em;
-    min-width: 100px;
     transition: all 0.2s;
+    flex-shrink: 0;
+    min-width: 70px;
 }
 
-.year-selector:hover {
+.year-selector-btn:hover {
     background-color: #404040;
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-.year-selector:focus {
+.year-selector-btn:active {
+    background-color: #555555;
+}
+
+.year-selector-btn:focus {
     outline: none;
     border-color: white;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
-.month-slider-container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex: 1;
-    min-width: 0;
+.year-dropdown {
+    background: #333333;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius);
+    padding: 0.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 70px;
 }
 
-.month-slider-label {
-    font-size: 0.875rem;
-    font-weight: 500;
+.year-option {
+    padding: 0.5rem 1rem;
     color: white;
-    margin: 0;
-    white-space: nowrap;
+    cursor: pointer;
+    border-radius: calc(var(--radius) - 2px);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    transition: background 0.2s;
+}
+
+.year-option:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .month-slider-wrapper {
@@ -328,18 +319,6 @@ body {
     padding: 0 2px;
 }
 
-.month-display {
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: white;
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius);
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-width: 140px;
-}
 
 .references-widget {
     bottom: 20px;
@@ -971,29 +950,12 @@ select:focus {
         width: 100%;
     }
     
-    .year-selector-container {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    .month-slider-container {
-        width: 100%;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    
     .month-slider-wrapper {
         width: 100%;
     }
     
     .month-slider-labels {
         font-size: 0.65rem;
-    }
-    
-    .month-display {
-        font-size: 0.875rem;
-        width: 100%;
-        min-width: auto;
     }
     
     .references-widget {

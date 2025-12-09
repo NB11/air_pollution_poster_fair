@@ -72,33 +72,23 @@
             <!-- Year/Month Slider Widget -->
             <div class="floating-widget time-selector-widget">
                 <div class="time-selector-content">
-                    <div class="year-selector-container">
-                        <label for="year-selector" class="year-selector-label">Year:</label>
-                        <select id="year-selector" class="year-selector">
-                            <option value="2023">2023</option>
-                            <!-- Add more years as needed -->
-                        </select>
-                    </div>
-                    <div class="month-slider-container">
-                        <label for="month-slider" class="month-slider-label">Month:</label>
-                        <div class="month-slider-wrapper">
-                            <input type="range" id="month-slider" class="month-slider" min="1" max="12" value="1" step="1">
-                            <div class="month-slider-labels">
-                                <span>Jan</span>
-                                <span>Feb</span>
-                                <span>Mar</span>
-                                <span>Apr</span>
-                                <span>May</span>
-                                <span>Jun</span>
-                                <span>Jul</span>
-                                <span>Aug</span>
-                                <span>Sep</span>
-                                <span>Oct</span>
-                                <span>Nov</span>
-                                <span>Dec</span>
-                            </div>
+                    <button id="year-selector" class="year-selector-btn">2023</button>
+                    <div class="month-slider-wrapper">
+                        <input type="range" id="month-slider" class="month-slider" min="1" max="12" value="1" step="1">
+                        <div class="month-slider-labels">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Aug</span>
+                            <span>Sep</span>
+                            <span>Oct</span>
+                            <span>Nov</span>
+                            <span>Dec</span>
                         </div>
-                        <div class="month-display" id="month-display">January 2023</div>
                     </div>
                 </div>
             </div>

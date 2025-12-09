@@ -211,29 +211,59 @@ function initCompositeLayer() {
     // Load default month (January)
     loadCompositeLayer('2023', '01');
     
-    // Set up year selector
+    // Set up year selector button
     const yearSelector = document.getElementById('year-selector');
     if (yearSelector) {
-        yearSelector.addEventListener('change', (e) => {
-            const year = e.target.value;
-            currentCompositeYear = year;
+        // Create year dropdown menu
+        const yearDropdown = document.createElement('div');
+        yearDropdown.className = 'year-dropdown';
+        yearDropdown.style.display = 'none';
+        yearDropdown.innerHTML = '<div class="year-option" data-year="2023">2023</div>';
+        // Add more years as needed
+        document.body.appendChild(yearDropdown);
+        
+        yearSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = yearDropdown.style.display === 'block';
+            yearDropdown.style.display = isVisible ? 'none' : 'block';
             
-            // Update slider - keep max at 12 (all months)
-            const monthSlider = document.getElementById('month-slider');
-            if (monthSlider) {
-                // If current month is not available, reset to first available
-                if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
-                    currentCompositeMonth = availableMonths[year][0];
-                    const firstMonthNum = parseInt(currentCompositeMonth);
-                    monthSlider.value = firstMonthNum;
-                    if (window.updateMonthDisplay) {
-                        window.updateMonthDisplay();
+            // Position dropdown below button
+            const rect = yearSelector.getBoundingClientRect();
+            yearDropdown.style.position = 'fixed';
+            yearDropdown.style.top = `${rect.bottom + 5}px`;
+            yearDropdown.style.left = `${rect.left}px`;
+            yearDropdown.style.zIndex = '10000';
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!yearSelector.contains(e.target) && !yearDropdown.contains(e.target)) {
+                yearDropdown.style.display = 'none';
+            }
+        });
+        
+        // Handle year selection
+        yearDropdown.addEventListener('click', (e) => {
+            if (e.target.classList.contains('year-option')) {
+                const year = e.target.getAttribute('data-year');
+                currentCompositeYear = year;
+                yearSelector.textContent = year;
+                yearDropdown.style.display = 'none';
+                
+                // Update slider - keep max at 12 (all months)
+                const monthSlider = document.getElementById('month-slider');
+                if (monthSlider) {
+                    // If current month is not available, reset to first available
+                    if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
+                        currentCompositeMonth = availableMonths[year][0];
+                        const firstMonthNum = parseInt(currentCompositeMonth);
+                        monthSlider.value = firstMonthNum;
                     }
                 }
+                
+                // Reload current month with new year
+                loadCompositeLayer(year, currentCompositeMonth);
             }
-            
-            // Reload current month with new year
-            loadCompositeLayer(year, currentCompositeMonth);
         });
     }
     
@@ -241,29 +271,16 @@ function initCompositeLayer() {
     const monthSlider = document.getElementById('month-slider');
     const monthDisplay = document.getElementById('month-display');
     
-    // Update display function (defined outside so it can be reused)
-    const updateMonthDisplay = () => {
-        if (!monthSlider || !monthDisplay) return;
-        const monthNum = parseInt(monthSlider.value);
-        const monthStr = String(monthNum).padStart(2, '0');
-        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
-                          'July', 'August', 'September', 'October', 'November', 'December'];
-        monthDisplay.textContent = `${monthNames[monthNum - 1]} ${currentCompositeYear}`;
-    };
-    
-    if (monthSlider && monthDisplay) {
+    if (monthSlider) {
         // Set max to 12 (all months) - slider can slide through all months
         monthSlider.max = 12;
         monthSlider.min = 1;
         monthSlider.step = 1;
         
-        // Update display when slider changes
+        // Update when slider changes
         monthSlider.addEventListener('input', (e) => {
             const monthNum = parseInt(e.target.value);
             const monthStr = String(monthNum).padStart(2, '0');
-            
-            // Update display immediately
-            updateMonthDisplay();
             
             // Check if this month is available, if so load it
             if (availableMonths[currentCompositeYear] && availableMonths[currentCompositeYear].includes(monthStr)) {
@@ -275,13 +292,7 @@ function initCompositeLayer() {
                 console.log(`Month ${monthStr} not available for year ${currentCompositeYear}`);
             }
         });
-        
-        // Initialize display
-        updateMonthDisplay();
     }
-    
-    // Make updateMonthDisplay available for year selector
-    window.updateMonthDisplay = updateMonthDisplay;
 }
 
 // Load composite PNG raster layer for a specific year and month
