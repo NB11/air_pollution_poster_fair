@@ -939,9 +939,11 @@ function initMobileInfoCarousel() {
                 if (direction) {
                     slide.classList.add(direction === 'left' ? 'slide-from-right' : 'slide-from-left');
                     // Remove animation class after animation completes
-                    setTimeout(() => {
-                        slide.classList.remove('slide-from-right', 'slide-from-left');
-                    }, 300);
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            slide.classList.remove('slide-from-right', 'slide-from-left');
+                        });
+                    });
                 }
             }
         });

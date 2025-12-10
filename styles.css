@@ -118,11 +118,16 @@ body {
     min-width: 100%;
     width: 100%;
     padding: 1.5rem;
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     height: 100%;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     /* Hide scrollbar but keep scrolling */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -134,7 +139,9 @@ body {
 }
 
 .carousel-slide.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
 }
 
 .slide-content {
@@ -1251,36 +1258,47 @@ select:focus {
     
     .mobile-info-carousel-container {
         display: flex;
-        overflow: hidden;
+        overflow: visible;
         position: relative;
         flex: 1;
         min-height: 0;
-        height: 100%;
+        /* Remove height constraint to allow content to grow */
+    }
+    
+    .mobile-info-carousel-container > .mobile-info-slide {
+        width: 100%;
     }
     
     .mobile-info-slide {
         min-width: 100%;
         width: 100%;
-        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
         box-sizing: border-box;
         opacity: 0;
+        visibility: hidden;
         transform: translateX(0);
-        height: 100%;
+        /* Remove height constraint to allow content to grow and enable scrolling */
+        min-height: min-content;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     }
     
     .mobile-info-slide.active {
-        display: block;
         opacity: 1;
-        animation: fadeIn 0.25s ease-out;
+        visibility: visible;
+        position: relative;
     }
     
     /* Slide animations */
     .mobile-info-slide.slide-from-right {
-        animation: slideFromRight 0.3s ease-out;
+        transform: translateX(30px);
+        animation: none;
     }
     
     .mobile-info-slide.slide-from-left {
-        animation: slideFromLeft 0.3s ease-out;
+        transform: translateX(-30px);
+        animation: none;
     }
     
     @keyframes slideFromRight {
