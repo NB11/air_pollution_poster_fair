@@ -111,6 +111,7 @@ body {
     overflow: hidden;
     position: relative;
     touch-action: pan-y;
+    min-height: 0;
 }
 
 .carousel-slide {
@@ -119,10 +120,13 @@ body {
     padding: 1.5rem;
     display: none;
     overflow-y: auto;
+    overflow-x: hidden;
     box-sizing: border-box;
+    height: 100%;
     /* Hide scrollbar but keep scrolling */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    -webkit-overflow-scrolling: touch;
 }
 
 .carousel-slide::-webkit-scrollbar {
@@ -137,7 +141,8 @@ body {
     font-size: 0.875rem;
     line-height: 1.6;
     color: white;
-    height: 100%;
+    /* Allow content to grow beyond container for scrolling */
+    min-height: min-content;
 }
 
 .slide-title {
@@ -1206,17 +1211,8 @@ select:focus {
         padding: 1.5rem;
         flex: 1;
         min-height: 0; /* Allow shrinking for flexbox */
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow: hidden; /* Changed from auto - don't scroll the whole panel */
         box-sizing: border-box;
-        touch-action: pan-y pinch-zoom; /* Allow vertical scroll but detect horizontal swipes */
-        /* Hide scrollbar but keep scrolling */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-    }
-    
-    .mobile-info-panel-content::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
     }
     
     .mobile-info-title {
@@ -1224,12 +1220,14 @@ select:focus {
         font-weight: 700;
         color: #ffffff;
         margin: 0;
+        flex-shrink: 0;
     }
     
     .mobile-info-subtitle {
         font-size: 0.875rem;
         color: rgba(255, 255, 255, 0.9);
         margin: 0;
+        flex-shrink: 0;
     }
     
     .mobile-info-carousel {
@@ -1239,12 +1237,25 @@ select:focus {
         margin-top: 0.5rem;
         flex: 1;
         min-height: 0; /* Allow shrinking */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y pinch-zoom;
+        /* Hide scrollbar but keep scrolling */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .mobile-info-carousel::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
     
     .mobile-info-carousel-container {
         display: flex;
         overflow: hidden;
         position: relative;
+        flex: 1;
+        min-height: 0;
+        height: 100%;
     }
     
     .mobile-info-slide {
@@ -1254,6 +1265,7 @@ select:focus {
         box-sizing: border-box;
         opacity: 0;
         transform: translateX(0);
+        height: 100%;
     }
     
     .mobile-info-slide.active {
