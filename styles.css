@@ -1479,9 +1479,30 @@ select:focus {
     }
 }
 
-/* For very narrow screens (like iPhone), show only every other month + always Jan and Dec */
+/* For narrow screens, show fewer months to prevent overlap */
+/* At 480px and below: show Jan, Apr, Jul, Oct, Dec (every 3rd month + always Jan and Dec) */
+@media (max-width: 480px) {
+    .mobile-month-slider-labels span:nth-child(2),  /* Feb */
+    .mobile-month-slider-labels span:nth-child(3),  /* Mar */
+    .mobile-month-slider-labels span:nth-child(5),  /* May */
+    .mobile-month-slider-labels span:nth-child(6),  /* Jun */
+    .mobile-month-slider-labels span:nth-child(8),  /* Aug */
+    .mobile-month-slider-labels span:nth-child(9),  /* Sep */
+    .mobile-month-slider-labels span:nth-child(11) { /* Nov */
+        display: none;
+    }
+}
+
+/* For very narrow screens (like iPhone), show only Jan, May, Sep, Dec (every 4th month + always Jan and Dec) */
 @media (max-width: 380px) {
-    .mobile-month-slider-labels span:nth-child(even):not(:last-child) {
+    .mobile-month-slider-labels span:nth-child(2),  /* Feb */
+    .mobile-month-slider-labels span:nth-child(3),  /* Mar */
+    .mobile-month-slider-labels span:nth-child(4),  /* Apr */
+    .mobile-month-slider-labels span:nth-child(6),  /* Jun */
+    .mobile-month-slider-labels span:nth-child(7),  /* Jul */
+    .mobile-month-slider-labels span:nth-child(8),  /* Aug */
+    .mobile-month-slider-labels span:nth-child(10), /* Oct */
+    .mobile-month-slider-labels span:nth-child(11) { /* Nov */
         display: none;
     }
 }
