@@ -147,6 +147,37 @@ body {
     color: white;
 }
 
+.slide-content ul {
+    margin: 0 0 1rem 0;
+    padding-left: 1.5rem;
+    color: white;
+}
+
+.slide-content li {
+    margin: 0 0 0.75rem 0;
+    color: white;
+    line-height: 1.6;
+}
+
+.slide-content li:last-child {
+    margin-bottom: 0;
+}
+
+.slide-content li strong {
+    font-weight: 600;
+    color: white;
+}
+
+/* Slide images */
+.slide-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    display: block;
+}
+
 .carousel-indicators {
     display: flex;
     justify-content: center;
@@ -1269,6 +1300,37 @@ select:focus {
         margin: 0 0 0.5rem 0;
     }
     
+    .mobile-info-slide ul {
+        margin: 0 0 1rem 0;
+        padding-left: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .mobile-info-slide li {
+        margin: 0 0 0.75rem 0;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        font-size: 0.875rem;
+    }
+    
+    .mobile-info-slide li:last-child {
+        margin-bottom: 0;
+    }
+    
+    .mobile-info-slide li strong {
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .mobile-info-slide .slide-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        margin: 1rem 0;
+        display: block;
+    }
+    
     .mobile-info-carousel-indicators {
         display: flex;
         justify-content: center;
@@ -1358,6 +1420,10 @@ select:focus {
         padding: 0 2px;
     }
     
+    .mobile-month-slider-labels span {
+        flex-shrink: 0;
+    }
+    
     /* Hide references widget on mobile */
     .references-widget {
         display: none;
@@ -1365,6 +1431,13 @@ select:focus {
     
     /* Hide mobile toggle button (replaced by tab switcher) */
     .mobile-toggle-btn {
+        display: none;
+    }
+}
+
+/* For very narrow screens (like iPhone), show only every other month + always Jan and Dec */
+@media (max-width: 380px) {
+    .mobile-month-slider-labels span:nth-child(even):not(:last-child) {
         display: none;
     }
 }

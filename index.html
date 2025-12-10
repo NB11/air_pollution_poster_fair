@@ -31,13 +31,22 @@
                         <div class="carousel-slide active">
                             <div class="slide-content">
                                 <h2 class="slide-title">Introduction</h2>
-                                <p>This interactive map provides air pollution estimation data. Explore the map to view pollution levels and related information.</p>
+                                <ul>
+                                    <li>Building upon the NO₂ prediction model of Scheibenreif et al. (2022), this project introduces a deep learning framework for jointly estimating multiple pollutants (NO₂, SO₂, O₃, PM₁₀).</li>
+                                    <li>By fusing low-resolution Sentinel-5P data with Sentinel-2 imagery and meteorological inputs, we aim to achieve a spatial resolution of 10 m with monthly temporal granularity.</li>
+                                </ul>
+                                <img src="images/simple_overview.png" alt="Model Overview" class="slide-image">
                             </div>
                         </div>
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <h2 class="slide-title">Data Collection</h2>
-                                <p>Page 2 content goes here. Add your second explanation or information section.</p>
+                                <ul>
+                                    <li><strong>Ground Truth:</strong> 27 million daily aggregated pollutant concentrations were averaged for NO₂, SO₂, O₃, PM₁₀ for ~12'000 stations globally from 2018-2025</li>
+                                    <li><strong>Meteorological:</strong> To account for atmospheric dispersion and seasonal effects, monthly meteorological data (e.g., wind speed, temperature) from the ERA5 dataset were integrated to the ground truths</li>
+                                    <li><strong>Sentinel-2:</strong> One multispectral imagery (12 bands) from the best (least clouds) Sentinel-2 L2A image was acquired for every station per month.</li>
+                                    <li><strong>Sentinel-5P:</strong> Daily swaths of Level-3 TROPOMI products for NO₂, SO₂, O₃, were aggregated into monthly medians</li>
+                                </ul>
                             </div>
                         </div>
                         <div class="carousel-slide">
@@ -159,16 +168,25 @@
             <div class="mobile-info-panel" id="mobile-info-panel">
                 <div class="mobile-info-panel-content">
                     <h1 class="mobile-info-title">Air Pollution Estimation</h1>
-                    <p class="mobile-info-subtitle">Interactive Map</p>
+                    <p class="mobile-info-subtitle"></p>
                     <div class="mobile-info-carousel">
                         <div class="mobile-info-carousel-container">
                             <div class="mobile-info-slide active">
                                 <h2 class="mobile-info-slide-title">Introduction</h2>
-                                <p>This interactive map provides air pollution estimation data. Explore the map to view pollution levels and related information.</p>
+                                <ul>
+                                    <li>Building upon the NO₂ prediction model of Scheibenreif et al. (2022), this project introduces a deep learning framework for jointly estimating multiple pollutants (NO₂, SO₂, O₃, PM₁₀).</li>
+                                    <li>By fusing low-resolution Sentinel-5P data with Sentinel-2 imagery and meteorological inputs, we aim to achieve a spatial resolution of 10 m with monthly temporal granularity.</li>
+                                </ul>
+                                <img src="images/simple_overview.png" alt="Model Overview" class="slide-image">
                             </div>
                             <div class="mobile-info-slide">
                                 <h2 class="mobile-info-slide-title">Data Collection</h2>
-                                <p>Page 2 content goes here. Add your second explanation or information section.</p>
+                                <ul>
+                                    <li><strong>Ground Truth:</strong> 27 million daily aggregated pollutant concentrations were averaged for NO₂, SO₂, O₃, PM₁₀ for ~12'000 stations globally from 2018-2025</li>
+                                    <li><strong>Meteorological:</strong> To account for atmospheric dispersion and seasonal effects, monthly meteorological data (e.g., wind speed, temperature) from the ERA5 dataset were integrated to the ground truths</li>
+                                    <li><strong>Sentinel-2:</strong> One multispectral imagery (12 bands) from the best (least clouds) Sentinel-2 L2A image was acquired for every station per month.</li>
+                                    <li><strong>Sentinel-5P:</strong> Daily swaths of Level-3 TROPOMI products for NO₂, SO₂, O₃, were aggregated into monthly medians</li>
+                                </ul>
                             </div>
                             <div class="mobile-info-slide">
                                 <h2 class="mobile-info-slide-title">Data set</h2>
