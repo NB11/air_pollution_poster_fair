@@ -120,6 +120,13 @@ body {
     display: none;
     overflow-y: auto;
     box-sizing: border-box;
+    /* Hide scrollbar but keep scrolling */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.carousel-slide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .carousel-slide.active {
@@ -1203,6 +1210,13 @@ select:focus {
         -webkit-overflow-scrolling: touch;
         box-sizing: border-box;
         touch-action: pan-y pinch-zoom; /* Allow vertical scroll but detect horizontal swipes */
+        /* Hide scrollbar but keep scrolling */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .mobile-info-panel-content::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
     
     .mobile-info-title {
