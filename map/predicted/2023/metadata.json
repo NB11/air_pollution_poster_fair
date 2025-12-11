@@ -1,0 +1,1502 @@
+{
+  "NO2_month01_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 5.839470386505127,
+      "max": 31.81925392150879,
+      "mean": 12.545587539672852,
+      "std": 4.232544422149658,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_01/SALT_LAKE_CITY_2023_large_2023_01_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "01"
+  },
+  "O3_month01_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 34.71513366699219,
+      "max": 73.07928466796875,
+      "mean": 56.798988342285156,
+      "std": 6.720563888549805,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_01/SALT_LAKE_CITY_2023_large_2023_01_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "01"
+  },
+  "PM10_month01_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 8.03100872039795,
+      "max": 25.927663803100586,
+      "mean": 15.448648452758789,
+      "std": 3.1095352172851562,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_01/SALT_LAKE_CITY_2023_large_2023_01_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "01"
+  },
+  "PM2_5_month01_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 5.251835823059082,
+      "max": 12.592768669128418,
+      "mean": 7.598298072814941,
+      "std": 1.193740963935852,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_01/SALT_LAKE_CITY_2023_large_2023_01_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "01"
+  },
+  "SO2_month01_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.5449634790420532,
+      "max": 8.707457542419434,
+      "mean": 3.29575777053833,
+      "std": 0.8838810324668884,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_01/SALT_LAKE_CITY_2023_large_2023_01_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "01"
+  },
+  "NO2_month02_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 5.194976806640625,
+      "max": 31.14483070373535,
+      "mean": 15.54558277130127,
+      "std": 5.414350986480713,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_02/SALT_LAKE_CITY_2023_large_2023_02_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "02"
+  },
+  "O3_month02_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 33.50506591796875,
+      "max": 75.35133361816406,
+      "mean": 52.342987060546875,
+      "std": 8.1985445022583,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_02/SALT_LAKE_CITY_2023_large_2023_02_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "02"
+  },
+  "PM10_month02_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 9.3717041015625,
+      "max": 22.621482849121094,
+      "mean": 16.347572326660156,
+      "std": 2.6262896060943604,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_02/SALT_LAKE_CITY_2023_large_2023_02_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "02"
+  },
+  "PM2_5_month02_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.884941101074219,
+      "max": 11.370612144470215,
+      "mean": 8.016814231872559,
+      "std": 1.0937227010726929,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_02/SALT_LAKE_CITY_2023_large_2023_02_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "02"
+  },
+  "SO2_month02_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.3729315996170044,
+      "max": 11.649972915649414,
+      "mean": 2.901212692260742,
+      "std": 1.0184239149093628,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_02/SALT_LAKE_CITY_2023_large_2023_02_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "02"
+  },
+  "NO2_month03_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 4.528126239776611,
+      "max": 30.488006591796875,
+      "mean": 14.253328323364258,
+      "std": 5.196869850158691,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_03/SALT_LAKE_CITY_2023_large_2023_03_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "03"
+  },
+  "O3_month03_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 43.67086410522461,
+      "max": 83.50064086914062,
+      "mean": 58.53464889526367,
+      "std": 6.770251274108887,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_03/SALT_LAKE_CITY_2023_large_2023_03_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "03"
+  },
+  "PM10_month03_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 6.179420471191406,
+      "max": 23.375539779663086,
+      "mean": 16.23595428466797,
+      "std": 3.1226515769958496,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_03/SALT_LAKE_CITY_2023_large_2023_03_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "03"
+  },
+  "PM2_5_month03_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.420172691345215,
+      "max": 10.133110046386719,
+      "mean": 7.333156585693359,
+      "std": 1.0189175605773926,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_03/SALT_LAKE_CITY_2023_large_2023_03_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "03"
+  },
+  "SO2_month03_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.4614455699920654,
+      "max": 9.956233978271484,
+      "mean": 2.5966737270355225,
+      "std": 0.8205075263977051,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_03/SALT_LAKE_CITY_2023_large_2023_03_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "03"
+  },
+  "NO2_month04_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 3.759859800338745,
+      "max": 28.703433990478516,
+      "mean": 12.43636703491211,
+      "std": 4.5963897705078125,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_04/SALT_LAKE_CITY_2023_large_2023_04_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "04"
+  },
+  "O3_month04_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 48.97804641723633,
+      "max": 83.41615295410156,
+      "mean": 62.549625396728516,
+      "std": 6.178739070892334,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_04/SALT_LAKE_CITY_2023_large_2023_04_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "04"
+  },
+  "PM10_month04_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 7.585360050201416,
+      "max": 25.50800323486328,
+      "mean": 16.20865821838379,
+      "std": 3.091413736343384,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_04/SALT_LAKE_CITY_2023_large_2023_04_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "04"
+  },
+  "PM2_5_month04_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.047380447387695,
+      "max": 10.103527069091797,
+      "mean": 6.9944047927856445,
+      "std": 1.059224009513855,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_04/SALT_LAKE_CITY_2023_large_2023_04_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "04"
+  },
+  "SO2_month04_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.4969220161437988,
+      "max": 7.317251682281494,
+      "mean": 2.4563605785369873,
+      "std": 0.685356616973877,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_04/SALT_LAKE_CITY_2023_large_2023_04_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "04"
+  },
+  "NO2_month05_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 3.456279993057251,
+      "max": 26.535642623901367,
+      "mean": 10.41566276550293,
+      "std": 3.836064338684082,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_05/SALT_LAKE_CITY_2023_large_2023_05_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "05"
+  },
+  "O3_month05_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 52.22981262207031,
+      "max": 83.90775299072266,
+      "mean": 66.16395568847656,
+      "std": 5.744710445404053,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_05/SALT_LAKE_CITY_2023_large_2023_05_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "05"
+  },
+  "PM10_month05_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 9.08999252319336,
+      "max": 25.15901756286621,
+      "mean": 16.866098403930664,
+      "std": 2.9690299034118652,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_05/SALT_LAKE_CITY_2023_large_2023_05_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "05"
+  },
+  "PM2_5_month05_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.031292915344238,
+      "max": 10.048513412475586,
+      "mean": 7.002874851226807,
+      "std": 0.9930585026741028,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_05/SALT_LAKE_CITY_2023_large_2023_05_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "05"
+  },
+  "SO2_month05_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.4192285537719727,
+      "max": 5.398052215576172,
+      "mean": 2.2985572814941406,
+      "std": 0.3515782654285431,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_05/SALT_LAKE_CITY_2023_large_2023_05_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "05"
+  },
+  "NO2_month06_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 3.45497465133667,
+      "max": 27.664886474609375,
+      "mean": 10.082393646240234,
+      "std": 3.7875170707702637,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_06/SALT_LAKE_CITY_2023_large_2023_06_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "06"
+  },
+  "O3_month06_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 52.598819732666016,
+      "max": 87.31706237792969,
+      "mean": 67.0637435913086,
+      "std": 5.154055595397949,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_06/SALT_LAKE_CITY_2023_large_2023_06_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "06"
+  },
+  "PM10_month06_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 10.778233528137207,
+      "max": 28.144372940063477,
+      "mean": 18.486814498901367,
+      "std": 2.595200300216675,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_06/SALT_LAKE_CITY_2023_large_2023_06_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "06"
+  },
+  "PM2_5_month06_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.541774749755859,
+      "max": 10.306078910827637,
+      "mean": 7.3148698806762695,
+      "std": 0.8862953782081604,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_06/SALT_LAKE_CITY_2023_large_2023_06_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "06"
+  },
+  "SO2_month06_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.3608030080795288,
+      "max": 5.822868824005127,
+      "mean": 2.2975921630859375,
+      "std": 0.3343939483165741,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_06/SALT_LAKE_CITY_2023_large_2023_06_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "06"
+  },
+  "NO2_month07_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 2.9859938621520996,
+      "max": 29.88321304321289,
+      "mean": 10.095033645629883,
+      "std": 3.834810733795166,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_07/SALT_LAKE_CITY_2023_large_2023_07_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "07"
+  },
+  "O3_month07_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 51.03033447265625,
+      "max": 84.57315063476562,
+      "mean": 66.15365600585938,
+      "std": 4.848217487335205,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_07/SALT_LAKE_CITY_2023_large_2023_07_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "07"
+  },
+  "PM10_month07_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 12.878410339355469,
+      "max": 29.669483184814453,
+      "mean": 20.20155143737793,
+      "std": 2.5487277507781982,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_07/SALT_LAKE_CITY_2023_large_2023_07_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "07"
+  },
+  "PM2_5_month07_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 5.338228225708008,
+      "max": 10.73865795135498,
+      "mean": 7.909991264343262,
+      "std": 0.8208159804344177,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_07/SALT_LAKE_CITY_2023_large_2023_07_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "07"
+  },
+  "SO2_month07_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.3041987419128418,
+      "max": 4.320547580718994,
+      "mean": 2.260756015777588,
+      "std": 0.2810940444469452,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_07/SALT_LAKE_CITY_2023_large_2023_07_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "07"
+  },
+  "NO2_month08_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 2.770078420639038,
+      "max": 28.766759872436523,
+      "mean": 10.303107261657715,
+      "std": 4.06646728515625,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_08/SALT_LAKE_CITY_2023_large_2023_08_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "08"
+  },
+  "O3_month08_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 48.830039978027344,
+      "max": 86.69184875488281,
+      "mean": 63.95100402832031,
+      "std": 5.744283676147461,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_08/SALT_LAKE_CITY_2023_large_2023_08_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "08"
+  },
+  "PM10_month08_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 12.317635536193848,
+      "max": 30.05175018310547,
+      "mean": 19.329769134521484,
+      "std": 2.518944025039673,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_08/SALT_LAKE_CITY_2023_large_2023_08_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "08"
+  },
+  "PM2_5_month08_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.497950077056885,
+      "max": 10.93466567993164,
+      "mean": 7.606464862823486,
+      "std": 0.9250409603118896,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_08/SALT_LAKE_CITY_2023_large_2023_08_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "08"
+  },
+  "SO2_month08_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.2677212953567505,
+      "max": 4.734957695007324,
+      "mean": 2.2967047691345215,
+      "std": 0.2865227460861206,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_08/SALT_LAKE_CITY_2023_large_2023_08_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "08"
+  },
+  "NO2_month09_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 2.8538966178894043,
+      "max": 31.290672302246094,
+      "mean": 10.657998085021973,
+      "std": 4.329284191131592,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_09/SALT_LAKE_CITY_2023_large_2023_09_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "09"
+  },
+  "O3_month09_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 45.46662902832031,
+      "max": 81.59275817871094,
+      "mean": 61.19770050048828,
+      "std": 6.2353973388671875,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_09/SALT_LAKE_CITY_2023_large_2023_09_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "09"
+  },
+  "PM10_month09_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 10.748647689819336,
+      "max": 28.461830139160156,
+      "mean": 18.106863021850586,
+      "std": 2.881058692932129,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_09/SALT_LAKE_CITY_2023_large_2023_09_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "09"
+  },
+  "PM2_5_month09_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.125019550323486,
+      "max": 10.926350593566895,
+      "mean": 7.174159526824951,
+      "std": 1.0973423719406128,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_09/SALT_LAKE_CITY_2023_large_2023_09_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "09"
+  },
+  "SO2_month09_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.3190144300460815,
+      "max": 5.773962497711182,
+      "mean": 2.3075060844421387,
+      "std": 0.3278071880340576,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_09/SALT_LAKE_CITY_2023_large_2023_09_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "09"
+  },
+  "NO2_month10_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 2.6242148876190186,
+      "max": 30.06764030456543,
+      "mean": 12.180480003356934,
+      "std": 5.246420383453369,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_10/SALT_LAKE_CITY_2023_large_2023_10_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "10"
+  },
+  "O3_month10_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 40.409706115722656,
+      "max": 82.0206527709961,
+      "mean": 56.496864318847656,
+      "std": 7.742729663848877,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_10/SALT_LAKE_CITY_2023_large_2023_10_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "10"
+  },
+  "PM10_month10_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 7.622988224029541,
+      "max": 27.426158905029297,
+      "mean": 17.405126571655273,
+      "std": 3.729905128479004,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_10/SALT_LAKE_CITY_2023_large_2023_10_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "10"
+  },
+  "PM2_5_month10_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 3.938413619995117,
+      "max": 11.097126960754395,
+      "mean": 7.183271408081055,
+      "std": 1.351987361907959,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_10/SALT_LAKE_CITY_2023_large_2023_10_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "10"
+  },
+  "SO2_month10_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.258591890335083,
+      "max": 7.925256729125977,
+      "mean": 2.314603567123413,
+      "std": 0.4867877662181854,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_10/SALT_LAKE_CITY_2023_large_2023_10_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "10"
+  },
+  "NO2_month11_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 2.7026803493499756,
+      "max": 30.27936363220215,
+      "mean": 14.439704895019531,
+      "std": 5.668491840362549,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_11/SALT_LAKE_CITY_2023_large_2023_11_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "11"
+  },
+  "O3_month11_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 34.380462646484375,
+      "max": 76.42646026611328,
+      "mean": 49.72743606567383,
+      "std": 8.011872291564941,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_11/SALT_LAKE_CITY_2023_large_2023_11_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "11"
+  },
+  "PM10_month11_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 7.365789413452148,
+      "max": 27.252681732177734,
+      "mean": 17.112041473388672,
+      "std": 3.9658114910125732,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_11/SALT_LAKE_CITY_2023_large_2023_11_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "11"
+  },
+  "PM2_5_month11_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.726232051849365,
+      "max": 11.364042282104492,
+      "mean": 7.990908622741699,
+      "std": 1.2922008037567139,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_11/SALT_LAKE_CITY_2023_large_2023_11_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "11"
+  },
+  "SO2_month11_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.1939330101013184,
+      "max": 6.743844509124756,
+      "mean": 2.5247678756713867,
+      "std": 0.5583838224411011,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_11/SALT_LAKE_CITY_2023_large_2023_11_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "11"
+  },
+  "NO2_month12_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 3.927088975906372,
+      "max": 34.29771041870117,
+      "mean": 15.892547607421875,
+      "std": 6.300665855407715,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_12/SALT_LAKE_CITY_2023_large_2023_12_NO2_stride2_gaussian.tif",
+    "pollutant": "NO2",
+    "month": "12"
+  },
+  "O3_month12_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 20,
+      "vmax": 80
+    },
+    "stats": {
+      "min": 32.893218994140625,
+      "max": 73.765380859375,
+      "mean": 47.30972671508789,
+      "std": 8.452254295349121,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_12/SALT_LAKE_CITY_2023_large_2023_12_O3_stride2_gaussian.tif",
+    "pollutant": "O3",
+    "month": "12"
+  },
+  "PM10_month12_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 50
+    },
+    "stats": {
+      "min": 6.733877182006836,
+      "max": 26.49785041809082,
+      "mean": 16.557241439819336,
+      "std": 3.968170642852783,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_12/SALT_LAKE_CITY_2023_large_2023_12_PM10_stride2_gaussian.tif",
+    "pollutant": "PM10",
+    "month": "12"
+  },
+  "PM2_5_month12_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 35
+    },
+    "stats": {
+      "min": 4.313129425048828,
+      "max": 11.31548023223877,
+      "mean": 8.04166030883789,
+      "std": 1.3334839344024658,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_12/SALT_LAKE_CITY_2023_large_2023_12_PM2_5_stride2_gaussian.tif",
+    "pollutant": "PM2_5",
+    "month": "12"
+  },
+  "SO2_month12_inferno.png": {
+    "bounds": {
+      "west": -111.96934771808496,
+      "south": 40.48129767434168,
+      "east": -111.73636461207076,
+      "north": 40.753278625873854
+    },
+    "colormap_range": {
+      "vmin": 0,
+      "vmax": 10
+    },
+    "stats": {
+      "min": 1.568510890007019,
+      "max": 6.413055896759033,
+      "mean": 2.654092788696289,
+      "std": 0.584161102771759,
+      "valid_pixels": 6000000,
+      "total_pixels": 6000000
+    },
+    "width": 2000,
+    "height": 3000,
+    "source_file": "outputs/raster_inference_test/month_12/SALT_LAKE_CITY_2023_large_2023_12_SO2_stride2_gaussian.tif",
+    "pollutant": "SO2",
+    "month": "12"
+  }
+}

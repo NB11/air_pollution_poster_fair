@@ -732,7 +732,7 @@ async function preloadPollutantLayers(year, pollutant) {
     const pollutantFileName = pollutant.replace('.', '_');
     
     // Load bounds once (same for all months)
-    const boundsPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month01_bounds.geojson`;
+    const boundsPath = `map/predicted/${year}/${pollutantFileName}_month01_bounds.geojson`;
     let boundsCoords = null;
     
     try {
@@ -760,7 +760,7 @@ async function preloadPollutantLayers(year, pollutant) {
     // Preload all 12 months
     for (let m = 1; m <= 12; m++) {
         const monthStr = String(m).padStart(2, '0');
-        const pngPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month${monthStr}_viridis.png`;
+        const pngPath = `map/predicted/${year}/${pollutantFileName}_month${monthStr}_inferno.png`;
         const sourceId = `predicted-source-${monthStr}`;
         const layerId = `predicted-layer-${monthStr}`;
         
@@ -1700,7 +1700,7 @@ function switchBaseMap(layerType) {
 
 // Explanation Carousel functionality
 let currentSlide = 0;
-const totalSlides = 5;
+let totalSlides = 6; // Updated to 6 to include Acknowledgements slide
 let touchStartX = 0;
 let touchEndX = 0;
 let isDragging = false;
@@ -1710,6 +1710,9 @@ function initExplanationCarousel() {
     const container = document.querySelector('.carousel-container');
     const indicators = document.querySelectorAll('.indicator');
     const slides = document.querySelectorAll('.carousel-slide');
+    
+    // Update totalSlides based on actual number of slides
+    totalSlides = slides.length;
     
     // Touch events for mobile
     container.addEventListener('touchstart', (e) => {
