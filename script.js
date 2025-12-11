@@ -30,9 +30,9 @@ function initMap() {
                 }
             ]
         },
-        center: [-111.94, 40.69], // Center on Salt Lake City (matches image center)
-        zoom: 13, // Zoom level for Salt Lake City (zoomed in a bit to see the image)
-        minZoom: 6, // Minimum zoom level - allows zooming out to see the whole world
+        center: [-111.85, 40.62], // Center on predicted area (Salt Lake City region)
+        zoom: 10, // Zoomed out to show the entire predicted area
+        minZoom: 6, // Minimum zoom level - allows zooming out to see context
         maxZoom: 16.4, // MAXIMUM ZOOM LIMIT - Change this value to adjust how far users can zoom in (higher = more zoom)
         antialias: false // Disable antialiasing to preserve raw pixels
     });
@@ -208,6 +208,33 @@ let currentPollutant = 'NO2'; // Default pollutant
 // Available pollutants
 const pollutants = ['NO2', 'O3', 'SO2', 'PM2.5', 'PM10', 'N/A'];
 
+// Pollutant color bar info (vmin, vmax)
+const pollutantInfo = {
+    'NO2': { vmin: 0, vmax: 50 },
+    'O3': { vmin: 20, vmax: 80 },
+    'SO2': { vmin: 0, vmax: 10 },
+    'PM2.5': { vmin: 0, vmax: 35 },
+    'PM10': { vmin: 0, vmax: 50 },
+    'N/A': { vmin: 0, vmax: 0 }
+};
+
+// Update color bar legend (shows min and max)
+function updateColorBar(pollutant) {
+    const info = pollutantInfo[pollutant] || pollutantInfo['NO2'];
+    
+    const minEl = document.getElementById('colorbar-min');
+    const maxEl = document.getElementById('colorbar-max');
+    
+    if (minEl) minEl.textContent = info.vmin;
+    if (maxEl) maxEl.textContent = info.vmax;
+    
+    // Hide color bar if N/A selected
+    const colorbar = document.getElementById('mobile-colorbar');
+    if (colorbar) {
+        colorbar.style.display = pollutant === 'N/A' ? 'none' : 'flex';
+    }
+}
+
 // Available years
 const availableYears = ['2023'];
 
@@ -299,6 +326,7 @@ function initCompositeLayer() {
                 currentPollutant = pollutant;
                 pollutantSelector.textContent = pollutant;
                 pollutantDropdown.style.display = 'none';
+                updateColorBar(pollutant);
                 
                 // Reload layer with new pollutant
                 loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant);
@@ -369,6 +397,7 @@ function initCompositeLayer() {
                 currentPollutant = pollutant;
                 mobilePollutantBtn.textContent = pollutant;
                 mobilePollutantDropdown.style.display = 'none';
+                updateColorBar(pollutant);
                 
                 // Update desktop selector if it exists
                 if (pollutantSelector) {
@@ -590,10 +619,13 @@ function initCompositeLayer() {
             mobileMonthSlider.value = monthNum;
         }
         
-        // Always allow month change (all months available for 2023)
-        currentCompositeMonth = monthStr;
-        // Load the predicted layer for selected month
-        loadPredictedLayer(currentCompositeYear, monthStr, currentPollutant);
+        // If layers are already preloaded for this pollutant, just switch visibility (instant)
+        if (loadedPollutant === currentPollutant && loadedYear === currentCompositeYear) {
+            showMonth(monthNum);
+        } else {
+            // Otherwise load the predicted layer (will preload all months)
+            loadPredictedLayer(currentCompositeYear, monthStr, currentPollutant);
+        }
     }
     
     if (monthSlider) {
@@ -628,38 +660,141 @@ function initCompositeLayer() {
     }
 }
 
-// Load predicted PNG raster layer for a specific year, month, and pollutant
-async function loadPredictedLayer(year, month, pollutant) {
-    currentCompositeYear = year;
-    currentCompositeMonth = month;
-    currentPollutant = pollutant;
-    
-    // Remove existing predicted layer if present
-    if (map.getLayer('predicted-raster-layer')) {
-        map.removeLayer('predicted-raster-layer');
-    }
-    if (map.getSource('predicted-raster-source')) {
-        map.removeSource('predicted-raster-source');
-    }
-    
-    // If pollutant is N/A, don't load any layer (show basemap only)
-    if (pollutant === 'N/A') {
-        console.log(`📅 No pollutant layer - showing basemap only`);
+// Track which pollutant's layers are currently loaded
+let loadedPollutant = null;
+let loadedYear = null;
+
+// Preload all 12 months for a pollutant (makes month switching instant)
+async function preloadPollutantLayers(year, pollutant) {
+    // If already loaded for this pollutant and year, skip
+    if (loadedPollutant === pollutant && loadedYear === year) {
+        console.log(`📦 Layers already preloaded for ${pollutant} ${year}`);
         return;
     }
+    
+    // Remove all existing predicted layers
+    for (let m = 1; m <= 12; m++) {
+        const monthStr = String(m).padStart(2, '0');
+        const layerId = `predicted-layer-${monthStr}`;
+        const sourceId = `predicted-source-${monthStr}`;
+        
+        if (map.getLayer(layerId)) {
+            map.removeLayer(layerId);
+        }
+        if (map.getSource(sourceId)) {
+            map.removeSource(sourceId);
+        }
+    }
+    
+    // If pollutant is N/A, don't load any layers
+    if (pollutant === 'N/A') {
+        console.log(`📅 No pollutant layer - showing basemap only`);
+        loadedPollutant = pollutant;
+        loadedYear = year;
+        return;
+    }
+    
+    console.log(`📦 Preloading all 12 months for ${pollutant} ${year}...`);
     
     // Format pollutant name for folder/filename (PM2.5 becomes PM2_5)
     const pollutantFolder = pollutant.replace('.', '_');
     const pollutantFileName = pollutant.replace('.', '_');
     
-    // New path structure: map/predicted/2023/NO2/NO2_month01_viridis.png
-    const pngPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month${month}_viridis.png`;
-    const boundsPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month${month}_bounds.geojson`;
+    // Load bounds once (same for all months)
+    const boundsPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month01_bounds.geojson`;
+    let boundsCoords = null;
     
-    console.log(`📅 Loading predicted layer for ${year}-${month} ${pollutant}:`, pngPath);
+    try {
+        const boundsResponse = await fetch(boundsPath);
+        if (boundsResponse.ok) {
+            const boundsData = await boundsResponse.json();
+            const coordinates = boundsData.features[0].geometry.coordinates[0];
+            boundsCoords = [
+                coordinates[0], // top-left
+                coordinates[1], // top-right
+                coordinates[2], // bottom-right
+                coordinates[3]  // bottom-left
+            ];
+        }
+    } catch (error) {
+        console.error('Failed to load bounds:', error);
+        return;
+    }
     
-    // Load the new predicted layer
-    await loadPNGRasterLayer(pngPath, boundsPath, 'predicted-raster-source', 'predicted-raster-layer');
+    if (!boundsCoords) {
+        console.error('Could not load bounds for', pollutant);
+        return;
+    }
+    
+    // Preload all 12 months
+    for (let m = 1; m <= 12; m++) {
+        const monthStr = String(m).padStart(2, '0');
+        const pngPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month${monthStr}_viridis.png`;
+        const sourceId = `predicted-source-${monthStr}`;
+        const layerId = `predicted-layer-${monthStr}`;
+        
+        try {
+            // Add image source
+            map.addSource(sourceId, {
+                type: 'image',
+                url: pngPath,
+                coordinates: boundsCoords
+            });
+            
+            // Add layer (hidden by default)
+            map.addLayer({
+                id: layerId,
+                type: 'raster',
+                source: sourceId,
+                paint: {
+                    'raster-opacity': 0 // Start hidden
+                }
+            });
+            
+            console.log(`  ✓ Month ${monthStr} loaded`);
+        } catch (error) {
+            console.error(`  ✗ Month ${monthStr} failed:`, error);
+        }
+    }
+    
+    loadedPollutant = pollutant;
+    loadedYear = year;
+    console.log(`📦 Preloading complete for ${pollutant} ${year}`);
+}
+
+// Show only the selected month's layer (instant switching)
+function showMonth(month) {
+    const monthStr = String(month).padStart(2, '0');
+    
+    // Hide all months, show only the selected one
+    for (let m = 1; m <= 12; m++) {
+        const mStr = String(m).padStart(2, '0');
+        const layerId = `predicted-layer-${mStr}`;
+        
+        if (map.getLayer(layerId)) {
+            const opacity = (mStr === monthStr) ? 1 : 0;
+            map.setPaintProperty(layerId, 'raster-opacity', opacity);
+        }
+    }
+    
+    currentCompositeMonth = monthStr;
+    console.log(`📅 Showing month ${monthStr}`);
+}
+
+// Load predicted layer - preloads all months then shows selected
+async function loadPredictedLayer(year, month, pollutant) {
+    currentCompositeYear = year;
+    currentCompositeMonth = month;
+    currentPollutant = pollutant;
+    
+    // Update color bar legend
+    updateColorBar(pollutant);
+    
+    // Preload all months for this pollutant (if not already loaded)
+    await preloadPollutantLayers(year, pollutant);
+    
+    // Show the selected month
+    showMonth(month);
 }
 
 // Legacy function for backward compatibility
