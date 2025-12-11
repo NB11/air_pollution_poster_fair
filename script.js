@@ -821,6 +821,21 @@ function setCurrentLayerOpacity(opacity) {
     }
 }
 
+// Load authors/acknowledgements content from external HTML
+function loadAuthorsContent() {
+    fetch('texts/authors.html')
+        .then(resp => resp.text())
+        .then(html => {
+            const desktop = document.getElementById('authors-slide');
+            const popup = document.getElementById('references-content');
+            const mobile = document.getElementById('authors-mobile');
+            if (desktop) desktop.innerHTML = html;
+            if (popup) popup.innerHTML = html;
+            if (mobile) mobile.innerHTML = html;
+        })
+        .catch(err => console.error('Failed to load authors content:', err));
+}
+
 // Load predicted layer - preloads all months then shows selected
 async function loadPredictedLayer(year, month, pollutant, sliderLabelState = {}) {
     currentCompositeYear = year;
@@ -1794,9 +1809,11 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initMap();
         initMobileToggle();
+        loadAuthorsContent();
     });
 } else {
     initMap();
     initMobileToggle();
+    loadAuthorsContent();
 }
 
