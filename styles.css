@@ -14,11 +14,16 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: auto; /* Allow scrolling only when content exceeds viewport */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--background);
     color: var(--foreground);
-    overflow: hidden;
 }
 
 .app-container {

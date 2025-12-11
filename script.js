@@ -206,7 +206,7 @@ let currentCompositeMonth = '01'; // Default to January
 let currentPollutant = 'NO2'; // Default pollutant
 
 // Available pollutants
-const pollutants = ['NO2', 'O3', 'SO2', 'PM2.5', 'PM10', 'N/A'];
+const pollutants = ['NO2', 'O3', 'SO2', 'PM2.5', 'PM10', 'CTRL'];
 
 // Pollutant color bar info (vmin, vmax)
 const pollutantInfo = {
@@ -215,7 +215,7 @@ const pollutantInfo = {
     'SO2': { vmin: 0, vmax: 10 },
     'PM2.5': { vmin: 0, vmax: 35 },
     'PM10': { vmin: 0, vmax: 50 },
-    'N/A': { vmin: 0, vmax: 0 }
+    'CTRL': { vmin: 0, vmax: 0 }
 };
 
 // Update color bar legend (shows min and max)
@@ -231,7 +231,7 @@ function updateColorBar(pollutant) {
     // Hide color bar if N/A selected
     const colorbar = document.getElementById('mobile-colorbar');
     if (colorbar) {
-        colorbar.style.display = pollutant === 'N/A' ? 'none' : 'flex';
+        colorbar.style.display = (pollutant === 'CTRL') ? 'none' : 'flex';
     }
 }
 
@@ -253,6 +253,11 @@ function initCompositeLayer() {
     
     // Store references to all dropdowns for closing
     let allDropdowns = [];
+    // Store original slider labels to restore later
+    const monthLabels = document.querySelector('.month-slider-labels');
+    const mobileMonthLabels = document.querySelector('.mobile-month-slider-labels');
+    const originalMonthLabelsHTML = monthLabels ? monthLabels.innerHTML : null;
+    const originalMobileMonthLabelsHTML = mobileMonthLabels ? mobileMonthLabels.innerHTML : null;
     
     // Function to close all dropdowns
     function closeAllDropdowns() {
@@ -329,7 +334,10 @@ function initCompositeLayer() {
                 updateColorBar(pollutant);
                 
                 // Reload layer with new pollutant
-                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant);
+                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant, {
+                    originalMonthLabelsHTML,
+                    originalMobileMonthLabelsHTML
+                });
             }
         });
     }
@@ -405,7 +413,10 @@ function initCompositeLayer() {
                 }
                 
                 // Reload layer with new pollutant
-                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant);
+                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant, {
+                    originalMonthLabelsHTML,
+                    originalMobileMonthLabelsHTML
+                });
             }
         });
     }
@@ -609,6 +620,21 @@ function initCompositeLayer() {
     
     // Function to handle month change
     function handleMonthChange(monthNum, sourceSlider) {
+        // CTRL mode: slider controls opacity 0-100%
+        if (currentPollutant === 'CTRL') {
+            const opacity = Math.max(0, Math.min(100, monthNum));
+            // Sync both sliders
+            if (monthSlider && sourceSlider !== monthSlider) {
+                monthSlider.value = opacity;
+            }
+            if (mobileMonthSlider && sourceSlider !== mobileMonthSlider) {
+                mobileMonthSlider.value = opacity;
+            }
+            setCurrentLayerOpacity(opacity / 100);
+            return;
+        }
+
+        // Normal mode: month selection
         const monthStr = String(monthNum).padStart(2, '0');
         
         // Sync both sliders
@@ -663,9 +689,14 @@ function initCompositeLayer() {
 // Track which pollutant's layers are currently loaded
 let loadedPollutant = null;
 let loadedYear = null;
+// Track current opacity (shared across modes)
+let ctrlOpacity = 1;
 
 // Preload all 12 months for a pollutant (makes month switching instant)
 async function preloadPollutantLayers(year, pollutant) {
+    // If we're in CTRL mode, do not preload
+    if (pollutant === 'CTRL') return;
+
     // If already loaded for this pollutant and year, skip
     if (loadedPollutant === pollutant && loadedYear === year) {
         console.log(`📦 Layers already preloaded for ${pollutant} ${year}`);
@@ -772,7 +803,7 @@ function showMonth(month) {
         const layerId = `predicted-layer-${mStr}`;
         
         if (map.getLayer(layerId)) {
-            const opacity = (mStr === monthStr) ? 1 : 0;
+            const opacity = (mStr === monthStr) ? ctrlOpacity : 0;
             map.setPaintProperty(layerId, 'raster-opacity', opacity);
         }
     }
@@ -781,14 +812,91 @@ function showMonth(month) {
     console.log(`📅 Showing month ${monthStr}`);
 }
 
+// Set opacity for the currently visible month layer
+function setCurrentLayerOpacity(opacity) {
+    ctrlOpacity = Math.max(0, Math.min(1, opacity));
+    const layerId = `predicted-layer-${currentCompositeMonth}`;
+    if (map.getLayer(layerId)) {
+        map.setPaintProperty(layerId, 'raster-opacity', ctrlOpacity);
+    }
+}
+
 // Load predicted layer - preloads all months then shows selected
-async function loadPredictedLayer(year, month, pollutant) {
+async function loadPredictedLayer(year, month, pollutant, sliderLabelState = {}) {
     currentCompositeYear = year;
     currentCompositeMonth = month;
     currentPollutant = pollutant;
     
     // Update color bar legend
     updateColorBar(pollutant);
+
+    // Helper to switch slider to opacity mode
+    function setSliderToOpacityMode() {
+        const monthSlider = document.getElementById('month-slider');
+        const mobileMonthSlider = document.getElementById('mobile-month-slider');
+        const monthLabels = document.querySelector('.month-slider-labels');
+        const mobileMonthLabels = document.querySelector('.mobile-month-slider-labels');
+
+        if (monthSlider) {
+            monthSlider.min = 0;
+            monthSlider.max = 100;
+            monthSlider.step = 1;
+            monthSlider.value = Math.round(ctrlOpacity * 100);
+        }
+        if (mobileMonthSlider) {
+            mobileMonthSlider.min = 0;
+            mobileMonthSlider.max = 100;
+            mobileMonthSlider.step = 1;
+            mobileMonthSlider.value = Math.round(ctrlOpacity * 100);
+        }
+        // Replace labels with simple opacity ticks
+        if (monthLabels) {
+            monthLabels.innerHTML = '<span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>';
+        }
+        if (mobileMonthLabels) {
+            mobileMonthLabels.innerHTML = '<span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>';
+        }
+    }
+
+    // Helper to switch slider back to month mode
+    function setSliderToMonthMode() {
+        const monthSlider = document.getElementById('month-slider');
+        const mobileMonthSlider = document.getElementById('mobile-month-slider');
+        const monthLabels = document.querySelector('.month-slider-labels');
+        const mobileMonthLabels = document.querySelector('.mobile-month-slider-labels');
+
+        if (monthSlider) {
+            monthSlider.min = 1;
+            monthSlider.max = 12;
+            monthSlider.step = 1;
+            monthSlider.value = parseInt(currentCompositeMonth || '1');
+        }
+        if (mobileMonthSlider) {
+            mobileMonthSlider.min = 1;
+            mobileMonthSlider.max = 12;
+            mobileMonthSlider.step = 1;
+            mobileMonthSlider.value = parseInt(currentCompositeMonth || '1');
+        }
+        if (sliderLabelState.originalMonthLabelsHTML && monthLabels) {
+            monthLabels.innerHTML = sliderLabelState.originalMonthLabelsHTML;
+        }
+        if (sliderLabelState.originalMobileMonthLabelsHTML && mobileMonthLabels) {
+            mobileMonthLabels.innerHTML = sliderLabelState.originalMobileMonthLabelsHTML;
+        }
+    }
+
+    // CTRL mode: slider becomes opacity control; do not reload layers
+    if (pollutant === 'CTRL') {
+        setSliderToOpacityMode();
+        // Ensure currently visible layer is at 100% opacity initially
+        setCurrentLayerOpacity(ctrlOpacity);
+        return;
+    } else {
+        // Restore month slider configuration when leaving CTRL
+        setSliderToMonthMode();
+        // Re-apply stored opacity when returning to normal mode
+        setCurrentLayerOpacity(ctrlOpacity);
+    }
     
     // Preload all months for this pollutant (if not already loaded)
     await preloadPollutantLayers(year, pollutant);
@@ -1225,6 +1333,7 @@ function initMobileTabSwitcher() {
     const tabs = document.querySelectorAll('.mobile-tab');
     const indicator = document.querySelector('.mobile-tab-indicator');
     const monthSelector = document.querySelector('.mobile-month-selector');
+    const colorbar = document.getElementById('mobile-colorbar');
     
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
@@ -1252,6 +1361,9 @@ function initMobileTabSwitcher() {
                 if (monthSelector) {
                     monthSelector.style.display = 'none';
                 }
+                if (colorbar) {
+                    colorbar.style.display = 'none';
+                }
                 tabSwitcher.classList.add('info-active');
             } else {
                 // Hide info panel, show month selector
@@ -1260,6 +1372,9 @@ function initMobileTabSwitcher() {
                 }
                 if (monthSelector) {
                     monthSelector.style.display = 'block';
+                }
+                if (colorbar) {
+                    colorbar.style.display = 'flex';
                 }
                 tabSwitcher.classList.remove('info-active');
             }
