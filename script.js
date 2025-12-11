@@ -689,8 +689,8 @@ function initCompositeLayer() {
 // Track which pollutant's layers are currently loaded
 let loadedPollutant = null;
 let loadedYear = null;
-// Track current opacity (shared across modes)
-let ctrlOpacity = 1;
+// Track current opacity (shared across modes) - default 90%
+let ctrlOpacity = 0.9;
 
 // Preload all 12 months for a pollutant (makes month switching instant)
 async function preloadPollutantLayers(year, pollutant) {
