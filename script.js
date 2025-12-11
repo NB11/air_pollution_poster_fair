@@ -32,7 +32,7 @@ function initMap() {
         },
         center: [-111.94, 40.69], // Center on Salt Lake City (matches image center)
         zoom: 13, // Zoom level for Salt Lake City (zoomed in a bit to see the image)
-        minZoom: 10, // Minimum zoom level - prevents zooming out too much
+        minZoom: 6, // Minimum zoom level - allows zooming out to see the whole world
         maxZoom: 16.4, // MAXIMUM ZOOM LIMIT - Change this value to adjust how far users can zoom in (higher = more zoom)
         antialias: false // Disable antialiasing to preserve raw pixels
     });
@@ -48,7 +48,7 @@ function initMap() {
     map.on('load', () => {
         loadSaharaGeoJSON();
         setupEventHandlers();
-        // Load composite raster layer with month selector
+        // Load predicted raster layer with pollutant, year, and month selector
         initCompositeLayer();
         // Initialize mobile tab switcher
         initMobileTabSwitcher();
@@ -203,16 +203,265 @@ async function loadSaharaGeoJSON() {
 // Composite layer management
 let currentCompositeYear = '2023';
 let currentCompositeMonth = '01'; // Default to January
+let currentPollutant = 'NO2'; // Default pollutant
 
-// Available months per year (update as you add more composites)
+// Available pollutants
+const pollutants = ['NO2', 'O3', 'SO2', 'PM2.5', 'PM10', 'N/A'];
+
+// Available years
+const availableYears = ['2023'];
+
+// All years to display (2018-2025)
+const allYears = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+
+// Available months per year (all 12 months for 2023)
 const availableMonths = {
-    '2023': ['01', '02'] // January, February
+    '2023': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'] // All months
 };
 
 // Initialize composite layer with year/month slider
 function initCompositeLayer() {
-    // Load default month (January)
-    loadCompositeLayer('2023', '01');
+    // Load default month (January) with default pollutant
+    loadPredictedLayer('2023', '01', 'NO2');
+    
+    // Store references to all dropdowns for closing
+    let allDropdowns = [];
+    
+    // Function to close all dropdowns
+    function closeAllDropdowns() {
+        allDropdowns.forEach(dropdown => {
+            if (dropdown && dropdown.style) {
+                dropdown.style.display = 'none';
+            }
+        });
+    }
+    
+    // Set up pollutant selector button (desktop)
+    const pollutantSelector = document.getElementById('pollutant-selector');
+    if (pollutantSelector) {
+        // Create pollutant dropdown menu
+        const pollutantDropdown = document.createElement('div');
+        pollutantDropdown.className = 'year-dropdown';
+        pollutantDropdown.style.display = 'none';
+        pollutantDropdown.innerHTML = pollutants.map(p => 
+            `<div class="year-option" data-pollutant="${p}">${p}</div>`
+        ).join('');
+        document.body.appendChild(pollutantDropdown);
+        allDropdowns.push(pollutantDropdown);
+        
+        pollutantSelector.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = pollutantDropdown.style.display === 'block';
+            
+            // Close all other dropdowns first
+            closeAllDropdowns();
+            
+            // Toggle this dropdown
+            pollutantDropdown.style.display = isVisible ? 'none' : 'block';
+            
+            if (!isVisible) {
+                // Position dropdown - open upwards if more space above than below
+                const rect = pollutantSelector.getBoundingClientRect();
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const spaceAbove = rect.top;
+                
+                pollutantDropdown.style.position = 'fixed';
+                pollutantDropdown.style.left = `${rect.left}px`;
+                pollutantDropdown.style.width = `${rect.width}px`;
+                pollutantDropdown.style.zIndex = '10000';
+                
+                // Estimate dropdown height (number of options * ~35px per option + padding)
+                const estimatedHeight = pollutants.length * 35 + 10;
+                
+                if (spaceBelow < estimatedHeight && spaceAbove > spaceBelow) {
+                    // Open upwards
+                    pollutantDropdown.style.bottom = `${window.innerHeight - rect.top + 5}px`;
+                    pollutantDropdown.style.top = 'auto';
+                } else {
+                    // Open downwards
+                    pollutantDropdown.style.top = `${rect.bottom + 5}px`;
+                    pollutantDropdown.style.bottom = 'auto';
+                }
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!pollutantSelector.contains(e.target) && !pollutantDropdown.contains(e.target)) {
+                closeAllDropdowns();
+            }
+        });
+        
+        // Handle pollutant selection
+        pollutantDropdown.addEventListener('click', (e) => {
+            if (e.target.classList.contains('year-option')) {
+                const pollutant = e.target.getAttribute('data-pollutant');
+                currentPollutant = pollutant;
+                pollutantSelector.textContent = pollutant;
+                pollutantDropdown.style.display = 'none';
+                
+                // Reload layer with new pollutant
+                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant);
+            }
+        });
+    }
+    
+    // Set up mobile pollutant button
+    const mobilePollutantBtn = document.getElementById('mobile-pollutant-btn');
+    if (mobilePollutantBtn) {
+        // Create mobile pollutant dropdown
+        const mobilePollutantDropdown = document.createElement('div');
+        mobilePollutantDropdown.className = 'year-dropdown';
+        mobilePollutantDropdown.style.display = 'none';
+        mobilePollutantDropdown.innerHTML = pollutants.map(p => 
+            `<div class="year-option" data-pollutant="${p}">${p}</div>`
+        ).join('');
+        document.body.appendChild(mobilePollutantDropdown);
+        allDropdowns.push(mobilePollutantDropdown);
+        
+        mobilePollutantBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = mobilePollutantDropdown.style.display === 'block';
+            
+            // Close all other dropdowns first
+            closeAllDropdowns();
+            
+            // Toggle this dropdown
+            mobilePollutantDropdown.style.display = isVisible ? 'none' : 'block';
+            
+            if (!isVisible) {
+                // Position dropdown - open upwards if more space above than below
+                const rect = mobilePollutantBtn.getBoundingClientRect();
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const spaceAbove = rect.top;
+                
+                mobilePollutantDropdown.style.position = 'fixed';
+                mobilePollutantDropdown.style.left = `${rect.left}px`;
+                mobilePollutantDropdown.style.width = `${rect.width}px`;
+                mobilePollutantDropdown.style.zIndex = '10000';
+                
+                // Estimate dropdown height (number of options * ~35px per option + padding)
+                const estimatedHeight = pollutants.length * 35 + 10;
+                
+                if (spaceBelow < estimatedHeight && spaceAbove > spaceBelow) {
+                    // Open upwards
+                    mobilePollutantDropdown.style.bottom = `${window.innerHeight - rect.top + 5}px`;
+                    mobilePollutantDropdown.style.top = 'auto';
+                } else {
+                    // Open downwards
+                    mobilePollutantDropdown.style.top = `${rect.bottom + 5}px`;
+                    mobilePollutantDropdown.style.bottom = 'auto';
+                }
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobilePollutantBtn.contains(e.target) && !mobilePollutantDropdown.contains(e.target)) {
+                closeAllDropdowns();
+            }
+        });
+        
+        // Handle pollutant selection
+        mobilePollutantDropdown.addEventListener('click', (e) => {
+            if (e.target.classList.contains('year-option')) {
+                const pollutant = e.target.getAttribute('data-pollutant');
+                currentPollutant = pollutant;
+                mobilePollutantBtn.textContent = pollutant;
+                mobilePollutantDropdown.style.display = 'none';
+                
+                // Update desktop selector if it exists
+                if (pollutantSelector) {
+                    pollutantSelector.textContent = pollutant;
+                }
+                
+                // Reload layer with new pollutant
+                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, pollutant);
+            }
+        });
+    }
+    
+    // Set up mobile year button
+    const mobileYearBtn = document.getElementById('mobile-year-btn');
+    if (mobileYearBtn) {
+        // Create mobile year dropdown
+        const mobileYearDropdown = document.createElement('div');
+        mobileYearDropdown.className = 'year-dropdown';
+        mobileYearDropdown.style.display = 'none';
+        // Generate year options with strikethrough for unavailable years
+        mobileYearDropdown.innerHTML = allYears.map(year => {
+            const isAvailable = availableYears.includes(year);
+            const disabledClass = isAvailable ? '' : ' disabled';
+            const disabledAttr = isAvailable ? '' : ' data-disabled="true"';
+            return '<div class="year-option' + disabledClass + '" data-year="' + year + '"' + disabledAttr + '>' + year + '</div>';
+        }).join('');
+        document.body.appendChild(mobileYearDropdown);
+        allDropdowns.push(mobileYearDropdown);
+        
+        mobileYearBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = mobileYearDropdown.style.display === 'block';
+            
+            // Close all other dropdowns first
+            closeAllDropdowns();
+            
+            // Toggle this dropdown
+            mobileYearDropdown.style.display = isVisible ? 'none' : 'block';
+            
+            if (!isVisible) {
+                // Position dropdown - open upwards if more space above than below
+                const rect = mobileYearBtn.getBoundingClientRect();
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const spaceAbove = rect.top;
+                
+                mobileYearDropdown.style.position = 'fixed';
+                mobileYearDropdown.style.left = `${rect.left}px`;
+                mobileYearDropdown.style.width = `${rect.width}px`;
+                mobileYearDropdown.style.zIndex = '10000';
+                
+                // Estimate dropdown height (8 options * ~30px + padding)
+                const estimatedHeight = 250;
+                
+                if (spaceBelow < estimatedHeight && spaceAbove > spaceBelow) {
+                    // Open upwards
+                    mobileYearDropdown.style.bottom = `${window.innerHeight - rect.top + 5}px`;
+                    mobileYearDropdown.style.top = 'auto';
+                } else {
+                    // Open downwards
+                    mobileYearDropdown.style.top = `${rect.bottom + 5}px`;
+                    mobileYearDropdown.style.bottom = 'auto';
+                }
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileYearBtn.contains(e.target) && !mobileYearDropdown.contains(e.target)) {
+                closeAllDropdowns();
+            }
+        });
+        
+        // Handle year selection
+        mobileYearDropdown.addEventListener('click', (e) => {
+            if (e.target.classList.contains('year-option') && !e.target.classList.contains('disabled')) {
+                const year = e.target.getAttribute('data-year');
+                if (availableYears.includes(year)) {
+                    currentCompositeYear = year;
+                    mobileYearBtn.textContent = year;
+                    mobileYearDropdown.style.display = 'none';
+                    
+                    // Update desktop year selector if it exists
+                    const yearSelector = document.getElementById('year-selector');
+                    if (yearSelector) {
+                        yearSelector.textContent = year;
+                    }
+                    
+                    // Reload layer with new year
+                    loadPredictedLayer(year, currentCompositeMonth, currentPollutant);
+                }
+            }
+        });
+    }
     
     // Set up year selector button
     const yearSelector = document.getElementById('year-selector');
@@ -221,66 +470,103 @@ function initCompositeLayer() {
         const yearDropdown = document.createElement('div');
         yearDropdown.className = 'year-dropdown';
         yearDropdown.style.display = 'none';
-        yearDropdown.innerHTML = '<div class="year-option" data-year="2023">2023</div>';
-        // Add more years as needed
+        // Generate year options with strikethrough for unavailable years
+        yearDropdown.innerHTML = allYears.map(year => {
+            const isAvailable = availableYears.includes(year);
+            const disabledClass = isAvailable ? '' : ' disabled';
+            const disabledAttr = isAvailable ? '' : ' data-disabled="true"';
+            return '<div class="year-option' + disabledClass + '" data-year="' + year + '"' + disabledAttr + '>' + year + '</div>';
+        }).join('');
         document.body.appendChild(yearDropdown);
+        allDropdowns.push(yearDropdown);
         
         yearSelector.addEventListener('click', (e) => {
             e.stopPropagation();
             const isVisible = yearDropdown.style.display === 'block';
+            
+            // Close all other dropdowns first
+            closeAllDropdowns();
+            
+            // Toggle this dropdown
             yearDropdown.style.display = isVisible ? 'none' : 'block';
             
-            // Position dropdown below button
-            const rect = yearSelector.getBoundingClientRect();
-            yearDropdown.style.position = 'fixed';
-            yearDropdown.style.top = `${rect.bottom + 5}px`;
-            yearDropdown.style.left = `${rect.left}px`;
-            yearDropdown.style.zIndex = '10000';
+            if (!isVisible) {
+                // Position dropdown - open upwards if more space above than below
+                const rect = yearSelector.getBoundingClientRect();
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const spaceAbove = rect.top;
+                
+                yearDropdown.style.position = 'fixed';
+                yearDropdown.style.left = `${rect.left}px`;
+                yearDropdown.style.width = `${rect.width}px`;
+                yearDropdown.style.zIndex = '10000';
+                
+                // Estimate dropdown height (8 options * ~30px + padding)
+                const estimatedHeight = 250;
+                
+                if (spaceBelow < estimatedHeight && spaceAbove > spaceBelow) {
+                    // Open upwards
+                    yearDropdown.style.bottom = `${window.innerHeight - rect.top + 5}px`;
+                    yearDropdown.style.top = 'auto';
+                } else {
+                    // Open downwards
+                    yearDropdown.style.top = `${rect.bottom + 5}px`;
+                    yearDropdown.style.bottom = 'auto';
+                }
+            }
         });
         
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!yearSelector.contains(e.target) && !yearDropdown.contains(e.target)) {
-                yearDropdown.style.display = 'none';
+                closeAllDropdowns();
             }
         });
         
         // Handle year selection
         yearDropdown.addEventListener('click', (e) => {
-            if (e.target.classList.contains('year-option')) {
+            if (e.target.classList.contains('year-option') && !e.target.classList.contains('disabled')) {
                 const year = e.target.getAttribute('data-year');
-                currentCompositeYear = year;
-                yearSelector.textContent = year;
-                yearDropdown.style.display = 'none';
-                
-                // Update sliders - keep max at 12 (all months)
-                const monthSlider = document.getElementById('month-slider');
-                const mobileMonthSlider = document.getElementById('mobile-month-slider');
-                
-                // If current month is not available, reset to first available
-                if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
-                    currentCompositeMonth = availableMonths[year][0];
-                    const firstMonthNum = parseInt(currentCompositeMonth);
+                if (availableYears.includes(year)) {
+                    currentCompositeYear = year;
+                    yearSelector.textContent = year;
+                    yearDropdown.style.display = 'none';
                     
-                    if (monthSlider) {
-                        monthSlider.value = firstMonthNum;
+                    // Update mobile year button if it exists
+                    const mobileYearBtn = document.getElementById('mobile-year-btn');
+                    if (mobileYearBtn) {
+                        mobileYearBtn.textContent = year;
                     }
-                    if (mobileMonthSlider) {
-                        mobileMonthSlider.value = firstMonthNum;
+                    
+                    // Update sliders - keep max at 12 (all months)
+                    const monthSlider = document.getElementById('month-slider');
+                    const mobileMonthSlider = document.getElementById('mobile-month-slider');
+                    
+                    // If current month is not available, reset to first available
+                    if (availableMonths[year] && !availableMonths[year].includes(currentCompositeMonth)) {
+                        currentCompositeMonth = availableMonths[year][0];
+                        const firstMonthNum = parseInt(currentCompositeMonth);
+                        
+                        if (monthSlider) {
+                            monthSlider.value = firstMonthNum;
+                        }
+                        if (mobileMonthSlider) {
+                            mobileMonthSlider.value = firstMonthNum;
+                        }
+                    } else {
+                        // Sync both sliders with current month
+                        const currentMonthNum = parseInt(currentCompositeMonth);
+                        if (monthSlider) {
+                            monthSlider.value = currentMonthNum;
+                        }
+                        if (mobileMonthSlider) {
+                            mobileMonthSlider.value = currentMonthNum;
+                        }
                     }
-                } else {
-                    // Sync both sliders with current month
-                    const currentMonthNum = parseInt(currentCompositeMonth);
-                    if (monthSlider) {
-                        monthSlider.value = currentMonthNum;
-                    }
-                    if (mobileMonthSlider) {
-                        mobileMonthSlider.value = currentMonthNum;
-                    }
+                    
+                    // Reload current month with new year
+                    loadPredictedLayer(year, currentCompositeMonth, currentPollutant);
                 }
-                
-                // Reload current month with new year
-                loadCompositeLayer(year, currentCompositeMonth);
             }
         });
     }
@@ -304,15 +590,10 @@ function initCompositeLayer() {
             mobileMonthSlider.value = monthNum;
         }
         
-        // Check if this month is available, if so load it
-        if (availableMonths[currentCompositeYear] && availableMonths[currentCompositeYear].includes(monthStr)) {
-            currentCompositeMonth = monthStr;
-            // Load the composite for selected month
-            loadCompositeLayer(currentCompositeYear, monthStr);
-        } else {
-            // Month not available - could show a message or just don't load
-            console.log(`Month ${monthStr} not available for year ${currentCompositeYear}`);
-        }
+        // Always allow month change (all months available for 2023)
+        currentCompositeMonth = monthStr;
+        // Load the predicted layer for selected month
+        loadPredictedLayer(currentCompositeYear, monthStr, currentPollutant);
     }
     
     if (monthSlider) {
@@ -347,26 +628,43 @@ function initCompositeLayer() {
     }
 }
 
-// Load composite PNG raster layer for a specific year and month
-async function loadCompositeLayer(year, month) {
-    const pngPath = `map/s2/composits/SALT_LAKE_CITY_${year}_large_${year}_${month}_S2_composite.png`;
-    const boundsPath = `map/s2/composits/SALT_LAKE_CITY_${year}_large_${year}_${month}_S2_composite_bounds.json`;
-    
-    console.log(`📅 Loading composite for ${year}-${month}:`, pngPath);
-    
+// Load predicted PNG raster layer for a specific year, month, and pollutant
+async function loadPredictedLayer(year, month, pollutant) {
     currentCompositeYear = year;
     currentCompositeMonth = month;
+    currentPollutant = pollutant;
     
-    // Remove existing composite layer if present
-    if (map.getSource('composite-raster-source')) {
-        map.removeSource('composite-raster-source');
+    // Remove existing predicted layer if present
+    if (map.getLayer('predicted-raster-layer')) {
+        map.removeLayer('predicted-raster-layer');
     }
-    if (map.getLayer('composite-raster-layer')) {
-        map.removeLayer('composite-raster-layer');
+    if (map.getSource('predicted-raster-source')) {
+        map.removeSource('predicted-raster-source');
     }
     
-    // Load the new composite
-    await loadPNGRasterLayer(pngPath, boundsPath, 'composite-raster-source', 'composite-raster-layer');
+    // If pollutant is N/A, don't load any layer (show basemap only)
+    if (pollutant === 'N/A') {
+        console.log(`📅 No pollutant layer - showing basemap only`);
+        return;
+    }
+    
+    // Format pollutant name for folder/filename (PM2.5 becomes PM2_5)
+    const pollutantFolder = pollutant.replace('.', '_');
+    const pollutantFileName = pollutant.replace('.', '_');
+    
+    // New path structure: map/predicted/2023/NO2/NO2_month01_viridis.png
+    const pngPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month${month}_viridis.png`;
+    const boundsPath = `map/predicted/${year}/${pollutantFolder}/${pollutantFileName}_month${month}_bounds.geojson`;
+    
+    console.log(`📅 Loading predicted layer for ${year}-${month} ${pollutant}:`, pngPath);
+    
+    // Load the new predicted layer
+    await loadPNGRasterLayer(pngPath, boundsPath, 'predicted-raster-source', 'predicted-raster-layer');
+}
+
+// Legacy function for backward compatibility
+async function loadCompositeLayer(year, month) {
+    loadPredictedLayer(year, month, currentPollutant);
 }
 
 // Load PNG Raster layer with bounds JSON (recommended method)
