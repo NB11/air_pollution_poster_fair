@@ -836,6 +836,33 @@ function loadAuthorsContent() {
         .catch(err => console.error('Failed to load authors content:', err));
 }
 
+// Enable collapse/expand for the desktop explanation widget
+function initExplanationCollapse() {
+    const widget = document.querySelector('.explanation-widget');
+    const btn = document.getElementById('explanation-collapse');
+    const collapsedButtons = document.querySelectorAll('.collapsed-title-btn');
+    if (!widget || !btn) return;
+    btn.addEventListener('click', () => {
+        widget.classList.toggle('collapsed');
+        btn.textContent = widget.classList.contains('collapsed') ? '›' : '‹';
+    });
+
+    // Clicking a collapsed title should expand and jump to that slide
+    collapsedButtons.forEach((cbtn) => {
+        cbtn.addEventListener('click', () => {
+            const slideIdx = parseInt(cbtn.getAttribute('data-slide'), 10);
+            // expand
+            widget.classList.remove('collapsed');
+            btn.textContent = '‹';
+            // trigger desktop indicator click if exists
+            const indicators = document.querySelectorAll('.indicator');
+            if (indicators && indicators[slideIdx]) {
+                indicators[slideIdx].click();
+            }
+        });
+    });
+}
+
 // Load predicted layer - preloads all months then shows selected
 async function loadPredictedLayer(year, month, pollutant, sliderLabelState = {}) {
     currentCompositeYear = year;
@@ -1277,10 +1304,7 @@ function setupEventHandlers() {
     });
     
     
-    // References button - opens info popup
-    document.getElementById('references-btn').addEventListener('click', () => {
-        showInfoPopup();
-    });
+    // References button removed
     
     // Close popup handlers
     const popup = document.getElementById('image-popup');
@@ -1810,10 +1834,12 @@ if (document.readyState === 'loading') {
         initMap();
         initMobileToggle();
         loadAuthorsContent();
+        initExplanationCollapse();
     });
 } else {
     initMap();
     initMobileToggle();
     loadAuthorsContent();
+    initExplanationCollapse();
 }
 

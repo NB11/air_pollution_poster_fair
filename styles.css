@@ -57,13 +57,19 @@ body {
 }
 
 .title-widget {
-    top: 20px;
-    left: 20px;
     background: #000000;
     color: white;
     padding: 1rem 1.5rem;
-    width: 280px;
-    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.inline-title {
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    border-radius: 0;
 }
 
 .title-widget h1 {
@@ -90,17 +96,120 @@ body {
 }
 
 .explanation-widget {
-    top: 160px;
+    top: 20px;
     left: 20px;
     width: 280px;
-    height: calc(100vh - 250px);
+    min-width: 220px;
+    max-width: 500px;
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
     position: absolute;
-    overflow: hidden;
+    overflow: auto;
+    resize: horizontal;
     background: #000000;
     color: white;
     padding: 0;
     display: flex;
     flex-direction: column;
+}
+
+.explanation-widget .collapse-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* Hide collapse button when collapsed */
+.explanation-widget.collapsed .collapse-btn {
+    display: none;
+}
+
+.explanation-widget.collapsed {
+    width: 57px;          /* match slider height */
+    min-width: 57px;
+    max-width: 57px;
+    padding: 6px 6px 6px 10px;
+    overflow: hidden;
+    resize: none;
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+}
+
+.explanation-widget.collapsed .explanation-carousel {
+    display: none;
+}
+
+.collapsed-titles {
+    display: none;
+    height: auto;
+    overflow: hidden;
+}
+
+.explanation-widget.collapsed .collapsed-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 0;
+    overflow: hidden; /* prevent scrollbar */
+}
+
+.collapsed-title-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    width: auto;
+}
+
+.collapsed-title-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.collapsed-banner {
+    display: none;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    padding: 8px 10px;
+    margin-top: 12px;
+    text-align: center;
+    white-space: nowrap;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    cursor: default;
+    pointer-events: none;
+}
+
+.explanation-widget.collapsed .collapsed-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.explanation-widget.collapsed .inline-title {
+    display: none;
 }
 
 .explanation-carousel {
@@ -241,17 +350,18 @@ body {
 
 /* Year/Month Slider Widget */
 .time-selector-widget {
-    top: 20px;
-    left: 315px;
+    position: fixed;
+    left: 20px;
     right: 20px;
+    bottom: 10px;
     width: auto;
     padding: 0.75rem 1rem;
     background: #000000;
     color: white;
-    position: absolute;
     display: flex;
     align-items: center;
     line-height: 1.5;
+    z-index: 1500;
 }
 
 .time-selector-content {

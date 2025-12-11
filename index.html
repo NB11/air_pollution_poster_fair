@@ -18,14 +18,25 @@
         <div class="map-container">
             <div id="map-view"></div>
             
-            <!-- Floating Title Widget -->
-            <div class="floating-widget title-widget">
-                <h1>Air Pollution Estimation</h1>
-                <p class="subtitle">Interactive Map</p>
-            </div>
-            
             <!-- Floating Explanation Widget -->
             <div class="floating-widget explanation-widget">
+                <button class="collapse-btn" id="explanation-collapse" aria-label="Collapse info panel">‹</button>
+                <div class="collapsed-banner">
+                    <span>Air Pollution Estimation</span>
+                </div>
+                <!-- Collapsed titles (visible when panel is collapsed) -->
+                <div class="collapsed-titles">
+                    <button class="collapsed-title-btn" data-slide="0">Introduction</button>
+                    <button class="collapsed-title-btn" data-slide="1">Data Collection</button>
+                    <button class="collapsed-title-btn" data-slide="2">Data set</button>
+                    <button class="collapsed-title-btn" data-slide="3">Model</button>
+                    <button class="collapsed-title-btn" data-slide="4">Results</button>
+                    <button class="collapsed-title-btn" data-slide="5">Acknowledgements</button>
+                </div>
+                <div class="title-widget inline-title">
+                    <h1>Air Pollution Estimation</h1>
+                    <p class="subtitle">Interactive Map</p>
+                </div>
                 <div class="explanation-carousel">
                     <div class="carousel-container">
                         <div class="carousel-slide active">
@@ -114,10 +125,6 @@
                 </div>
             </div>
             
-            <!-- Floating Acknowledgements Button -->
-            <div class="floating-widget references-widget">
-                <button id="references-btn" class="references-btn">Acknowledgements &amp; Authors</button>
-            </div>
             
             <!-- Mobile Toggle Button -->
             <button id="mobile-toggle" class="mobile-toggle-btn">
@@ -137,10 +144,6 @@
                                 <p>Source code and documentation available on GitHub:</p>
                                 <a href="https://github.com/yourusername/air-pollution-estimation" target="_blank" rel="noopener noreferrer" class="info-link">github.com/yourusername/air-pollution-estimation</a>
                             </div>
-                        </div>
-                        <div class="info-section">
-                            <h3 class="info-section-title">Acknowledgements &amp; Authors</h3>
-                            <div id="references-content" class="info-section-content"></div>
                         </div>
                         <div class="info-section">
                             <h3 class="info-section-title">Additional Information</h3>
