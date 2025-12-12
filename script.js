@@ -1466,29 +1466,111 @@ function initMobileInfoCarousel() {
     
     let currentSlide = 0;
     const totalSlides = slides.length;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    let isDragging = false;
+    let isHorizontalSwipe = null;
     
-    // Horizontal swiping disabled - only vertical scrolling allowed
-    // Indicator click events are the only way to navigate between slides
+    // Touch events on the entire content area for better swipe detection
+    // Only handle horizontal swipes, allow vertical scrolling
+    content.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchEndX = touchStartX;
+        touchEndY = touchStartY;
+        isDragging = true;
+        isHorizontalSwipe = null;
+    }, { passive: true });
+    
+    content.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+        
+        // Determine if this is a horizontal or vertical swipe
+        if (isHorizontalSwipe === null) {
+            const diffX = Math.abs(touchEndX - touchStartX);
+            const diffY = Math.abs(touchEndY - touchStartY);
+            if (diffX > 10 || diffY > 10) {
+                isHorizontalSwipe = diffX > diffY;
+                // If it's a horizontal swipe, prevent default to stop page scrolling
+                if (isHorizontalSwipe) {
+                    e.preventDefault();
+                }
+            }
+        } else if (isHorizontalSwipe) {
+            // If we've determined it's horizontal, prevent default scrolling
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    content.addEventListener('touchend', (e) => {
+        if (isDragging && isHorizontalSwipe) {
+            handleSwipe();
+        }
+        isDragging = false;
+        isHorizontalSwipe = null;
+    });
+    
+    // Indicator click events
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             goToSlide(index);
         });
     });
     
-    function goToSlide(index) {
-        if (index < 0 || index >= totalSlides) return;
+    function handleSwipe() {
+        const swipeThreshold = 40;
+        const diff = touchStartX - touchEndX;
         
-        currentSlide = index;
-        updateCarousel();
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                nextSlide('left');
+            } else {
+                // Swipe right - previous slide
+                prevSlide('right');
+            }
+        }
     }
     
-    function updateCarousel() {
-        // Update slides
+    function goToSlide(index, direction = null) {
+        if (index < 0 || index >= totalSlides) return;
+        
+        const oldSlide = currentSlide;
+        currentSlide = index;
+        updateCarousel(direction || (index > oldSlide ? 'left' : 'right'));
+    }
+    
+    function nextSlide(direction = 'left') {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel(direction);
+    }
+    
+    function prevSlide(direction = 'right') {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel(direction);
+    }
+    
+    function updateCarousel(direction = null) {
+        // Update slides with animation
         slides.forEach((slide, index) => {
             slide.classList.remove('active', 'slide-left', 'slide-right');
             
             if (index === currentSlide) {
                 slide.classList.add('active');
+                if (direction) {
+                    slide.classList.add(direction === 'left' ? 'slide-from-right' : 'slide-from-left');
+                    // Remove animation class after animation completes
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            slide.classList.remove('slide-from-right', 'slide-from-left');
+                        });
+                    });
+                }
             }
         });
         
@@ -1658,6 +1740,9 @@ function switchBaseMap(layerType) {
 // Explanation Carousel functionality
 let currentSlide = 0;
 let totalSlides = 5; // Introduction, Data Collection, Model, Results, Authors
+let touchStartX = 0;
+let touchEndX = 0;
+let isDragging = false;
 
 function initExplanationCarousel() {
     const carousel = document.querySelector('.explanation-carousel');
@@ -1668,18 +1753,97 @@ function initExplanationCarousel() {
     // Update totalSlides based on actual number of slides
     totalSlides = slides.length;
     
-    // Horizontal swiping disabled - only vertical scrolling allowed
-    // Indicator click events are the only way to navigate between slides
+    // Touch events for mobile - allow swiping between slides
+    container.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        isDragging = true;
+    }, { passive: true });
+    
+    container.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            touchEndX = e.touches[0].clientX;
+        }
+    }, { passive: true });
+    
+    container.addEventListener('touchend', (e) => {
+        if (isDragging) {
+            handleSwipe();
+            isDragging = false;
+        }
+    });
+    
+    // Mouse events for desktop - allow dragging between slides
+    let mouseStartX = 0;
+    let mouseEndX = 0;
+    
+    container.addEventListener('mousedown', (e) => {
+        mouseStartX = e.clientX;
+        isDragging = true;
+        container.style.cursor = 'grabbing';
+        e.preventDefault(); // Prevent text selection
+    });
+    
+    container.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            mouseEndX = e.clientX;
+        }
+    });
+    
+    container.addEventListener('mouseup', (e) => {
+        if (isDragging) {
+            touchStartX = mouseStartX;
+            touchEndX = mouseEndX;
+            handleSwipe();
+            isDragging = false;
+            container.style.cursor = 'grab';
+        }
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            isDragging = false;
+            container.style.cursor = 'grab';
+        }
+    });
+    
+    container.style.cursor = 'grab';
+    
+    // Indicator click events
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             goToSlide(index);
         });
     });
     
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next slide
+                nextSlide();
+            } else {
+                // Swipe right - previous slide
+                prevSlide();
+            }
+        }
+    }
+    
     function goToSlide(index) {
         if (index < 0 || index >= totalSlides) return;
         
         currentSlide = index;
+        updateCarousel();
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         updateCarousel();
     }
     
