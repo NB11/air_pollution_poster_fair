@@ -240,7 +240,7 @@ body {
     display: flex;
     overflow: hidden;
     position: relative;
-    touch-action: pan-y; /* Only allow vertical panning, no horizontal */
+    touch-action: pan-y;
     min-height: 0;
 }
 
@@ -1502,9 +1502,8 @@ select:focus {
         flex: 1;
         min-height: 0; /* Allow shrinking */
         overflow-y: auto;
-        overflow-x: hidden; /* Prevent horizontal scrolling */
         -webkit-overflow-scrolling: touch;
-        touch-action: pan-y; /* Only allow vertical panning, no horizontal */
+        touch-action: pan-y pinch-zoom;
         /* Hide scrollbar but keep scrolling */
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
