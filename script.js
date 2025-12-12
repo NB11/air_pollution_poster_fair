@@ -827,13 +827,44 @@ function loadAuthorsContent() {
         .then(resp => resp.text())
         .then(html => {
             const desktop = document.getElementById('authors-slide');
-            const popup = document.getElementById('references-content');
             const mobile = document.getElementById('authors-mobile');
             if (desktop) desktop.innerHTML = html;
-            if (popup) popup.innerHTML = html;
             if (mobile) mobile.innerHTML = html;
         })
         .catch(err => console.error('Failed to load authors content:', err));
+}
+
+// Load per-slide HTML snippets into desktop and mobile carousels
+function loadSlideHTML() {
+    const sections = [
+        { path: 'texts/introduction.html', targets: ['slide-introduction', 'mobile-slide-introduction'] },
+        { path: 'texts/data-collection.html', targets: ['slide-data-collection', 'mobile-slide-data-collection'] },
+        { path: 'texts/model.html', targets: ['slide-model', 'mobile-slide-model'] },
+        { path: 'texts/results.html', targets: ['slide-results', 'mobile-slide-results'] }
+    ];
+
+    sections.forEach(section => {
+        fetch(section.path)
+            .then(resp => resp.text())
+            .then(html => {
+                section.targets.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = html;
+                });
+            })
+            .catch(err => console.error(`Failed to load ${section.path}:`, err));
+    });
+}
+
+// Load references content into the info popup
+function loadReferencesContent() {
+    fetch('texts/references.html')
+        .then(resp => resp.text())
+        .then(html => {
+            const container = document.getElementById('references-content');
+            if (container) container.innerHTML = html;
+        })
+        .catch(err => console.error('Failed to load references content:', err));
 }
 
 // Enable collapse/expand for the desktop explanation widget
@@ -1700,7 +1731,7 @@ function switchBaseMap(layerType) {
 
 // Explanation Carousel functionality
 let currentSlide = 0;
-let totalSlides = 6; // Updated to 6 to include Acknowledgements slide
+let totalSlides = 5; // Introduction, Data Collection, Model, Results, Authors
 let touchStartX = 0;
 let touchEndX = 0;
 let isDragging = false;
@@ -1837,12 +1868,16 @@ if (document.readyState === 'loading') {
         initMap();
         initMobileToggle();
         loadAuthorsContent();
+        loadSlideHTML();
+        loadReferencesContent();
         initExplanationCollapse();
     });
 } else {
     initMap();
     initMobileToggle();
     loadAuthorsContent();
+    loadSlideHTML();
+    loadReferencesContent();
     initExplanationCollapse();
 }
 

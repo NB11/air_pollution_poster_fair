@@ -5,4 +5,10 @@
     <li>Simultaneous Prediction: A static multi-head regression block maps the shared representation to the five target concentrations
 </ul>
 
+<ul>
+    <li><strong>Normalization:</strong> Imagery bands percentile-clipped [1–99%] and scaled to [0,1]; Meteorology z-scored & labels log-transformed and z-scored.</li>
+    <li><strong>Stage 1 — Backbone Pretraining:</strong> Train all components (ResNet50, S5P-CNN, Meteo-MLP) on a balanced dataset augmented with synthetic rural stations (countering urban station bias for better global generalization).</li>
+    <li><strong>Stage 2 — Head Fine-tuning:</strong> Freeze backbones; train only pollutant-specific heads on real-world data. Masked loss enables learning from partial labels (backpropagate only when target available).</li>
+</ul>
+
 <img src="images/full_model.png" alt="Full Model Architecture" class="slide-image">

@@ -28,10 +28,9 @@
                 <div class="collapsed-titles">
                     <button class="collapsed-title-btn" data-slide="0">Introduction</button>
                     <button class="collapsed-title-btn" data-slide="1">Data Collection</button>
-                    <button class="collapsed-title-btn" data-slide="2">Data set</button>
-                    <button class="collapsed-title-btn" data-slide="3">Model</button>
-                    <button class="collapsed-title-btn" data-slide="4">Results</button>
-                    <button class="collapsed-title-btn" data-slide="5">Authors</button>
+                    <button class="collapsed-title-btn" data-slide="2">Model</button>
+                    <button class="collapsed-title-btn" data-slide="3">Results</button>
+                    <button class="collapsed-title-btn" data-slide="4">Authors</button>
                 </div>
                 <div class="title-widget inline-title">
                     <h1>Air Pollution Estimation</h1>
@@ -41,44 +40,77 @@
                         <div class="carousel-slide active">
                             <div class="slide-content">
                                 <h2 class="slide-title">Introduction</h2>
-                                <ul>
-                                    <li>Building upon the NO₂ prediction model of Scheibenreif et al. (2022), this project introduces a deep learning framework for jointly estimating multiple pollutants (NO₂, SO₂, O₃, PM₁₀).</li>
-                                    <li>By fusing low-resolution Sentinel-5P data with Sentinel-2 imagery and meteorological inputs, we aim to achieve a spatial resolution of 10 m with monthly temporal granularity.</li>
-                                </ul>
-                                <img src="images/simple_overview.png" alt="Model Overview" class="slide-image">
+                                <div id="slide-introduction"></div>
                             </div>
                         </div>
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <h2 class="slide-title">Data Collection</h2>
-                                <ul>
-                                    <li><strong>Ground Truth:</strong> 27 million daily aggregated pollutant concentrations were averaged for NO₂, SO₂, O₃, PM₁₀ for ~12'000 stations globally from 2018-2025</li>
-                                    <li><strong>Meteorological:</strong> To account for atmospheric dispersion and seasonal effects, monthly meteorological data (e.g., wind speed, temperature) from the ERA5 dataset were integrated to the ground truths</li>
-                                    <li><strong>Sentinel-2:</strong> One multispectral imagery (12 bands) from the best (least clouds) Sentinel-2 L2A image was acquired for every station per month.</li>
-                                    <li><strong>Sentinel-5P:</strong> Daily swaths of Level-3 TROPOMI products for NO₂, SO₂, O₃, were aggregated into monthly medians</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="slide-content">
-                                <h2 class="slide-title">Data set</h2>
-                                <p>Page 3 content goes here. Add your third explanation or information section.</p>
+                                <div id="slide-data-collection"></div>
                             </div>
                         </div>
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <h2 class="slide-title">Model</h2>
-                                <ul>
-                                    <li>Multi-Task Framework: A supervised regression framework to jointly estimate all targets, leveraging physical correlations between pollutants.</li>
-                                    <li>Simultaneous Prediction: A static multi-head regression block maps the shared representation to the five target concentrations.</li>
-                                </ul>
-                                <img src="images/full_model.png" alt="Full Model Architecture" class="slide-image">
+                                <div id="slide-model"></div>
                             </div>
                         </div>
                         <div class="carousel-slide">
                             <div class="slide-content">
                                 <h2 class="slide-title">Results</h2>
-                                <p>Page 5 content goes here. Add your fifth explanation or information section.</p>
+                                <div id="slide-results">
+                                    <p>The multi-pollutant architecture achieved results comparable to those of Scheibenreil et al. for NO₂ ($R^2$=0.50) and good values for O₃ ($R^2$=0.51).</p>
+                                    <p>PM₁₀ prediction proved feasible ($R^2$=0.29) by exploiting visual features (e.g., construction sites), whereas PM₂.₅ performance was limited ($R^2$=0.16), likely due to the backbone abstracting away necessary short-wavelength spectral interactions.</p>
+                                    <p>Finally, the model failed to generalize for SO₂ ($R^2$&lt;0) due to the extreme sparsity of emission sources.</p>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Pollutant</th>
+                                                <th>MAE</th>
+                                                <th>MSE</th>
+                                                <th>MBE</th>
+                                                <th>$R^2$</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>NO₂</strong></td>
+                                                <td>5.69</td>
+                                                <td>7.9</td>
+                                                <td>-0.07</td>
+                                                <td>0.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>O₃</strong></td>
+                                                <td>8.97</td>
+                                                <td>11.6</td>
+                                                <td>-1.7</td>
+                                                <td>0.51</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>PM₁₀</strong></td>
+                                                <td>6.37</td>
+                                                <td>9.58</td>
+                                                <td>-0.78</td>
+                                                <td>0.29</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>PM₂.₅</strong></td>
+                                                <td>1.89</td>
+                                                <td>2.61</td>
+                                                <td>-0.14</td>
+                                                <td>0.16</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>SO₂</strong></td>
+                                                <td>1.14</td>
+                                                <td>1.78</td>
+                                                <td>-0.27</td>
+                                                <td>-0.17</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="carousel-slide">
@@ -94,7 +126,6 @@
                         <span class="indicator" data-slide="2"></span>
                         <span class="indicator" data-slide="3"></span>
                         <span class="indicator" data-slide="4"></span>
-                        <span class="indicator" data-slide="5"></span>
                     </div>
                 </div>
             </div>
@@ -152,6 +183,10 @@
                                 <p><strong>Contact:</strong> For questions or collaboration, please reach out via GitHub or email at your.email@example.com</p>
                             </div>
                         </div>
+                        <div class="info-section">
+                            <h3 class="info-section-title">References</h3>
+                            <div id="references-content" class="info-section-content"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -183,36 +218,71 @@
                         <div class="mobile-info-carousel-container">
                             <div class="mobile-info-slide active">
                                 <h2 class="mobile-info-slide-title">Introduction</h2>
-                                <ul>
-                                    <li>Building upon the NO₂ prediction model of Scheibenreif et al. (2022), this project introduces a deep learning framework for jointly estimating multiple pollutants (NO₂, SO₂, O₃, PM₁₀).</li>
-                                    <li>By fusing low-resolution Sentinel-5P data with Sentinel-2 imagery and meteorological inputs, we aim to achieve a spatial resolution of 10 m with monthly temporal granularity.</li>
-                                </ul>
-                                <img src="images/simple_overview.png" alt="Model Overview" class="slide-image">
+                                <div id="mobile-slide-introduction"></div>
                             </div>
                             <div class="mobile-info-slide">
                                 <h2 class="mobile-info-slide-title">Data Collection</h2>
-                                <ul>
-                                    <li><strong>Ground Truth:</strong> 27 million daily aggregated pollutant concentrations were averaged for NO₂, SO₂, O₃, PM₁₀ for ~12'000 stations globally from 2018-2025</li>
-                                    <li><strong>Meteorological:</strong> To account for atmospheric dispersion and seasonal effects, monthly meteorological data (e.g., wind speed, temperature) from the ERA5 dataset were integrated to the ground truths</li>
-                                    <li><strong>Sentinel-2:</strong> One multispectral imagery (12 bands) from the best (least clouds) Sentinel-2 L2A image was acquired for every station per month.</li>
-                                    <li><strong>Sentinel-5P:</strong> Daily swaths of Level-3 TROPOMI products for NO₂, SO₂, O₃, were aggregated into monthly medians</li>
-                                </ul>
-                            </div>
-                            <div class="mobile-info-slide">
-                                <h2 class="mobile-info-slide-title">Data set</h2>
-                                <p>Page 3 content goes here. Add your third explanation or information section.</p>
+                                <div id="mobile-slide-data-collection"></div>
                             </div>
                             <div class="mobile-info-slide">
                                 <h2 class="mobile-info-slide-title">Model</h2>
-                                <ul>
-                                    <li>Multi-Task Framework: A supervised regression framework to jointly estimate all targets, leveraging physical correlations between pollutants.</li>
-                                    <li>Simultaneous Prediction: A static multi-head regression block maps the shared representation to the five target concentrations.</li>
-                                </ul>
-                                <img src="images/full_model.png" alt="Full Model Architecture" class="slide-image">
+                                <div id="mobile-slide-model"></div>
                             </div>
                             <div class="mobile-info-slide">
                                 <h2 class="mobile-info-slide-title">Results</h2>
-                                <p>Page 5 content goes here. Add your fifth explanation or information section.</p>
+                                <div id="mobile-slide-results">
+                                    <p>The multi-pollutant architecture achieved results comparable to those of Scheibenreil et al. for NO₂ ($R^2$=0.50) and good values for O₃ ($R^2$=0.51).</p>
+                                    <p>PM₁₀ prediction proved feasible ($R^2$=0.29) by exploiting visual features (e.g., construction sites), whereas PM₂.₅ performance was limited ($R^2$=0.16), likely due to the backbone abstracting away necessary short-wavelength spectral interactions.</p>
+                                    <p>Finally, the model failed to generalize for SO₂ ($R^2$&lt;0) due to the extreme sparsity of emission sources.</p>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Pollutant</th>
+                                                <th>MAE</th>
+                                                <th>MSE</th>
+                                                <th>MBE</th>
+                                                <th>$R^2$</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>NO₂</strong></td>
+                                                <td>5.69</td>
+                                                <td>7.9</td>
+                                                <td>-0.07</td>
+                                                <td>0.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>O₃</strong></td>
+                                                <td>8.97</td>
+                                                <td>11.6</td>
+                                                <td>-1.7</td>
+                                                <td>0.51</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>PM₁₀</strong></td>
+                                                <td>6.37</td>
+                                                <td>9.58</td>
+                                                <td>-0.78</td>
+                                                <td>0.29</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>PM₂.₅</strong></td>
+                                                <td>1.89</td>
+                                                <td>2.61</td>
+                                                <td>-0.14</td>
+                                                <td>0.16</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>SO₂</strong></td>
+                                                <td>1.14</td>
+                                                <td>1.78</td>
+                                                <td>-0.27</td>
+                                                <td>-0.17</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="mobile-info-slide">
                                 <h2 class="mobile-info-slide-title">Acknowledgements &amp; Authors</h2>
@@ -228,7 +298,6 @@
                     <span class="mobile-info-indicator" data-slide="2"></span>
                     <span class="mobile-info-indicator" data-slide="3"></span>
                     <span class="mobile-info-indicator" data-slide="4"></span>
-                    <span class="mobile-info-indicator" data-slide="5"></span>
                 </div>
             </div>
             
