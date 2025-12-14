@@ -42,7 +42,8 @@ function initMap() {
     
     // Add navigation controls (will be below switcher)
     map.addControl(new maplibregl.NavigationControl(), 'top-right');
-    map.addControl(new maplibregl.ScaleControl(), 'top-right');
+    // Scale bar removed on desktop - can be re-enabled if needed
+    // map.addControl(new maplibregl.ScaleControl(), 'top-right');
 
     // Wait for map to load before adding data
     map.on('load', () => {
@@ -1652,25 +1653,24 @@ function hideFeatureInfo() {
 }
 
 // SVG icons for base map switcher
+// Better satellite icon - satellite dish
 const satelliteIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
-    <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.34 6.34l1.41 1.41M16.24 16.24l1.41 1.41M6.34 17.66l1.41-1.41M16.24 7.76l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+    <path d="M12 2L4 8L12 14L20 8L12 2Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <path d="M4 8L12 14L20 8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    <path d="M12 14L12 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="12" cy="8" r="2" fill="currentColor"/>
+    <path d="M8 6L16 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M8 10L16 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
 </svg>`;
 
+// Better OSM icon - map with grid/roads
 const osmIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-    <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-    <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-    <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-    <line x1="6.5" y1="3" x2="6.5" y2="10" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="3" y1="6.5" x2="10" y2="6.5" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="17.5" y1="3" x2="17.5" y2="10" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="14" y1="6.5" x2="21" y2="6.5" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="6.5" y1="14" x2="6.5" y2="21" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="3" y1="17.5" x2="10" y2="17.5" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="17.5" y1="14" x2="17.5" y2="21" stroke="currentColor" stroke-width="1.5"/>
-    <line x1="14" y1="17.5" x2="21" y2="17.5" stroke="currentColor" stroke-width="1.5"/>
+    <rect x="3" y="3" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" rx="1"/>
+    <path d="M3 9H21M3 15H21M9 3V21M15 3V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="9" cy="9" r="1.5" fill="currentColor"/>
+    <circle cx="15" cy="9" r="1.5" fill="currentColor"/>
+    <circle cx="9" cy="15" r="1.5" fill="currentColor"/>
+    <circle cx="15" cy="15" r="1.5" fill="currentColor"/>
 </svg>`;
 
 // Custom base map switcher control
@@ -1718,6 +1718,7 @@ function addBaseMapSwitcher() {
 // Switch base map layer
 function switchBaseMap(layerType) {
     const isSatellite = layerType === 'satellite';
+    const baseLayerId = isSatellite ? 'satellite-layer' : 'osm-tiles-layer';
     
     // Remove existing base layer
     if (map.getLayer('osm-tiles-layer')) {
@@ -1727,14 +1728,33 @@ function switchBaseMap(layerType) {
         map.removeLayer('satellite-layer');
     }
     
-    // Add new base layer
-    map.addLayer({
-        id: isSatellite ? 'satellite-layer' : 'osm-tiles-layer',
+    // Find the first predicted layer to add base layer before it (so PNGs stay on top)
+    let beforeId = null;
+    for (let m = 1; m <= 12; m++) {
+        const monthStr = String(m).padStart(2, '0');
+        const layerId = `predicted-layer-${monthStr}`;
+        if (map.getLayer(layerId)) {
+            beforeId = layerId;
+            break;
+        }
+    }
+    
+    // Add new base layer - before predicted layers if they exist, otherwise at bottom
+    const layerConfig = {
+        id: baseLayerId,
         type: 'raster',
         source: isSatellite ? 'satellite-tiles' : 'osm-tiles',
         minzoom: 0,
         maxzoom: 19
-    });
+    };
+    
+    if (beforeId) {
+        // Add before the first predicted layer so PNGs stay visible on top
+        map.addLayer(layerConfig, beforeId);
+    } else {
+        // No predicted layers, add normally
+        map.addLayer(layerConfig);
+    }
 }
 
 // Explanation Carousel functionality

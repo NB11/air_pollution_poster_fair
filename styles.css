@@ -838,13 +838,30 @@ select:focus {
 
 /* MapLibre controls styling */
 .maplibregl-ctrl-group {
-    background: white;
+    background: #000000 !important;
     border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    border: none !important;
 }
 
 .maplibregl-ctrl button {
     border-radius: var(--radius);
+    background: #000000 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.maplibregl-ctrl button:hover {
+    background: #1a1a1a !important;
+}
+
+.maplibregl-ctrl button:active {
+    background: #000000 !important;
+}
+
+/* Hide scale bar on desktop */
+.maplibregl-ctrl-scale {
+    display: none !important;
 }
 
 /* Base map switcher control */
@@ -860,12 +877,6 @@ select:focus {
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
-}
-
-/* Rotate scale bar 90 degrees (vertical orientation) */
-.maplibregl-ctrl-scale {
-    transform: rotate(90deg);
-    transform-origin: center;
 }
 
 .base-map-btn {
