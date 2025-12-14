@@ -1,13 +1,13 @@
-# Sahara Geology Interactive Map
+# Global Air Pollution Estimation
 
-An interactive web mapping application for exploring geological features of the Sahara Desert using satellite imagery and radar data.
 
-## Features
+**[View Interactive Predictions](https://nb11.github.io/air_pollution_poster_fair/)**
 
-- **Interactive Map**: Explore the Sahara Desert with satellite and OpenStreetMap base layers
-- **Geological Domains**: View geological domain classifications with reference to scientific literature
-- **Radar images**: Will maybe implemented in the future
 
-## Live Demo
 
-**[ View Interactive Map →](https://nb11.github.io/sediment_mapping/)**
+
+This web map shows deep learning-based air pollution predictions for Salt Lake City for the year 2023, created as part of a project presented at the ETH D-BAUG Poster Fair. It visualizes modeled concentrations of several pollutants at high spatial resolution, allowing users to explore how air quality varies across the city.
+
+Use the layer controls and time slider to toggle between pollutants and months. The current version displays results from an intermediate model, and the site will gradually be updated to include additional cities, pollutants, and time periods as the final model is developed.
+
+<img width="1907" height="1024" alt="image" src="https://github.com/user-attachments/assets/26f14b73-fb85-48f5-83d2-eb5f70ce98d1" />
