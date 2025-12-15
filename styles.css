@@ -415,14 +415,15 @@ body {
 .time-selector-content {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 1rem; /* Increased spacing between buttons and slider */
     width: 100%;
 }
 
 .month-slider-wrapper {
     flex: 1;
     min-width: 0;
-    margin-right: 0.3rem; /* Reduce width slightly */
+    margin-left: 0.5rem; /* Add left margin for more spacing from buttons */
+    margin-right: 0.3rem;
 }
 
 .year-selector-btn {
@@ -857,6 +858,45 @@ select:focus {
 
 .maplibregl-ctrl button:active {
     background: #000000 !important;
+}
+
+/* Style the icons inside MapLibre controls to be white */
+.maplibregl-ctrl-icon {
+    filter: brightness(0) invert(1) !important; /* Makes icons white */
+    opacity: 1 !important;
+    background-color: transparent !important;
+}
+
+/* Target icons more specifically - MapLibre uses background images for icons */
+.maplibregl-ctrl button .maplibregl-ctrl-icon {
+    filter: brightness(0) invert(1) !important;
+    opacity: 1 !important;
+}
+
+/* For buttons with background-image icons */
+.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon,
+.maplibregl-ctrl-compass .maplibregl-ctrl-icon,
+.maplibregl-ctrl-rotate .maplibregl-ctrl-icon {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Alternative: if icons are SVG, target them directly */
+.maplibregl-ctrl button svg {
+    fill: white !important;
+    stroke: white !important;
+    color: white !important;
+}
+
+/* Ensure all MapLibre control buttons are black */
+.maplibregl-ctrl-group button {
+    background: #000000 !important;
+    background-color: #000000 !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+    background: #1a1a1a !important;
+    background-color: #1a1a1a !important;
 }
 
 /* Hide scale bar on desktop */
