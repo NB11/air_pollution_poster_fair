@@ -1,7 +1,7 @@
 # Global Air Pollution Estimation
 
 
-**[View Interactive Predictions](https://nb11.github.io/air_pollution_poster_fair/)**
+[![View Interactive Predictions](https://img.shields.io/badge/View_Interactive_Predictions-Click_here-blue?style=for-the-badge&logo=github&logoColor=white)](https://nb11.github.io/air_pollution_poster_fair/)
 
 
 
