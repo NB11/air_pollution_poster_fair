@@ -35,97 +35,172 @@
                 <div class="title-widget inline-title">
                     <h1>Air Pollution Estimation</h1>
                 </div>
-                <div class="explanation-carousel">
-                    <div class="carousel-container">
-                        <div class="carousel-slide active">
-                            <div class="slide-content">
-                                <h2 class="slide-title">Introduction</h2>
-                                <div id="slide-introduction"></div>
-                            </div>
+                <!-- Folder-like Tab Structure -->
+                <div class="desktop-folder-container">
+                    <div class="desktop-folder-tabs">
+                        <!-- Collapsed Title (shown when widget is collapsed) -->
+                        <div class="collapsed-title-vertical">
+                            <h1>Air Pollution Estimation</h1>
                         </div>
-                        <div class="carousel-slide">
-                            <div class="slide-content">
-                                <h2 class="slide-title">Data Collection</h2>
-                                <div id="slide-data-collection"></div>
+                        <button class="desktop-folder-tab active" data-tab="info" data-slide="0">
+                            <div>
+                                <span>Introduction</span>
                             </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="slide-content">
-                                <h2 class="slide-title">Model</h2>
-                                <div id="slide-model"></div>
+                        </button>
+                        <button class="desktop-folder-tab" data-tab="info" data-slide="1">
+                            <div>
+                                <span>Data Collection</span>
                             </div>
-                        </div>
-                        <div class="carousel-slide">
-                            <div class="slide-content">
-                                <h2 class="slide-title">Results</h2>
-                                <div id="slide-results">
-                                    <p>The multi-pollutant architecture achieved results comparable to those of Scheibenreil et al. for NO₂ ($R^2$=0.50) and good values for O₃ ($R^2$=0.51).</p>
-                                    <p>PM₁₀ prediction proved feasible ($R^2$=0.29) by exploiting visual features (e.g., construction sites), whereas PM₂.₅ performance was limited ($R^2$=0.16), likely due to the backbone abstracting away necessary short-wavelength spectral interactions.</p>
-                                    <p>Finally, the model failed to generalize for SO₂ ($R^2$&lt;0) due to the extreme sparsity of emission sources.</p>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Pollutant</th>
-                                                <th>MAE</th>
-                                                <th>MSE</th>
-                                                <th>MBE</th>
-                                                <th>$R^2$</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>NO₂</strong></td>
-                                                <td>5.69</td>
-                                                <td>7.9</td>
-                                                <td>-0.07</td>
-                                                <td>0.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>O₃</strong></td>
-                                                <td>8.97</td>
-                                                <td>11.6</td>
-                                                <td>-1.7</td>
-                                                <td>0.51</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>PM₁₀</strong></td>
-                                                <td>6.37</td>
-                                                <td>9.58</td>
-                                                <td>-0.78</td>
-                                                <td>0.29</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>PM₂.₅</strong></td>
-                                                <td>1.89</td>
-                                                <td>2.61</td>
-                                                <td>-0.14</td>
-                                                <td>0.16</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>SO₂</strong></td>
-                                                <td>1.14</td>
-                                                <td>1.78</td>
-                                                <td>-0.27</td>
-                                                <td>-0.17</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        </button>
+                        <button class="desktop-folder-tab" data-tab="info" data-slide="2">
+                            <div>
+                                <span>Model</span>
+                            </div>
+                        </button>
+                        <button class="desktop-folder-tab" data-tab="info" data-slide="3">
+                            <div>
+                                <span>Results</span>
+                            </div>
+                        </button>
+                        <button class="desktop-folder-tab" data-tab="info" data-slide="4">
+                            <div>
+                                <span>Authors</span>
+                            </div>
+                        </button>
+                        <button class="desktop-folder-tab" data-tab="controls">
+                            <div>
+                                <span>Map Controls</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="desktop-folder-content">
+                        <!-- Info Panel (explanation carousel) -->
+                        <div class="desktop-panel desktop-info-panel active" id="desktop-info-panel">
+                            <div class="explanation-carousel">
+                                <div class="carousel-container">
+                                    <div class="carousel-slide active">
+                                        <div class="slide-content">
+                                            <h2 class="slide-title">Introduction</h2>
+                                            <div id="slide-introduction"></div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="slide-content">
+                                            <h2 class="slide-title">Data Collection</h2>
+                                            <div id="slide-data-collection"></div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="slide-content">
+                                            <h2 class="slide-title">Model</h2>
+                                            <div id="slide-model"></div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="slide-content">
+                                            <h2 class="slide-title">Results</h2>
+                                            <div id="slide-results">
+                                                <p>The multi-pollutant architecture achieved results comparable to those of Scheibenreil et al. for NO₂ ($R^2$=0.50) and good values for O₃ ($R^2$=0.51).</p>
+                                                <p>PM₁₀ prediction proved feasible ($R^2$=0.29) by exploiting visual features (e.g., construction sites), whereas PM₂.₅ performance was limited ($R^2$=0.16), likely due to the backbone abstracting away necessary short-wavelength spectral interactions.</p>
+                                                <p>Finally, the model failed to generalize for SO₂ ($R^2$&lt;0) due to the extreme sparsity of emission sources.</p>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Pollutant</th>
+                                                            <th>MAE</th>
+                                                            <th>MSE</th>
+                                                            <th>MBE</th>
+                                                            <th>$R^2$</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><strong>NO₂</strong></td>
+                                                            <td>5.69</td>
+                                                            <td>7.9</td>
+                                                            <td>-0.07</td>
+                                                            <td>0.5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>O₃</strong></td>
+                                                            <td>8.97</td>
+                                                            <td>11.6</td>
+                                                            <td>-1.7</td>
+                                                            <td>0.51</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>PM₁₀</strong></td>
+                                                            <td>6.37</td>
+                                                            <td>9.58</td>
+                                                            <td>-0.78</td>
+                                                            <td>0.29</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>PM₂.₅</strong></td>
+                                                            <td>1.89</td>
+                                                            <td>2.61</td>
+                                                            <td>-0.14</td>
+                                                            <td>0.16</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>SO₂</strong></td>
+                                                            <td>1.14</td>
+                                                            <td>1.78</td>
+                                                            <td>-0.27</td>
+                                                            <td>-0.17</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="slide-content">
+                                        <h2 class="slide-title">Acknowledgements &amp; Authors</h2>
+                                            <div id="authors-slide"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-indicators">
+                                    <span class="indicator active" data-slide="0"></span>
+                                    <span class="indicator" data-slide="1"></span>
+                                    <span class="indicator" data-slide="2"></span>
+                                    <span class="indicator" data-slide="3"></span>
+                                    <span class="indicator" data-slide="4"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-slide">
-                            <div class="slide-content">
-                            <h2 class="slide-title">Acknowledgements &amp; Authors</h2>
-                                <div id="authors-slide"></div>
+                        <!-- Controls Panel -->
+                        <div class="desktop-panel desktop-controls-panel" id="desktop-controls-panel">
+                            <div class="desktop-controls-content">
+                                <h2 class="slide-title">Map Controls</h2>
+                                <div class="desktop-controls-section">
+                                    <div class="desktop-location-selector">
+                                        <p class="location-label">Select Location:</p>
+                                        <div class="desktop-location-buttons">
+                                            <button class="desktop-location-btn active" data-location="salt-lake-city" data-center="[-111.85, 40.62]" data-zoom="10">
+                                                Salt Lake City
+                                            </button>
+                                            <button class="desktop-location-btn" data-location="los-angeles" data-center="[-118.24, 34.05]" data-zoom="10">
+                                                Los Angeles
+                                            </button>
+                                            <button class="desktop-location-btn" data-location="cook" data-center="[-87.68, 41.84]" data-zoom="10">
+                                                Cook
+                                            </button>
+                                            <button class="desktop-location-btn" data-location="harris" data-center="[-95.36, 29.76]" data-zoom="10">
+                                                Harris
+                                            </button>
+                                            <button class="desktop-location-btn" data-location="maricopa" data-center="[-112.07, 33.45]" data-zoom="10">
+                                                Maricopa
+                                            </button>
+                                            <button class="desktop-location-btn" data-location="san-diego" data-center="[-117.16, 32.72]" data-zoom="10">
+                                                San Diego
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-indicators">
-                        <span class="indicator active" data-slide="0"></span>
-                        <span class="indicator" data-slide="1"></span>
-                        <span class="indicator" data-slide="2"></span>
-                        <span class="indicator" data-slide="3"></span>
-                        <span class="indicator" data-slide="4"></span>
                     </div>
                 </div>
             </div>

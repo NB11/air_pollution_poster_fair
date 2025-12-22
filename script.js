@@ -54,6 +54,9 @@ function initMap() {
         // Initialize mobile tab switcher
         initMobileTabSwitcher();
         initMobileInfoCarousel();
+        // Initialize desktop tab switcher and location selector
+        initDesktopTabSwitcher();
+        initDesktopLocationSelector();
         // Optional: Load small tile (comment out if not needed)
         // loadPNGRasterLayer('map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0.png', 
         //                   'map/s2/SALT_LAKE_CITY_2023_large_2023_01_S2_tile_x0_y0_bounds.json');
@@ -1453,6 +1456,165 @@ function initMobileTabSwitcher() {
     });
 }
 
+// Desktop Tab Switcher Functionality (Folder-like tabs)
+function initDesktopTabSwitcher() {
+    const widget = document.querySelector('.explanation-widget');
+    const tabs = document.querySelectorAll('.desktop-folder-tab');
+    const infoPanel = document.getElementById('desktop-info-panel');
+    const controlsPanel = document.getElementById('desktop-controls-panel');
+    const collapseBtn = document.getElementById('explanation-collapse');
+    
+    if (!widget || !tabs.length) return;
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const tabName = tab.getAttribute('data-tab');
+            const slideIndex = tab.getAttribute('data-slide');
+            
+            // If widget is collapsed, expand it
+            if (widget.classList.contains('collapsed')) {
+                widget.classList.remove('collapsed');
+                if (collapseBtn) {
+                    collapseBtn.textContent = '‹';
+                }
+            }
+            
+            // Update active state
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Toggle panels and navigate to slide if it's an info tab
+            if (tabName === 'info' && slideIndex !== null) {
+                if (infoPanel) {
+                    infoPanel.classList.add('active');
+                }
+                if (controlsPanel) {
+                    controlsPanel.classList.remove('active');
+                }
+                widget.classList.remove('controls-active');
+                
+                // Navigate to the specific slide
+                const slideIdx = parseInt(slideIndex, 10);
+                const container = document.querySelector('.carousel-container');
+                const slides = document.querySelectorAll('.carousel-slide');
+                
+                if (container && slides[slideIdx]) {
+                    // Desktop: scroll to top of slide
+                    if (window.innerWidth >= 769) {
+                        // Small delay to ensure panel is visible
+                        setTimeout(() => {
+                            const slide = slides[slideIdx];
+                            if (slide) {
+                                const slideTop = slide.offsetTop;
+                                container.scrollTo({
+                                    top: slideTop,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }, 50);
+                    } else {
+                        // Mobile: use indicators
+                        const indicators = document.querySelectorAll('.indicator');
+                        if (indicators && indicators[slideIdx]) {
+                            indicators[slideIdx].click();
+                        }
+                    }
+                }
+            } else if (tabName === 'controls') {
+                if (infoPanel) {
+                    infoPanel.classList.remove('active');
+                }
+                if (controlsPanel) {
+                    controlsPanel.classList.add('active');
+                }
+                widget.classList.add('controls-active');
+            }
+        });
+    });
+    
+    // Update active tab when carousel slide changes
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            // Find the corresponding tab and make it active
+            const infoTabs = document.querySelectorAll('.desktop-folder-tab[data-tab="info"]');
+            if (infoTabs[index]) {
+                tabs.forEach(t => t.classList.remove('active'));
+                infoTabs[index].classList.add('active');
+            }
+        });
+    });
+}
+
+// Location selection functionality
+function initDesktopLocationSelector() {
+    const locationButtons = document.querySelectorAll('.desktop-location-btn');
+    
+    if (!locationButtons.length || !map) return;
+    
+    locationButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const location = button.getAttribute('data-location');
+            const centerStr = button.getAttribute('data-center');
+            const zoomStr = button.getAttribute('data-zoom');
+            
+            if (!centerStr || !zoomStr) return;
+            
+            // Parse center coordinates
+            const center = JSON.parse(centerStr);
+            const zoom = parseFloat(zoomStr);
+            
+            // Update active button
+            locationButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Transition map to new location
+            transitionMapToLocation(center, zoom);
+        });
+    });
+}
+
+// Transition map with zoom out effect
+function transitionMapToLocation(center, zoom) {
+    if (!map) return;
+    
+    const currentZoom = map.getZoom();
+    const targetZoom = zoom;
+    
+    // First, zoom out to a lower zoom level
+    const intermediateZoom = Math.min(currentZoom, targetZoom) - 2;
+    const finalZoom = targetZoom;
+    
+    // Animate: zoom out, then pan and zoom in
+    map.easeTo({
+        center: center,
+        zoom: intermediateZoom,
+        duration: 800,
+        easing: (t) => {
+            // Ease out function for smooth transition
+            return 1 - Math.pow(1 - t, 3);
+        }
+    });
+    
+    // After zooming out, transition to final position
+    setTimeout(() => {
+        map.easeTo({
+            center: center,
+            zoom: finalZoom,
+            duration: 1000,
+            easing: (t) => {
+                // Ease in-out function
+                return t < 0.5 
+                    ? 2 * t * t 
+                    : 1 - Math.pow(-2 * t + 2, 2) / 2;
+            }
+        });
+    }, 400);
+}
+
 // Mobile Info Carousel functionality
 function initMobileInfoCarousel() {
     const infoPanel = document.getElementById('mobile-info-panel');
@@ -1773,122 +1935,234 @@ function initExplanationCarousel() {
     // Update totalSlides based on actual number of slides
     totalSlides = slides.length;
     
-    // Touch events for mobile - allow swiping between slides
-    container.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        isDragging = true;
-    }, { passive: true });
+    // Check if desktop or mobile
+    const isDesktop = window.innerWidth >= 769;
     
-    container.addEventListener('touchmove', (e) => {
-        if (isDragging) {
-            touchEndX = e.touches[0].clientX;
-        }
-    }, { passive: true });
-    
-    container.addEventListener('touchend', (e) => {
-        if (isDragging) {
-            handleSwipe();
-            isDragging = false;
-        }
-    });
-    
-    // Mouse events for desktop - allow dragging between slides
-    let mouseStartX = 0;
-    let mouseEndX = 0;
-    
-    container.addEventListener('mousedown', (e) => {
-        mouseStartX = e.clientX;
-        isDragging = true;
-        container.style.cursor = 'grabbing';
-        e.preventDefault(); // Prevent text selection
-    });
-    
-    container.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            mouseEndX = e.clientX;
-        }
-    });
-    
-    container.addEventListener('mouseup', (e) => {
-        if (isDragging) {
-            touchStartX = mouseStartX;
-            touchEndX = mouseEndX;
-            handleSwipe();
-            isDragging = false;
-            container.style.cursor = 'grab';
-        }
-    });
-    
-    container.addEventListener('mouseleave', () => {
-        if (isDragging) {
-            isDragging = false;
-            container.style.cursor = 'grab';
-        }
-    });
-    
-    container.style.cursor = 'grab';
-    
-    // Indicator click events
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            goToSlide(index);
-        });
-    });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
+    if (isDesktop) {
+        // Desktop: Vertical scrolling with snap
+        let isScrolling = false;
+        let scrollTimeout;
         
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left - next slide
-                nextSlide();
-            } else {
-                // Swipe right - previous slide
-                prevSlide();
+        // Handle scroll events to update active slide
+        let lastScrollTop = container.scrollTop;
+        container.addEventListener('scroll', () => {
+            if (isScrolling) {
+                lastScrollTop = container.scrollTop;
+                return;
+            }
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                updateActiveSlideFromScroll();
+            }, 150);
+        }, { passive: true });
+        
+        // Update active slide based on scroll position
+        function updateActiveSlideFromScroll() {
+            const scrollTop = container.scrollTop;
+            const containerHeight = container.clientHeight;
+            const threshold = containerHeight * 0.3; // 30% of viewport height
+            
+            let activeIndex = 0;
+            
+            slides.forEach((slide, index) => {
+                const slideTop = slide.offsetTop;
+                const slideBottom = slideTop + slide.offsetHeight;
+                
+                // Check if slide is in viewport (with threshold)
+                if (scrollTop + threshold >= slideTop && scrollTop < slideBottom - threshold) {
+                    activeIndex = index;
+                }
+            });
+            
+            if (activeIndex !== currentSlide) {
+                currentSlide = activeIndex;
+                updateCarousel();
             }
         }
+        
+        // Scroll to slide when tab is clicked
+        function scrollToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
+            
+            const slide = slides[index];
+            if (slide) {
+                isScrolling = true;
+                container.scrollTo({
+                    top: slide.offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                setTimeout(() => {
+                    isScrolling = false;
+                    currentSlide = index;
+                    updateCarousel();
+                }, 500);
+            }
+        }
+        
+        // Override goToSlide for desktop
+        window.goToSlideDesktop = scrollToSlide;
+        
+        // Initial update
+        updateActiveSlideFromScroll();
+        
+    } else {
+        // Mobile: Horizontal swipe carousel
+        // Touch events for mobile - allow swiping between slides
+        container.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            isDragging = true;
+        }, { passive: true });
+        
+        container.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                touchEndX = e.touches[0].clientX;
+            }
+        }, { passive: true });
+        
+        container.addEventListener('touchend', (e) => {
+            if (isDragging) {
+                handleSwipe();
+                isDragging = false;
+            }
+        });
+        
+        // Mouse events for mobile - allow dragging between slides
+        let mouseStartX = 0;
+        let mouseEndX = 0;
+        
+        container.addEventListener('mousedown', (e) => {
+            mouseStartX = e.clientX;
+            isDragging = true;
+            container.style.cursor = 'grabbing';
+            e.preventDefault(); // Prevent text selection
+        });
+        
+        container.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                mouseEndX = e.clientX;
+            }
+        });
+        
+        container.addEventListener('mouseup', (e) => {
+            if (isDragging) {
+                touchStartX = mouseStartX;
+                touchEndX = mouseEndX;
+                handleSwipe();
+                isDragging = false;
+                container.style.cursor = 'grab';
+            }
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            }
+        });
+        
+        container.style.cursor = 'grab';
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    nextSlide();
+                } else {
+                    // Swipe right - previous slide
+                    prevSlide();
+                }
+            }
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Indicator click events (mobile only)
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
     }
     
     function goToSlide(index) {
         if (index < 0 || index >= totalSlides) return;
         
-        currentSlide = index;
-        updateCarousel();
-    }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }
-    
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
+        if (isDesktop) {
+            // Desktop: scroll to top of slide
+            const slide = slides[index];
+            if (slide) {
+                const slideTop = slide.offsetTop;
+                container.scrollTo({
+                    top: slideTop,
+                    behavior: 'smooth'
+                });
+            }
+        } else {
+            // Mobile: switch slide
+            currentSlide = index;
+            updateCarousel();
+        }
     }
     
     function updateCarousel() {
-        // Update slides
-        slides.forEach((slide, index) => {
-            if (index === currentSlide) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        });
+        // Update slides (only for mobile)
+        if (!isDesktop) {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
         
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            if (index === currentSlide) {
-                indicator.classList.add('active');
-            } else {
-                indicator.classList.remove('active');
-            }
-        });
+        // Update indicators (mobile only)
+        if (!isDesktop) {
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        
+        // Update active folder tab to match current slide
+        const infoTabs = document.querySelectorAll('.desktop-folder-tab[data-tab="info"]');
+        const allTabs = document.querySelectorAll('.desktop-folder-tab');
+        if (infoTabs[currentSlide]) {
+            allTabs.forEach(t => t.classList.remove('active'));
+            infoTabs[currentSlide].classList.add('active');
+        }
     }
     
     // Initialize
     updateCarousel();
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Reinitialize if switching between desktop/mobile
+            if ((window.innerWidth >= 769) !== isDesktop) {
+                location.reload(); // Simple solution - could be optimized
+            }
+        }, 250);
+    });
 }
 
 // Initialize map when DOM is ready
