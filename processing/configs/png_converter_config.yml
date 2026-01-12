@@ -1,0 +1,7 @@
+# PNG Converter Configuration
+# Simple configuration for GeoTIFF to PNG conversion
+
+# Boundary Clipping
+# Set to true to clip rasters to city/municipality boundaries from GeoJSON files
+# Set to false to convert without clipping
+clip_to_boundary: true

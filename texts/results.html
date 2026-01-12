@@ -1,8 +1,51 @@
-<p>The multi-pollutant architecture achieved results comparable to those of Scheibenreil et al. for NO₂ (R² = 0.50) and good values for O₃ (R² = 0.51).</p>
+<!-- Results Slide Content -->
+<!-- Edit this file and copy to index.html when updating -->
 
-<p>PM₁₀ prediction proved feasible (R² = 0.29) by exploiting visual features (e.g., construction sites), whereas PM₂.₅ performance was limited (R² = 0.16), likely due to the backbone abstracting away necessary short-wavelength spectral interactions.</p>
+<p>The global multi-pollutant model (Model C, excluding SO₂) achieved strong performance for gaseous species with direct satellite retrievals: NO₂ reached R² = 0.57 (MAE = 6.27 μg/m³), exceeding the baseline from Scheibenreif et al. (2022). O₃ demonstrated the highest accuracy with R² = 0.72 (MAE = 11.10 μg/m³), benefiting from photochemical coupling and stable atmospheric signals.</p>
 
-<p>Finally, the model failed to generalize for SO₂ (R² &lt; 0) due to the extreme sparsity of emission sources.</p>
+<p>Particulate matter predictions proved more challenging due to the absence of direct Sentinel-5P products. PM₁₀ achieved moderate performance (R² = 0.41, MAE = 11.23 μg/m³) by leveraging optical features and meteorological covariates. PM₂.₅ showed limited correlation (R² = 0.14, MAE = 7.64 μg/m³), likely constrained by the ResNet50 backbone's land-cover pretraining rather than atmospheric aerosol signatures. A dedicated single-target PM₂.₅ model (Model D) improved performance to R² = 0.19.</p>
 
+<p>SO₂ estimation failed across all architectures (R² ≤ 0.01), attributed to sparse point-source emissions (industrial stacks, volcanic plumes) incompatible with the shared-backbone approach.</p>
 
-<img src="images/results.png" alt="Results" class="slide-image">
+<table style="width: 100%; margin-top: 1rem; border-collapse: collapse; background-color: #000000;">
+    <thead>
+        <tr style="background-color: #000000;">
+            <th style="padding: 0.5rem; border: 2px solid #ffffff; text-align: left; color: #ffffff;">Pollutant</th>
+            <th style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">MAE (μg/m³)</th>
+            <th style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">RMSE (μg/m³)</th>
+            <th style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">MBE (μg/m³)</th>
+            <th style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">R²</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #000000;">
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; color: #ffffff;"><strong>NO₂</strong></td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">6.27</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">9.43</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">-1.86</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">0.57</td>
+        </tr>
+        <tr style="background-color: #000000;">
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; color: #ffffff;"><strong>O₃</strong></td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">11.10</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">15.31</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">-1.09</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">0.72</td>
+        </tr>
+        <tr style="background-color: #000000;">
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; color: #ffffff;"><strong>PM₁₀</strong></td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">11.23</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">36.22</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">-3.25</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">0.41</td>
+        </tr>
+        <tr style="background-color: #000000;">
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; color: #ffffff;"><strong>PM₂.₅</strong></td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">7.64</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">41.83</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">-3.86</td>
+            <td style="padding: 0.5rem; border: 2px solid #ffffff; text-align: center; color: #ffffff;">0.14</td>
+        </tr>
+    </tbody>
+</table>
+<p style="margin-top: 0.5rem; font-size: 0.9em; font-style: italic; color: #ffffff;">Performance metrics for Model C (Optimized Global Model Excluding SO₂) on test set.</p>

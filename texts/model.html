@@ -2,9 +2,9 @@
 <!-- Edit this file and copy to index.html when updating -->
 
 <ul>
-    <li><strong>Normalization:</strong> Imagery bands percentile-clipped [1–99%] and scaled to [0,1]; Meteorology z-scored & labels log-transformed and z-scored.</li>
-    <li><strong>Stage 1 — Backbone Pretraining:</strong> Train all components (ResNet50, S5P-CNN, Meteo-MLP) on a balanced dataset augmented with synthetic rural stations (countering urban station bias for better global generalization).</li>
-    <li><strong>Stage 2 — Head Fine-tuning:</strong> Freeze backbones; train only pollutant-specific heads on real-world data. Masked loss enables learning from partial labels (backpropagate only when target available).</li>
+    <li><strong>Architecture:</strong> Multi-modal fusion framework with three specialized encoders: a ResNet50 backbone (pretrained on BigEarthNet) processes Sentinel-2 surface reflectance (12 bands, 120×120 pixels), a custom CNN encodes Sentinel-5P monthly composites (NO₂, O₃, SO₂), and a fully-connected MLP integrates 40 ERA5 meteorological variables. Features are concatenated with spatio-temporal context (coordinates, timestamps) and fed to separate pollutant-specific prediction heads.</li>
+    <li><strong>Normalization:</strong> Sentinel-2 and Sentinel-5P bands clipped to 1st–98th percentile then z-score normalized; ERA5 variables z-score normalized; ground-truth concentrations log-transformed then z-score normalized to handle strong right skew.</li>
+    <li><strong>Training Strategy:</strong> Model trained exclusively on a balanced dataset created through undersampling to ensure equal representation across pollutants (NO₂, O₃, PM₁₀, PM₂.₅). The first three ResNet50 blocks are frozen to preserve BigEarthNet pretrained features. Pollutant-specific MSE losses are computed only for available measurements (masked loss) and averaged across targets [file:1]. Data augmentation (random rotations, flips) applied to imagery inputs.</li>
 </ul>
 
 <img src="images/full_model.png" alt="Full Model Architecture" class="slide-image">

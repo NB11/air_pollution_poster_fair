@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.41639,
+          44.47222
+        ]
+      },
+      "properties": {
+        "station_id": "2c301b04-5cc0-505b-86e8-97c7ffd4d77f",
+        "ground_truth_value": 27.0,
+        "pollutant": "PM10",
+        "period_key": "2024-12",
+        "predicted_value": 28.455232620239258
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.32833,
+          44.49972
+        ]
+      },
+      "properties": {
+        "station_id": "baa4dffa-1580-514c-9a77-03b3676652c4",
+        "ground_truth_value": 28.0,
+        "pollutant": "PM10",
+        "period_key": "2024-12",
+        "predicted_value": 26.652393341064453
+      }
+    }
+  ]
+}

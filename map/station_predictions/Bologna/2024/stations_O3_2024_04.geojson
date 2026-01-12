@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.355,
+          44.48333
+        ]
+      },
+      "properties": {
+        "station_id": "fab8a9fb-0d8f-5186-b763-f82bac3acf94",
+        "ground_truth_value": 56.916666666666664,
+        "pollutant": "O3",
+        "period_key": "2024-04",
+        "predicted_value": 52.722076416015625
+      }
+    }
+  ]
+}

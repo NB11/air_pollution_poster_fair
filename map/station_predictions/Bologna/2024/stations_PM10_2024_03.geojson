@@ -1,0 +1,56 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.41639,
+          44.47222
+        ]
+      },
+      "properties": {
+        "station_id": "2c301b04-5cc0-505b-86e8-97c7ffd4d77f",
+        "ground_truth_value": 16.0,
+        "pollutant": "PM10",
+        "period_key": "2024-03",
+        "predicted_value": 19.46536636352539
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.32833,
+          44.49972
+        ]
+      },
+      "properties": {
+        "station_id": "baa4dffa-1580-514c-9a77-03b3676652c4",
+        "ground_truth_value": 18.5,
+        "pollutant": "PM10",
+        "period_key": "2024-03",
+        "predicted_value": 17.277925491333008
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.28611,
+          44.5
+        ]
+      },
+      "properties": {
+        "station_id": "f572499b-6dde-5854-aecb-c3d279cb2189",
+        "ground_truth_value": 12.0,
+        "pollutant": "PM10",
+        "period_key": "2024-03",
+        "predicted_value": 20.257553100585938
+      }
+    }
+  ]
+}

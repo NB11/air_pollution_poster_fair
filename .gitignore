@@ -3,3 +3,17 @@ data_processing/
 # Large GeoTIFF files (exceed GitHub's 100MB limit)
 *.tif
 map/s2/composits/*.tif
+raw_maps/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Individual bounds files (now consolidated into bounds.json)
+map/predicted/**/*_bounds.geojson
+
+# Individual station files (now consolidated into stations_{pollutant}.geojson)
+map/ground_truth_stations/geojson/
+
+# PNG files (keeping WebP only for smaller size)
+map/predicted/**/*.png

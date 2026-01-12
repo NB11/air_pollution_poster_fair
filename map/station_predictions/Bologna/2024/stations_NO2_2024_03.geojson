@@ -1,0 +1,7145 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.065415,
+          40.11107
+        ]
+      },
+      "properties": {
+        "station_id": "001443e6-5a79-5569-8be6-5f91a58f8926",
+        "ground_truth_value": 12.308902297280165,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.207615,
+          45.13768
+        ]
+      },
+      "properties": {
+        "station_id": "008de6fa-8aea-55d7-9cf0-1e9dcfb0769d",
+        "ground_truth_value": 7.009017893660531,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.208365,
+          40.64144
+        ]
+      },
+      "properties": {
+        "station_id": "008e2f32-af3a-5d33-8fc6-eb95fd246e33",
+        "ground_truth_value": 40.282252099447845,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.32098,
+          53.53209
+        ]
+      },
+      "properties": {
+        "station_id": "014e1367-c0f4-5467-8a1c-5325539d0c75",
+        "ground_truth_value": 13.74397439317152,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.00876,
+          40.709762
+        ]
+      },
+      "properties": {
+        "station_id": "015d1549-10b9-5224-a2b0-b11eb0a518a6",
+        "ground_truth_value": 14.159156952965237,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.70645,
+          40.2614
+        ]
+      },
+      "properties": {
+        "station_id": "0164f7e9-9af7-5220-991a-3305fa78d1d5",
+        "ground_truth_value": 8.827230518282207,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.788991,
+          39.474976
+        ]
+      },
+      "properties": {
+        "station_id": "029bcf8f-6b7f-556c-9a39-9c45a0bcbfd2",
+        "ground_truth_value": 3.5358698330674843,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.48925,
+          39.02473
+        ]
+      },
+      "properties": {
+        "station_id": "03ac0621-e774-58a3-9c5b-11ea3ff19aeb",
+        "ground_truth_value": 9.817123993885481,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.7514,
+          34.06703
+        ]
+      },
+      "properties": {
+        "station_id": "04d1d55e-7be5-5edb-985a-b97c29265295",
+        "ground_truth_value": 23.67699494198364,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.683324,
+          31.787885
+        ]
+      },
+      "properties": {
+        "station_id": "04df42a9-f66f-50df-b4db-0bb28e081223",
+        "ground_truth_value": 8.59271160198364,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.5567,
+          -22.8862
+        ]
+      },
+      "properties": {
+        "station_id": "051e2d2f-4415-52ee-a4e4-def6484e95bc",
+        "ground_truth_value": 20.92521739130435,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.442495,
+          37.682635
+        ]
+      },
+      "properties": {
+        "station_id": "070b0ed4-4d32-5dcc-b862-f7ef9fa8141f",
+        "ground_truth_value": 4.788711554192229,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.399141,
+          32.031934
+        ]
+      },
+      "properties": {
+        "station_id": "076600f0-8ae4-52f3-9c13-833f2ed1c456",
+        "ground_truth_value": 1.2073705999386501,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.81689,
+          50.285833
+        ]
+      },
+      "properties": {
+        "station_id": "07af4bc2-2f45-5a1b-9323-32da27032f88",
+        "ground_truth_value": 12.308901670074992,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.071061,
+          30.036422
+        ]
+      },
+      "properties": {
+        "station_id": "07c96647-4225-582b-bdd3-62ddf050af18",
+        "ground_truth_value": 11.34457433204499,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.067815,
+          40.92458
+        ]
+      },
+      "properties": {
+        "station_id": "0856dfdb-cd59-57f0-a38f-1fc3ede5e667",
+        "ground_truth_value": 18.66383487787321,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.904167,
+          36.035
+        ]
+      },
+      "properties": {
+        "station_id": "087a7ac1-c131-597e-97fd-abe85e275c28",
+        "ground_truth_value": 0.7526462167689162,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.15044999999999,
+          22.755358
+        ]
+      },
+      "properties": {
+        "station_id": "08e32399-6c35-5c0c-871c-626cc7871a4f",
+        "ground_truth_value": 8.647591049334412,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.679923,
+          41.771444
+        ]
+      },
+      "properties": {
+        "station_id": "08f17cae-4ecf-5a7f-a830-411fc76f3ec2",
+        "ground_truth_value": 15.232904625194273,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.31725000000002,
+          23.305633
+        ]
+      },
+      "properties": {
+        "station_id": "092b50bd-9e89-50d2-858d-7c3b7fc2b10b",
+        "ground_truth_value": 18.73383467757964,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.178601,
+          34.725389
+        ]
+      },
+      "properties": {
+        "station_id": "0a8754b1-06c3-5319-9241-c28da1b571b0",
+        "ground_truth_value": 3.5832507940286296,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.22688,
+          34.06659
+        ]
+      },
+      "properties": {
+        "station_id": "0b29aa40-095d-57fb-be1b-8583c0eb2d3c",
+        "ground_truth_value": 25.495890593047033,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.078742,
+          36.141875
+        ]
+      },
+      "properties": {
+        "station_id": "0c22b41d-227d-5bea-84a2-37bdfcfaffb1",
+        "ground_truth_value": 14.185744180572597,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.1403,
+          51.0814
+        ]
+      },
+      "properties": {
+        "station_id": "0c6ff408-389f-5b69-950a-fc1ea815b224",
+        "ground_truth_value": 19.07273935675777,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.519466,
+          45.668052
+        ]
+      },
+      "properties": {
+        "station_id": "0ce92f62-ee23-5771-b426-ed1b9d24bcea",
+        "ground_truth_value": 1.4896129312269937,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.353932,
+          40.206291
+        ]
+      },
+      "properties": {
+        "station_id": "0e5c6533-0860-5b03-a212-2d42e739cee5",
+        "ground_truth_value": 2.806743810572597,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.0153,
+          39.73217
+        ]
+      },
+      "properties": {
+        "station_id": "0e62f423-7312-55ef-b350-70157f41b54e",
+        "ground_truth_value": 37.94983346114519,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.28115,
+          38.63114
+        ]
+      },
+      "properties": {
+        "station_id": "0f615fbd-55c4-51ec-8f94-091f62090b63",
+        "ground_truth_value": 13.774993152617588,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.02471,
+          34.89405
+        ]
+      },
+      "properties": {
+        "station_id": "10628902-b839-5694-b363-ad8a9a7b83f8",
+        "ground_truth_value": 16.56676871155419,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.3725,
+          39.835556
+        ]
+      },
+      "properties": {
+        "station_id": "107390be-717d-51cd-b0f8-1108d9eec046",
+        "ground_truth_value": 16.498347525603272,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.778334,
+          41.182227
+        ]
+      },
+      "properties": {
+        "station_id": "10871ab3-acce-5ecf-b0da-fdd7d4557d0d",
+        "ground_truth_value": 4.564963005255624,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.02611,
+          39.43806
+        ]
+      },
+      "properties": {
+        "station_id": "10920f7c-7c9f-5ea3-bba1-b92ccad4fe68",
+        "ground_truth_value": 3.994512680603272,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.207205,
+          39.988842
+        ]
+      },
+      "properties": {
+        "station_id": "10a7c7bb-72d5-5fa3-ae71-1985083fe8d6",
+        "ground_truth_value": 21.677778428691205,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.06299,
+          44.77553
+        ]
+      },
+      "properties": {
+        "station_id": "10d069ae-0051-5eb7-aeca-bc5075918879",
+        "ground_truth_value": 7.165818561615542,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.761341,
+          30.085263
+        ]
+      },
+      "properties": {
+        "station_id": "116afb7f-e691-5364-a737-ae5ef33df2d6",
+        "ground_truth_value": 5.785967791411044,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.043889,
+          35.376953
+        ]
+      },
+      "properties": {
+        "station_id": "123dfb45-d03d-5263-a16f-13bfa95f2633",
+        "ground_truth_value": 25.03366797194274,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.50103,
+          35.03146
+        ]
+      },
+      "properties": {
+        "station_id": "124d81b8-bc7a-555d-a005-80f732a0bff7",
+        "ground_truth_value": 2.47064211601227,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.33773599999999,
+          22.565833
+        ]
+      },
+      "properties": {
+        "station_id": "125528cc-9f99-5569-887a-24adeba6e034",
+        "ground_truth_value": 33.107741498874006,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.29740529000001,
+          23.113376420000005
+        ]
+      },
+      "properties": {
+        "station_id": "128cfb35-96d1-59dd-91f6-7c0c346e209e",
+        "ground_truth_value": 17.793026752408082,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.40377,
+          55.83473
+        ]
+      },
+      "properties": {
+        "station_id": "136c19d2-00de-57a4-8673-fa909ac57380",
+        "ground_truth_value": 1.646413599182005,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.04659,
+          33.45797
+        ]
+      },
+      "properties": {
+        "station_id": "1401bdeb-6a2a-5aa3-8128-f2c29351ac85",
+        "ground_truth_value": 22.18738389237219,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.238282,
+          36.270592
+        ]
+      },
+      "properties": {
+        "station_id": "14345228-dfb0-5e8f-b626-f105b2daf82a",
+        "ground_truth_value": 6.790178479672801,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.11393,
+          36.163962
+        ]
+      },
+      "properties": {
+        "station_id": "144319c3-644a-5862-b593-1134fed1ce9b",
+        "ground_truth_value": 15.723761671615542,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.77321,
+          36.78538
+        ]
+      },
+      "properties": {
+        "station_id": "16b0c325-f0ec-5bb1-907c-7ce39eed9778",
+        "ground_truth_value": 9.350810740593047,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.15133,
+          49.70516
+        ]
+      },
+      "properties": {
+        "station_id": "16f48deb-ae74-50c9-9508-c67395af1d63",
+        "ground_truth_value": 7.019244065084023,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.56306,
+          32.79222
+        ]
+      },
+      "properties": {
+        "station_id": "177a3759-58f0-5859-96af-e52207612f43",
+        "ground_truth_value": 5.90663579611452,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.52277,
+          41.08536
+        ]
+      },
+      "properties": {
+        "station_id": "1841b750-23e4-53ea-9d4a-0b99f83431b9",
+        "ground_truth_value": 4.351235940695296,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.728925,
+          17.877479999999995
+        ]
+      },
+      "properties": {
+        "station_id": "1971471d-3a28-5ff0-933e-e77f91000aa5",
+        "ground_truth_value": 11.131384251612397,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4130773,
+          14.8933874
+        ]
+      },
+      "properties": {
+        "station_id": "197db935-b915-584d-9b3f-d08e06c80114",
+        "ground_truth_value": 14.026588585238894,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.902871,
+          41.3014
+        ]
+      },
+      "properties": {
+        "station_id": "1bb021a9-32bc-566b-b3b5-7d22a507a6b1",
+        "ground_truth_value": 13.11404182443763,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.41601,
+          33.99958
+        ]
+      },
+      "properties": {
+        "station_id": "1bffe30b-bd68-511b-8217-7e28f515a213",
+        "ground_truth_value": 18.408471424601228,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.363036,
+          34.181977
+        ]
+      },
+      "properties": {
+        "station_id": "1cfa7168-2697-551a-8ab6-07387cc71ed7",
+        "ground_truth_value": 19.59232183026585,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.091437,
+          36.214465
+        ]
+      },
+      "properties": {
+        "station_id": "1e32e16b-c80b-56d4-b38c-a19b0c7b361e",
+        "ground_truth_value": 12.590461602126789,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.455315,
+          47.048537
+        ]
+      },
+      "properties": {
+        "station_id": "1e707aa8-50e9-54aa-b341-962613f2582a",
+        "ground_truth_value": 1.2544109884867074,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.688108,
+          40.05671
+        ]
+      },
+      "properties": {
+        "station_id": "1f9a65b8-db64-5d16-b253-1e470736339c",
+        "ground_truth_value": 2.8616230094683024,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.35578,
+          40.60055
+        ]
+      },
+      "properties": {
+        "station_id": "1fd5d579-f2d4-52ca-9d75-bdd9e347482c",
+        "ground_truth_value": 1.0976084389161556,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.171019,
+          33.793713
+        ]
+      },
+      "properties": {
+        "station_id": "206bfe40-e681-5a38-ba86-c85743e18f63",
+        "ground_truth_value": 14.809881700674847,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.009732,
+          40.294178
+        ]
+      },
+      "properties": {
+        "station_id": "21a6fd11-92f8-5d9c-974e-769c0b96b08a",
+        "ground_truth_value": 6.601333899038854,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.208306,
+          42.403964
+        ]
+      },
+      "properties": {
+        "station_id": "22ced33c-d4b5-50f2-af5d-216766f36fb7",
+        "ground_truth_value": 8.232067995910018,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.53716,
+          38.566055
+        ]
+      },
+      "properties": {
+        "station_id": "239d9583-87e6-5deb-a76a-5fedb99486ca",
+        "ground_truth_value": 6.562134202453987,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.61602,
+          50.45273
+        ]
+      },
+      "properties": {
+        "station_id": "24a12595-1e7a-5aef-93ca-c8f37d252b74",
+        "ground_truth_value": 19.79786787587802,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.44125148,
+          23.46477865
+        ]
+      },
+      "properties": {
+        "station_id": "25aced36-493b-5144-a18b-24b9a8c3cad2",
+        "ground_truth_value": 18.76911469001003,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.332631,
+          22.689055999999997
+        ]
+      },
+      "properties": {
+        "station_id": "25f0a69c-e687-5ea1-b2e0-157077a999ce",
+        "ground_truth_value": 27.001182720967872,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.503659,
+          36.597442
+        ]
+      },
+      "properties": {
+        "station_id": "26311ec6-696c-52d8-9d40-672c8efd7a53",
+        "ground_truth_value": 6.3974928425357875,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.883842,
+          20.427325
+        ]
+      },
+      "properties": {
+        "station_id": "26d3a230-4401-5b11-a7a0-646c3146fa47",
+        "ground_truth_value": 40.14113156100887,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.33098,
+          33.67649
+        ]
+      },
+      "properties": {
+        "station_id": "27a40375-c322-516e-ae15-d4e481fa8097",
+        "ground_truth_value": 8.075267327955011,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.327174,
+          53.827241
+        ]
+      },
+      "properties": {
+        "station_id": "28a1e2ae-9751-538d-ae74-6c3a478e7c9d",
+        "ground_truth_value": 8.491812750066687,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.449722,
+          53.493889
+        ]
+      },
+      "properties": {
+        "station_id": "295baa58-72d6-562a-bbef-47c0e8fdcd46",
+        "ground_truth_value": 4.8750948131623,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.741332,
+          36.705474
+        ]
+      },
+      "properties": {
+        "station_id": "2aa954bb-5fda-5c52-9c96-269b99075f31",
+        "ground_truth_value": 14.725686931635993,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.341111,
+          40.628056
+        ]
+      },
+      "properties": {
+        "station_id": "2b398002-79b6-59fa-a280-0ca5b7132778",
+        "ground_truth_value": 13.10586056006135,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.95264,
+          33.92513
+        ]
+      },
+      "properties": {
+        "station_id": "2bcf2ebf-e649-5bdc-9f42-7c4e06f8b4e2",
+        "ground_truth_value": 18.337910841779138,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.09896000000002,
+          17.631351999999996
+        ]
+      },
+      "properties": {
+        "station_id": "2c0058a7-ff20-5c68-b1e0-1d26866a38d3",
+        "ground_truth_value": 20.35565904443206,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.735339,
+          45.017976
+        ]
+      },
+      "properties": {
+        "station_id": "2d60a5cd-84b3-5a0d-b68a-b37f84ffdc84",
+        "ground_truth_value": 8.058223081710683,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.334079,
+          42.298493
+        ]
+      },
+      "properties": {
+        "station_id": "2d93ea9b-855b-5210-ad87-768fe484349e",
+        "ground_truth_value": 1.7248148739672802,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.830833,
+          44.373056
+        ]
+      },
+      "properties": {
+        "station_id": "2da155e4-a49e-57f5-b430-9ae6d6a90fc0",
+        "ground_truth_value": 1.3342366462372188,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.53157,
+          55.913233
+        ]
+      },
+      "properties": {
+        "station_id": "2dc2a39c-65dd-5b7b-8d57-f58f27db95fc",
+        "ground_truth_value": 3.3214604783497825,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.143182,
+          34.25239
+        ]
+      },
+      "properties": {
+        "station_id": "2de4362c-615c-5b3a-b26a-edaf2859fb71",
+        "ground_truth_value": 4.663134414539877,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.499682,
+          45.641026
+        ]
+      },
+      "properties": {
+        "station_id": "2deebc09-6df0-5c0e-a11e-6004b283ad44",
+        "ground_truth_value": 9.133675443081119,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -128.6075,
+          54.52166999999999
+        ]
+      },
+      "properties": {
+        "station_id": "2ea301e4-35fd-506b-94cb-6577b0b54f05",
+        "ground_truth_value": 5.321384957356149,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.953426,
+          38.89477
+        ]
+      },
+      "properties": {
+        "station_id": "3087590b-253c-5a00-a7ea-b3b5a9107cbc",
+        "ground_truth_value": 23.96494044997955,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.874739,
+          36.841592
+        ]
+      },
+      "properties": {
+        "station_id": "30d187c6-46d7-574e-ac79-7a17596009c9",
+        "ground_truth_value": 6.471120458691207,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.056068,
+          30.700895
+        ]
+      },
+      "properties": {
+        "station_id": "31055f01-7168-51a2-be77-84051eb87814",
+        "ground_truth_value": 2.6577819529652356,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.08422,
+          41.79358
+        ]
+      },
+      "properties": {
+        "station_id": "31136078-6a61-53bb-a6d3-64244f34c2e9",
+        "ground_truth_value": 4.875094642106339,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.038725,
+          15.373638
+        ]
+      },
+      "properties": {
+        "station_id": "31b1914e-14f3-589a-a288-60aac4f1689f",
+        "ground_truth_value": 17.310862985685073,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.036298,
+          40.496392
+        ]
+      },
+      "properties": {
+        "station_id": "3253ae3d-299c-59c5-a33f-147111aa4e43",
+        "ground_truth_value": 5.903568762781186,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.387017,
+          37.103733
+        ]
+      },
+      "properties": {
+        "station_id": "325e0ba1-8552-5f21-98bc-14b36dd63ca5",
+        "ground_truth_value": 3.8416323586298566,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -128.639131,
+          54.066909
+        ]
+      },
+      "properties": {
+        "station_id": "333e4d65-3326-5852-a880-5991672c0782",
+        "ground_truth_value": 2.62978172168663,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.056061,
+          42.325186
+        ]
+      },
+      "properties": {
+        "station_id": "33412973-2f1b-5165-864e-2759e2f5e6b3",
+        "ground_truth_value": 21.952181949631903,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.67599,
+          45.434333
+        ]
+      },
+      "properties": {
+        "station_id": "33a267aa-0c25-549c-a6b1-9b1dbf249354",
+        "ground_truth_value": 6.544749711034054,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.852199,
+          41.842649
+        ]
+      },
+      "properties": {
+        "station_id": "33b1aa3c-728d-5482-99ab-3d6f59626dc6",
+        "ground_truth_value": 6.068210122699387,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.010158,
+          36.867125
+        ]
+      },
+      "properties": {
+        "station_id": "33f35365-1d22-5bf9-aa99-f5f785ff1924",
+        "ground_truth_value": 5.546675216482618,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.274056,
+          43.747917
+        ]
+      },
+      "properties": {
+        "station_id": "34a1bcfc-2478-5858-9935-2ee517b537c0",
+        "ground_truth_value": 17.09134117246081,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.21749999999999,
+          23.048197
+        ]
+      },
+      "properties": {
+        "station_id": "350e5c63-334c-5d3e-a6ee-2af68fe9fcce",
+        "ground_truth_value": 20.164646182822516,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.836008,
+          37.488317
+        ]
+      },
+      "properties": {
+        "station_id": "359e7861-fc6b-5c05-aa4e-b55bdf870c44",
+        "ground_truth_value": 10.954274583415131,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.572039,
+          45.542767
+        ]
+      },
+      "properties": {
+        "station_id": "3660e530-7ea1-5516-87af-b3757b74c67e",
+        "ground_truth_value": 11.799297460804361,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.584503,
+          42.120229
+        ]
+      },
+      "properties": {
+        "station_id": "36b487c4-822e-5181-94fd-2c01acddf207",
+        "ground_truth_value": 11.289693251533743,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.21509,
+          14.204219999999998
+        ]
+      },
+      "properties": {
+        "station_id": "37353351-4ee7-5420-b587-a3290a31deb5",
+        "ground_truth_value": 19.701621556598102,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.306986,
+          42.612085
+        ]
+      },
+      "properties": {
+        "station_id": "37afab00-bbd6-57ae-bf99-8d93514ed0a9",
+        "ground_truth_value": 13.328109461411042,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.61722,
+          34.030833
+        ]
+      },
+      "properties": {
+        "station_id": "38eaaba9-342c-541a-a6c3-140e8f8a58fc",
+        "ground_truth_value": 45.20581339468302,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.079444,
+          29.758889
+        ]
+      },
+      "properties": {
+        "station_id": "39bc87ac-ff4f-5ca5-8e5e-c88cfcc139e1",
+        "ground_truth_value": 20.33855361965235,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.062613,
+          35.356615
+        ]
+      },
+      "properties": {
+        "station_id": "39cdbb27-f381-56dd-80bf-24ee67b3444a",
+        "ground_truth_value": 14.087574652903886,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.25925,
+          37.34438
+        ]
+      },
+      "properties": {
+        "station_id": "3adc57a0-53fe-57e5-8d86-d297915a23d1",
+        "ground_truth_value": 4.014112528895705,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.322756,
+          16.442554
+        ]
+      },
+      "properties": {
+        "station_id": "3b5117da-89d9-595b-ae88-466b9d0e5e99",
+        "ground_truth_value": 10.565994966179016,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.346384,
+          44.301848
+        ]
+      },
+      "properties": {
+        "station_id": "3c975280-32bd-5b04-b44a-e24b0304dda1",
+        "ground_truth_value": 4.646090550072614,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.894167,
+          40.598056
+        ]
+      },
+      "properties": {
+        "station_id": "3f4551d9-3706-53a2-8584-6fb45fd61119",
+        "ground_truth_value": 19.364960579488752,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -135.05875,
+          60.71972000000001
+        ]
+      },
+      "properties": {
+        "station_id": "4017cc42-3684-534c-9f3b-3e556a72876b",
+        "ground_truth_value": 9.627599522835718,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.671339,
+          42.984173
+        ]
+      },
+      "properties": {
+        "station_id": "4024fac6-e18e-5b29-8ae7-80880124d74f",
+        "ground_truth_value": 8.606345788200409,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.976537,
+          36.204902
+        ]
+      },
+      "properties": {
+        "station_id": "406f3f66-c772-5915-ad52-b1247d60d217",
+        "ground_truth_value": 9.000393714989775,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.392509,
+          29.520443
+        ]
+      },
+      "properties": {
+        "station_id": "40a634a4-f5b5-54b7-8c16-ddcb6f0776bf",
+        "ground_truth_value": 12.332422491554192,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.0551,
+          42.7907
+        ]
+      },
+      "properties": {
+        "station_id": "41101ad1-ca69-5ca3-b54c-5f7bc64407a5",
+        "ground_truth_value": 0.6036843591615542,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.066308,
+          40.731645
+        ]
+      },
+      "properties": {
+        "station_id": "412d37c1-ee99-5b41-be47-7d5f79171e43",
+        "ground_truth_value": 34.51980450231084,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.7775,
+          36.710833
+        ]
+      },
+      "properties": {
+        "station_id": "436ba087-64a3-53c7-a563-03d6ae009b86",
+        "ground_truth_value": 24.487882804621677,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.200707,
+          33.859662
+        ]
+      },
+      "properties": {
+        "station_id": "44e6eb6e-5e63-5e03-8e19-5fe11c306166",
+        "ground_truth_value": 33.24187520116565,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.61191699999999,
+          53.626972
+        ]
+      },
+      "properties": {
+        "station_id": "46d1e8a5-f845-57f5-bb30-38ac1a392b10",
+        "ground_truth_value": 13.334927536231882,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.6223,
+          15.875800000000002
+        ]
+      },
+      "properties": {
+        "station_id": "47956dda-4e0f-5f42-a95c-4067ba9dea45",
+        "ground_truth_value": 16.056452624403544,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.326556,
+          49.021505999999995
+        ]
+      },
+      "properties": {
+        "station_id": "47a6f330-4bcb-5ed1-88f0-750a826a8168",
+        "ground_truth_value": 12.246862896772473,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.7464,
+          39.9679
+        ]
+      },
+      "properties": {
+        "station_id": "49cec60b-583f-5980-88ff-a38e325f12b2",
+        "ground_truth_value": 10.442966257668711,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.74194,
+          53.914719999999996
+        ]
+      },
+      "properties": {
+        "station_id": "4b2e30b1-9442-51ae-b92d-d218a59e4052",
+        "ground_truth_value": 21.785835600604607,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.761389,
+          40.086944
+        ]
+      },
+      "properties": {
+        "station_id": "4b58df97-d402-5ad0-a7c4-c85ae29a488f",
+        "ground_truth_value": 1.3563305759304702,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.48803299999999,
+          22.673081
+        ]
+      },
+      "properties": {
+        "station_id": "4cb19546-ec70-5df1-8bbb-2a066fe05b0b",
+        "ground_truth_value": 19.286559837430353,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.93845,
+          33.83062
+        ]
+      },
+      "properties": {
+        "station_id": "4cfa5406-21ed-53e0-8fd2-62a93a0f6fa4",
+        "ground_truth_value": 17.02077996243354,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.4965833,
+          14.8762222
+        ]
+      },
+      "properties": {
+        "station_id": "4d384a1f-ebf7-5b0d-939d-eac1802f2dcf",
+        "ground_truth_value": 16.034636792033435,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.427881,
+          41.771987
+        ]
+      },
+      "properties": {
+        "station_id": "4d70834c-34e5-5610-bbc0-fcc9c9521ccf",
+        "ground_truth_value": 19.10623844247444,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.605216,
+          14.03742
+        ]
+      },
+      "properties": {
+        "station_id": "4d7ebd06-d611-50f8-ab26-bbf401a14421",
+        "ground_truth_value": 21.01137355146558,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.979793,
+          42.388405
+        ]
+      },
+      "properties": {
+        "station_id": "4d90733b-eb61-597e-b0b6-f9acbeae8b36",
+        "ground_truth_value": 26.546458643415132,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.33401599999999,
+          50.67477
+        ]
+      },
+      "properties": {
+        "station_id": "4e0fbcf4-351b-547f-8f7a-341abd1641f7",
+        "ground_truth_value": 21.06591313239086,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.716433,
+          36.819449
+        ]
+      },
+      "properties": {
+        "station_id": "5028a82f-372a-5c6a-a02d-6ade66fb4a39",
+        "ground_truth_value": 10.365991247464212,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.270723,
+          50.260617
+        ]
+      },
+      "properties": {
+        "station_id": "50df5a6a-8a03-500f-a1d8-72dbd3517c5e",
+        "ground_truth_value": 18.197910312591297,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.088598,
+          32.65637
+        ]
+      },
+      "properties": {
+        "station_id": "51c8bf99-d0f8-5d28-86bf-c1036a59089f",
+        "ground_truth_value": 12.01881927402863,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.025204,
+          39.422273
+        ]
+      },
+      "properties": {
+        "station_id": "5209c186-0386-53fc-88bd-2eca07be4997",
+        "ground_truth_value": 7.777343612740287,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.098861,
+          42.486361
+        ]
+      },
+      "properties": {
+        "station_id": "531e29fb-4e6a-5c4f-9bb2-77908756472d",
+        "ground_truth_value": 1.3092901873824132,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.60801,
+          37.08727
+        ]
+      },
+      "properties": {
+        "station_id": "53e50774-311f-5879-9bfa-db46828b328e",
+        "ground_truth_value": 8.254566472944784,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.39280000000001,
+          53.5936
+        ]
+      },
+      "properties": {
+        "station_id": "54f14237-b4c7-5ebd-a416-aae00abf3576",
+        "ground_truth_value": 10.794531266817353,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.021476,
+          41.485007
+        ]
+      },
+      "properties": {
+        "station_id": "553ff5a2-1146-509a-97a8-9e4cabb4b801",
+        "ground_truth_value": 8.516355643292433,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.266189,
+          42.385998
+        ]
+      },
+      "properties": {
+        "station_id": "55662854-0c25-5af3-a75c-d4b908ef2521",
+        "ground_truth_value": 26.21172300173824,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.395039,
+          35.551868
+        ]
+      },
+      "properties": {
+        "station_id": "55a43ca3-77df-575c-b700-2c899660d3a6",
+        "ground_truth_value": 6.070255438793456,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.319722,
+          47.597222
+        ]
+      },
+      "properties": {
+        "station_id": "57073429-4664-525d-8e85-968264fc23a9",
+        "ground_truth_value": 27.870066043456035,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.23586,
+          42.8608
+        ]
+      },
+      "properties": {
+        "station_id": "5714fcf5-c4b3-52af-ae55-c94896802213",
+        "ground_truth_value": 5.331243408241309,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.863572,
+          40.43743
+        ]
+      },
+      "properties": {
+        "station_id": "57406d24-d3d3-5db7-8a54-672db10b3946",
+        "ground_truth_value": 12.175619941983639,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.45636,
+          34.05111
+        ]
+      },
+      "properties": {
+        "station_id": "57c65d1b-7ee7-515f-85e2-0f73f25322f6",
+        "ground_truth_value": 15.405727249488752,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.794322,
+          42.263955
+        ]
+      },
+      "properties": {
+        "station_id": "5828d3f0-ff8c-562e-9e48-242c1541267f",
+        "ground_truth_value": 11.558495203006137,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.503806,
+          43.443833
+        ]
+      },
+      "properties": {
+        "station_id": "58735606-884b-57f9-8f08-d46d94a13435",
+        "ground_truth_value": 8.508174624344273,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.154639,
+          15.783860999999998
+        ]
+      },
+      "properties": {
+        "station_id": "59118aa8-f975-56ac-9ed1-817f54c30876",
+        "ground_truth_value": 15.380161820930029,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.770111,
+          39.59575
+        ]
+      },
+      "properties": {
+        "station_id": "59b9653e-4898-51e5-8347-1d57e68996d4",
+        "ground_truth_value": 2.098001329243354,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.96146899999998,
+          8.426923
+        ]
+      },
+      "properties": {
+        "station_id": "5c4f302a-b0ff-533c-be30-a7609237d854",
+        "ground_truth_value": 10.434413459750886,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.188587,
+          39.912799
+        ]
+      },
+      "properties": {
+        "station_id": "5cbb6b24-d03b-57de-b473-71bd185e8e00",
+        "ground_truth_value": 3.8041355241104298,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.122,
+          49.282
+        ]
+      },
+      "properties": {
+        "station_id": "5d44097b-0942-57ee-bc99-8cd007ec8b44",
+        "ground_truth_value": 32.755790558963874,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.290167,
+          48.379389
+        ]
+      },
+      "properties": {
+        "station_id": "5df0121e-c530-55bb-9d72-7c1d4dfd1968",
+        "ground_truth_value": 10.062552680714859,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.425128,
+          30.350302
+        ]
+      },
+      "properties": {
+        "station_id": "5f45d5a2-9e99-5fe4-b191-7936a16ecf07",
+        "ground_truth_value": 7.433165083466258,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.878067,
+          32.204411
+        ]
+      },
+      "properties": {
+        "station_id": "6040e11b-a2ff-5350-b97a-6b90c86f2990",
+        "ground_truth_value": 13.547631901840491,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.678449,
+          41.492117
+        ]
+      },
+      "properties": {
+        "station_id": "605ed0ed-a829-54b7-8a84-8c261f9841c3",
+        "ground_truth_value": 12.90250684198364,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.623271,
+          36.694261
+        ]
+      },
+      "properties": {
+        "station_id": "6131e062-e83f-5a6a-bcf7-7e0a29bc6d11",
+        "ground_truth_value": 4.5813255340081795,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.815,
+          33.553056
+        ]
+      },
+      "properties": {
+        "station_id": "615b3171-a28e-5123-b46b-ec81c7cb1944",
+        "ground_truth_value": 15.269833211820043,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.7954,
+          39.521933
+        ]
+      },
+      "properties": {
+        "station_id": "6217f5b6-fc1f-592a-894b-ebaf741c0b4c",
+        "ground_truth_value": 17.585264625010225,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.645864,
+          47.342423
+        ]
+      },
+      "properties": {
+        "station_id": "62bccf67-3f3d-57e5-8d37-ba81c9af2ebc",
+        "ground_truth_value": 4.0533141070961145,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.4924,
+          33.99636
+        ]
+      },
+      "properties": {
+        "station_id": "634295c1-5ff2-53dd-94de-b68876a872d2",
+        "ground_truth_value": 16.330855518139057,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.711813,
+          32.378696
+        ]
+      },
+      "properties": {
+        "station_id": "63b7fd50-c3a8-5eb6-b1c0-540211b024c8",
+        "ground_truth_value": 3.7161906952965236,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.69166,
+          30.35386
+        ]
+      },
+      "properties": {
+        "station_id": "6405624d-340e-5a5c-a1dc-2a7f7609a88f",
+        "ground_truth_value": 20.30434208586912,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.098335,
+          14.979536999999999
+        ]
+      },
+      "properties": {
+        "station_id": "66b1398c-06b5-5953-b6e7-58d27566c4ea",
+        "ground_truth_value": 32.74011042944784,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.7734,
+          38.53445
+        ]
+      },
+      "properties": {
+        "station_id": "6724100a-cd27-5c7a-b34f-8694d7cb2966",
+        "ground_truth_value": 4.0250202541922295,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.977538,
+          32.882289
+        ]
+      },
+      "properties": {
+        "station_id": "676a710f-c6a0-5cbf-8846-c865dbee8fa5",
+        "ground_truth_value": 10.897690640838448,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.87206,
+          32.676451
+        ]
+      },
+      "properties": {
+        "station_id": "68b187d5-97a0-5cb1-b3fe-b11c2d10a850",
+        "ground_truth_value": 8.961194018404909,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.282099,
+          32.922492
+        ]
+      },
+      "properties": {
+        "station_id": "68bd86eb-5509-5e33-82a3-10735b65e440",
+        "ground_truth_value": 10.748728783231083,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.766589,
+          43.669911
+        ]
+      },
+      "properties": {
+        "station_id": "69c5da3c-fa0a-5bb4-8922-3a0251c7cc50",
+        "ground_truth_value": 12.107786965413,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.047345,
+          32.552824
+        ]
+      },
+      "properties": {
+        "station_id": "6ac62333-b999-5033-bc8d-17850eff0859",
+        "ground_truth_value": 20.475397873169737,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.862449,
+          43.52965
+        ]
+      },
+      "properties": {
+        "station_id": "6ac710eb-017e-59bb-94a1-6843c11ee6c5",
+        "ground_truth_value": 13.40651073619632,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.294722,
+          29.686389
+        ]
+      },
+      "properties": {
+        "station_id": "6cf07cf3-383e-5937-b418-cf3b186f60ac",
+        "ground_truth_value": 7.975697878323109,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4934,
+          52.96936
+        ]
+      },
+      "properties": {
+        "station_id": "6d4af12e-6a0d-5052-a613-a89861fa2663",
+        "ground_truth_value": 5.29306632879879,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.732734,
+          17.48462
+        ]
+      },
+      "properties": {
+        "station_id": "6d4d022e-603a-5778-8f7d-c8f313456858",
+        "ground_truth_value": 7.5264621676891625,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.175654,
+          36.139707
+        ]
+      },
+      "properties": {
+        "station_id": "6d727561-590d-56f5-842c-818fb68ef5e3",
+        "ground_truth_value": 26.129914121206546,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.239648,
+          42.452299
+        ]
+      },
+      "properties": {
+        "station_id": "6e706684-73e2-5beb-b374-731dcdadedc5",
+        "ground_truth_value": 8.917220663190184,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.673951,
+          30.039524
+        ]
+      },
+      "properties": {
+        "station_id": "6ec7faf2-a6ab-502a-8cff-bc07d667a36c",
+        "ground_truth_value": 3.190905729304703,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.428056,
+          47.185833
+        ]
+      },
+      "properties": {
+        "station_id": "6fb84191-0cd9-553d-89a2-7bf8893042d6",
+        "ground_truth_value": 3.2144259235787325,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.15221999999997,
+          49.18639000000001
+        ]
+      },
+      "properties": {
+        "station_id": "70de8543-9416-5180-8567-764f251266fc",
+        "ground_truth_value": 21.5209777607362,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.538375,
+          39.146025
+        ]
+      },
+      "properties": {
+        "station_id": "710f9e1b-7b7f-5494-813b-e5bd37821606",
+        "ground_truth_value": 31.629061610715745,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.766944,
+          47.298611
+        ]
+      },
+      "properties": {
+        "station_id": "72571f53-2124-5c67-9c7d-e89b2de66b56",
+        "ground_truth_value": 5.127402351738241,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.004746,
+          29.979958
+        ]
+      },
+      "properties": {
+        "station_id": "72611420-0bb1-546f-9848-da17c965b5f6",
+        "ground_truth_value": 8.373189161554192,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.525425,
+          16.475374
+        ]
+      },
+      "properties": {
+        "station_id": "72cfedb6-12f5-57b7-b3ed-93bdff76c96e",
+        "ground_truth_value": 17.40494376278119,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.861289,
+          29.254474
+        ]
+      },
+      "properties": {
+        "station_id": "7339b8fc-dbee-5bca-88dc-89aaf8b7e2c7",
+        "ground_truth_value": 5.754606905173825,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.510442,
+          13.691047
+        ]
+      },
+      "properties": {
+        "station_id": "733e14dc-d581-577e-a60f-91f7a7514523",
+        "ground_truth_value": 9.219916155419224,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.314847,
+          37.702066
+        ]
+      },
+      "properties": {
+        "station_id": "738440ed-d6f7-5b70-beb7-dc9cbf4b1cb5",
+        "ground_truth_value": 9.125835378323108,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.262726,
+          32.380118
+        ]
+      },
+      "properties": {
+        "station_id": "7398e7ff-a179-51bc-ad48-89abe54f39f1",
+        "ground_truth_value": 5.4566850715746416,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.14256,
+          33.48378
+        ]
+      },
+      "properties": {
+        "station_id": "73c2e65e-75d8-56b6-bc44-376ee0817aa4",
+        "ground_truth_value": 26.855784948813906,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.647503,
+          35.063569
+        ]
+      },
+      "properties": {
+        "station_id": "73c9a7e6-8b10-5731-985c-0bf930682c0d",
+        "ground_truth_value": 15.593888803680981,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.150391,
+          52.14428
+        ]
+      },
+      "properties": {
+        "station_id": "740783b9-c5ab-5d70-9029-2ec6cdd7bbde",
+        "ground_truth_value": 10.046190806437272,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.941606,
+          35.63348
+        ]
+      },
+      "properties": {
+        "station_id": "7462053c-35be-5565-976b-bdf865b0fbe4",
+        "ground_truth_value": 1.513844376175869,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.220582,
+          29.767997
+        ]
+      },
+      "properties": {
+        "station_id": "75969ec2-d53b-5f4c-9c8d-8ce7f5fa8bba",
+        "ground_truth_value": 21.202386380408996,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.9833,
+          53.22
+        ]
+      },
+      "properties": {
+        "station_id": "76cd53bd-9517-5f8a-981e-511270f81cca",
+        "ground_truth_value": 11.53512136569752,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.431948,
+          42.393574
+        ]
+      },
+      "properties": {
+        "station_id": "7792a725-054f-5ec7-8ab3-bf6f0e569b7f",
+        "ground_truth_value": 22.186700865930472,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.429439,
+          40.462182
+        ]
+      },
+      "properties": {
+        "station_id": "77931181-e07e-50e9-9ed2-c82a1d0793b1",
+        "ground_truth_value": 11.281852559570552,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.32690000000001,
+          -22.831600000000005
+        ]
+      },
+      "properties": {
+        "station_id": "794532d8-c6ff-5da9-ada3-51b7a6c633f9",
+        "ground_truth_value": 12.231874999999999,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.662796,
+          52.136055
+        ]
+      },
+      "properties": {
+        "station_id": "7abcbcaa-3e96-599b-9632-912e01f8c288",
+        "ground_truth_value": 15.092124659168373,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.277,
+          49.368
+        ]
+      },
+      "properties": {
+        "station_id": "7b98bbe2-80b3-59ea-8ac9-4f6bf35c9919",
+        "ground_truth_value": 19.945124744376272,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.50974,
+          43.87483
+        ]
+      },
+      "properties": {
+        "station_id": "7d978a80-fa20-5fbd-9fe8-72ec8d90bad2",
+        "ground_truth_value": 0.7117417765030675,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.753,
+          42.719
+        ]
+      },
+      "properties": {
+        "station_id": "7eaa60a5-53d8-5423-8b1f-87dc9a5c15b2",
+        "ground_truth_value": 1.4807505220245398,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.4711,
+          -22.8879
+        ]
+      },
+      "properties": {
+        "station_id": "7fbd3f32-5e25-5611-962d-09947fd9bf97",
+        "ground_truth_value": 13.635000000000002,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.906796,
+          40.483598
+        ]
+      },
+      "properties": {
+        "station_id": "805240bf-bafe-5c6c-8ce1-af8cb1750bf9",
+        "ground_truth_value": 1.5366533197750512,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.84611,
+          39.14313
+        ]
+      },
+      "properties": {
+        "station_id": "80b3daba-63b3-5286-a8da-d56969490bde",
+        "ground_truth_value": 21.411217481329246,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.16243330000002,
+          18.1283666
+        ]
+      },
+      "properties": {
+        "station_id": "814c1d40-afb9-562c-ac95-b2388b6a2c5a",
+        "ground_truth_value": 16.164788064696044,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.5852,
+          35.1343
+        ]
+      },
+      "properties": {
+        "station_id": "817c5695-2ff6-5ab1-8d6f-75c20346c0b6",
+        "ground_truth_value": 12.206980828220859,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.7192,
+          16.54257
+        ]
+      },
+      "properties": {
+        "station_id": "819ff90d-ce09-54c3-9109-5677b4ac27fa",
+        "ground_truth_value": 13.547631901840496,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.224501,
+          36.11094
+        ]
+      },
+      "properties": {
+        "station_id": "8205f934-19a8-56e8-b85e-19238cbcbd4c",
+        "ground_truth_value": 8.902393532719836,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.38769,
+          29.81453
+        ]
+      },
+      "properties": {
+        "station_id": "826da502-d52c-524a-a9af-b74b1278f211",
+        "ground_truth_value": 25.55861048390593,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.336667,
+          41.118333
+        ]
+      },
+      "properties": {
+        "station_id": "82a75a4b-0e30-5526-9b12-10c3e38d04de",
+        "ground_truth_value": 9.760880623721881,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.317687,
+          32.564968
+        ]
+      },
+      "properties": {
+        "station_id": "82e33efc-17b7-5fc0-8664-599b1b0e11e7",
+        "ground_truth_value": 5.6683668200409,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.809739,
+          39.396075
+        ]
+      },
+      "properties": {
+        "station_id": "83e7469e-1594-5525-a544-c7ca0110fd2d",
+        "ground_truth_value": 3.5907490319631905,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.972147222222,
+          20.388888888889
+        ]
+      },
+      "properties": {
+        "station_id": "86247cc9-0dfe-5502-b4de-6b07c0b886a4",
+        "ground_truth_value": 32.04191857550903,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.391283,
+          7.884488
+        ]
+      },
+      "properties": {
+        "station_id": "86da3758-83b4-5cd0-b556-9a5ff788ab94",
+        "ground_truth_value": 10.035282890252216,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.901851,
+          40.662961
+        ]
+      },
+      "properties": {
+        "station_id": "8700fd10-47cb-5462-8a97-597fc0b62245",
+        "ground_truth_value": 23.081151274785277,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.9125,
+          43.95222
+        ]
+      },
+      "properties": {
+        "station_id": "87be4ebc-aa65-5a17-a38b-f4723250ff6a",
+        "ground_truth_value": 4.663134169111765,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.557534,
+          39.739441
+        ]
+      },
+      "properties": {
+        "station_id": "8875c58c-60fe-5b6f-90e8-df5cac1a8997",
+        "ground_truth_value": 16.244613551390593,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.7499,
+          55.9033
+        ]
+      },
+      "properties": {
+        "station_id": "89c5cd5c-306a-5005-9eed-a5e32cac5180",
+        "ground_truth_value": 3.0269467413532514,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.53054199999998,
+          22.883583
+        ]
+      },
+      "properties": {
+        "station_id": "89ecccec-5846-55b1-814b-2ef78743a3b8",
+        "ground_truth_value": 12.238341034213862,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.78892799999998,
+          21.958069
+        ]
+      },
+      "properties": {
+        "station_id": "8b073b2b-5df9-5219-9389-73962d5be0e4",
+        "ground_truth_value": 2.0227367762601904,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.457914,
+          34.403052
+        ]
+      },
+      "properties": {
+        "station_id": "8c3eb05d-5df1-5139-86cc-c9c57ef86d88",
+        "ground_truth_value": 0.44800325245398775,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.264167,
+          43.551611
+        ]
+      },
+      "properties": {
+        "station_id": "8d3aef9b-0909-5068-985e-c6d2705b1bc7",
+        "ground_truth_value": 5.726655997154798,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.086095,
+          14.476214
+        ]
+      },
+      "properties": {
+        "station_id": "8d8f943a-d304-5bdc-b129-848667860614",
+        "ground_truth_value": 5.815902584123444,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.874084,
+          35.213171
+        ]
+      },
+      "properties": {
+        "station_id": "8e06b891-4d0f-518f-9ecd-94108dce081b",
+        "ground_truth_value": 22.947868919488755,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.316442,
+          40.747796
+        ]
+      },
+      "properties": {
+        "station_id": "8e07f811-3435-5c4b-8fd8-ba7d54193969",
+        "ground_truth_value": 13.402233824069532,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.9823,
+          32.29515
+        ]
+      },
+      "properties": {
+        "station_id": "8f8c6703-f211-55c1-a317-66e10d68fe34",
+        "ground_truth_value": 10.635607938466258,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.560498,
+          42.373499
+        ]
+      },
+      "properties": {
+        "station_id": "8fad078e-7a9a-5b90-b53f-559d6b695d77",
+        "ground_truth_value": 1.4347318507157463,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.385,
+          40.5506
+        ]
+      },
+      "properties": {
+        "station_id": "90cbb5cd-406e-5045-b4af-e45f3b09b6b2",
+        "ground_truth_value": 2.3263617178732106,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.623056,
+          41.442778
+        ]
+      },
+      "properties": {
+        "station_id": "91862eb1-bced-5153-b0d3-307f4fc79bda",
+        "ground_truth_value": 16.770920234621677,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.76821,
+          46.825425
+        ]
+      },
+      "properties": {
+        "station_id": "91b83193-5315-5262-a8ab-7bea3c939b39",
+        "ground_truth_value": 6.585654396728017,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.75203,
+          53.201694
+        ]
+      },
+      "properties": {
+        "station_id": "920abbfb-4d66-5114-b9e8-f92fa98fd957",
+        "ground_truth_value": 11.066251405930473,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.62854800000001,
+          14.800032
+        ]
+      },
+      "properties": {
+        "station_id": "920c444e-c2c1-5698-8102-a5447d84c08f",
+        "ground_truth_value": 20.697770961145196,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2519,
+          58.38846
+        ]
+      },
+      "properties": {
+        "station_id": "92c20b8e-a09a-5c1b-a182-0e73d2449e1f",
+        "ground_truth_value": 0.788,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.284906,
+          30.262347
+        ]
+      },
+      "properties": {
+        "station_id": "931dfe46-b8f4-558a-b95b-d595645950dd",
+        "ground_truth_value": 8.216388493599181,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.561175,
+          22.523108000000004
+        ]
+      },
+      "properties": {
+        "station_id": "93afd295-78da-5999-ae46-cd39ed0d53e7",
+        "ground_truth_value": 14.41787913133598,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.205,
+          33.901389
+        ]
+      },
+      "properties": {
+        "station_id": "93b45142-4b1d-5b97-a7aa-b98fa5c3af15",
+        "ground_truth_value": 20.854571629100203,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.013178,
+          38.921847
+        ]
+      },
+      "properties": {
+        "station_id": "948194ac-666a-5597-96ff-2fb302441137",
+        "ground_truth_value": 14.762841312126788,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.13977,
+          36.174365
+        ]
+      },
+      "properties": {
+        "station_id": "94844ec6-6a2d-5589-99dd-343d39bf1ced",
+        "ground_truth_value": 31.09574214635992,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.126081,
+          40.67025
+        ]
+      },
+      "properties": {
+        "station_id": "94d7798d-273b-5c26-bdd6-b891c92279b9",
+        "ground_truth_value": 21.977269529652354,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.21947897,
+          22.98928311
+        ]
+      },
+      "properties": {
+        "station_id": "94ddb19f-f587-5c65-9c11-a180845d8116",
+        "ground_truth_value": 23.018429872031362,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.65739,
+          35.01708
+        ]
+      },
+      "properties": {
+        "station_id": "957d0fe6-924d-5315-a72d-8693fd8e1015",
+        "ground_truth_value": 7.3775003100818,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.75355,
+          32.92118
+        ]
+      },
+      "properties": {
+        "station_id": "95a4d069-1c67-577a-8923-26b33227a7a2",
+        "ground_truth_value": 19.167936616094067,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.038056,
+          56.448889
+        ]
+      },
+      "properties": {
+        "station_id": "96bd0afa-2a78-518e-afff-6374b1a7aef5",
+        "ground_truth_value": 3.681421712456657,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.9886,
+          39.7861
+        ]
+      },
+      "properties": {
+        "station_id": "97b47aa1-c8ba-54f1-b93c-30a9c630d98a",
+        "ground_truth_value": 43.67393279273006,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.960402,
+          50.144285
+        ]
+      },
+      "properties": {
+        "station_id": "97d08fea-4730-5605-8792-cc020402a8b8",
+        "ground_truth_value": 7.0356059393616075,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.233973,
+          41.945874
+        ]
+      },
+      "properties": {
+        "station_id": "98a88be8-d121-57af-9a39-df286a8b45e8",
+        "ground_truth_value": 0.2867224578936605,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.273777,
+          44.087397
+        ]
+      },
+      "properties": {
+        "station_id": "9aabef7d-9c05-5665-a0f0-a8b7360a24ad",
+        "ground_truth_value": 10.192084812617587,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.039269,
+          45.338261
+        ]
+      },
+      "properties": {
+        "station_id": "9acb916b-8306-592a-8aae-d8272fb0693e",
+        "ground_truth_value": 1.782583144979012,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.987871,
+          41.303614
+        ]
+      },
+      "properties": {
+        "station_id": "9ade7188-f8e4-5a33-b490-7de09f900561",
+        "ground_truth_value": 10.395925869120655,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.872222,
+          40.736389
+        ]
+      },
+      "properties": {
+        "station_id": "9b05b148-f44f-5401-a0aa-ba32b8a8ef32",
+        "ground_truth_value": 18.19678967613497,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.702278,
+          43.486917
+        ]
+      },
+      "properties": {
+        "station_id": "9c2cdde1-c045-58fc-9b31-623e1f9cf1ea",
+        "ground_truth_value": 11.207883880145818,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.38908,
+          43.64543
+        ]
+      },
+      "properties": {
+        "station_id": "9c9f5c98-f583-54d4-937f-02c5edbb332c",
+        "ground_truth_value": 24.0129983445321,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.36501,
+          42.82231
+        ]
+      },
+      "properties": {
+        "station_id": "9cb6ce99-8def-521b-ad6e-e2c9cca1a57c",
+        "ground_truth_value": 6.225010790654396,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.395784,
+          29.772915
+        ]
+      },
+      "properties": {
+        "station_id": "9d7ff653-15c4-5237-a450-92ff8125de3d",
+        "ground_truth_value": 15.64092919222904,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.30135,
+          36.85555
+        ]
+      },
+      "properties": {
+        "station_id": "9dd34af9-aeb5-5e01-a7f6-fa9f4827588f",
+        "ground_truth_value": 13.55547259380368,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -127.168542,
+          54.778486
+        ]
+      },
+      "properties": {
+        "station_id": "9f80b021-22ab-579c-9b04-6ee852e4ef70",
+        "ground_truth_value": 13.10586129634569,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.46256,
+          47.22634
+        ]
+      },
+      "properties": {
+        "station_id": "9ffc6d08-e2bd-53ec-aea8-5c679fb0bf9d",
+        "ground_truth_value": 30.081306759243354,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.87076,
+          42.869824
+        ]
+      },
+      "properties": {
+        "station_id": "a0509fe1-1aba-5f63-8474-0d79af8966a2",
+        "ground_truth_value": 2.649941261002045,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.686985,
+          56.150186
+        ]
+      },
+      "properties": {
+        "station_id": "a0625ce3-1843-5b51-bd81-8582c4081f8d",
+        "ground_truth_value": 10.023023879903326,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.326787,
+          15.087087
+        ]
+      },
+      "properties": {
+        "station_id": "a2ce94ca-6ea4-55b7-bc61-8eab4118c0f2",
+        "ground_truth_value": 14.85485954149177,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.11397,
+          42.211774
+        ]
+      },
+      "properties": {
+        "station_id": "a38bb75b-d661-5f23-9e15-f7a81073af72",
+        "ground_truth_value": 3.9200317517995913,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.200858,
+          42.974461
+        ]
+      },
+      "properties": {
+        "station_id": "a4c4b72e-d845-5091-a3c1-4f391088ed36",
+        "ground_truth_value": 7.918465405589643,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.555112,
+          42.19438
+        ]
+      },
+      "properties": {
+        "station_id": "a5926e16-d930-5f39-97c7-38902524c932",
+        "ground_truth_value": 3.8416323586298566,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.12796,
+          33.46173
+        ]
+      },
+      "properties": {
+        "station_id": "a69c84e9-7bb9-5e9e-aa9e-d4e34b14d9fa",
+        "ground_truth_value": 42.179549025296524,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.618549,
+          39.138773
+        ]
+      },
+      "properties": {
+        "station_id": "a881a1b3-1f2b-5dba-be4d-194122b13a33",
+        "ground_truth_value": 6.38931157815951,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.860117,
+          32.820061
+        ]
+      },
+      "properties": {
+        "station_id": "a8906688-cbe7-5f34-b2ee-bc61cf9c8622",
+        "ground_truth_value": 15.97736957758691,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.888065,
+          28.88044
+        ]
+      },
+      "properties": {
+        "station_id": "a984e2e4-d4a5-56ec-a87f-e55ecd214c0e",
+        "ground_truth_value": 5.944194723946831,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.931,
+          40.78422
+        ]
+      },
+      "properties": {
+        "station_id": "a986ad83-a8ea-521a-b5b8-a7bde79e511c",
+        "ground_truth_value": 20.799692430204498,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.182742,
+          40.216779
+        ]
+      },
+      "properties": {
+        "station_id": "aa0b57e2-c70d-5fe0-a374-7448c421beb5",
+        "ground_truth_value": 7.103098670756646,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.258056,
+          16.820832999999997
+        ]
+      },
+      "properties": {
+        "station_id": "aa938568-6c94-501b-98f8-a887560149b7",
+        "ground_truth_value": 12.478082014853086,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.139046,
+          40.961017
+        ]
+      },
+      "properties": {
+        "station_id": "abc4027b-e8a1-5f3e-850d-92e6727da634",
+        "ground_truth_value": 4.81379913421268,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.69523,
+          36.8071
+        ]
+      },
+      "properties": {
+        "station_id": "ac31453f-4e9e-5f50-a524-bd12d4105e84",
+        "ground_truth_value": 28.381033796789364,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.162889,
+          42.672083
+        ]
+      },
+      "properties": {
+        "station_id": "ac6ea575-1dba-5c99-b09e-c60b4944a52b",
+        "ground_truth_value": 3.108756112741176,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.30568900000002,
+          22.757506000000003
+        ]
+      },
+      "properties": {
+        "station_id": "acd3121e-24cf-5ad4-8c1c-b5368fa48b80",
+        "ground_truth_value": 23.26147161269892,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.56615799999999,
+          23.569031
+        ]
+      },
+      "properties": {
+        "station_id": "ae14c815-3cc8-574c-9484-0ac573afc5a1",
+        "ground_truth_value": 7.267739951466773,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.42531099999998,
+          22.564136109999996
+        ]
+      },
+      "properties": {
+        "station_id": "ae252779-456d-5892-8d5d-634d21c55928",
+        "ground_truth_value": 24.276760537662984,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.882222,
+          40.107222
+        ]
+      },
+      "properties": {
+        "station_id": "aec1fcae-894a-56dd-8d5d-a53e32e6c6b9",
+        "ground_truth_value": 11.751545194376279,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.033167,
+          32.194671
+        ]
+      },
+      "properties": {
+        "station_id": "afdf2a76-9877-55e6-9715-50ecbd8cd6b8",
+        "ground_truth_value": 24.476681547300615,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.817694,
+          40.739264
+        ]
+      },
+      "properties": {
+        "station_id": "afe93ec8-ffd8-58dd-a2c0-41a9c0d3ccab",
+        "ground_truth_value": 26.94630194607362,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.024835,
+          41.677667
+        ]
+      },
+      "properties": {
+        "station_id": "affdef3c-ba53-5f01-b8cd-8d8c83dee8a4",
+        "ground_truth_value": 2.5851760540490796,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.87065,
+          35.16126
+        ]
+      },
+      "properties": {
+        "station_id": "afff5455-55e3-504d-afc1-f487e0345770",
+        "ground_truth_value": 12.992107492474437,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.2478,
+          23.46538
+        ]
+      },
+      "properties": {
+        "station_id": "b0d9df9d-7b55-5e02-8365-d6f5b6b89d37",
+        "ground_truth_value": 14.845162445921185,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.484167,
+          37.30389
+        ]
+      },
+      "properties": {
+        "station_id": "b0e05fa1-4cdc-5eb6-9313-d18b5837b2d8",
+        "ground_truth_value": 1.121128633190184,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.063721,
+          32.98426
+        ]
+      },
+      "properties": {
+        "station_id": "b170bfed-36ca-5386-bd2c-8b0becc26eac",
+        "ground_truth_value": 7.394749079754601,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.105857,
+          53.951834
+        ]
+      },
+      "properties": {
+        "station_id": "b179815d-7e5b-5769-9ec6-f6433728f4c0",
+        "ground_truth_value": 5.302734709053729,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.2903,
+          44.6522
+        ]
+      },
+      "properties": {
+        "station_id": "b1975686-6b1a-5e70-a323-ef4dad7e929a",
+        "ground_truth_value": 1.6506905113087935,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.015544,
+          29.583047
+        ]
+      },
+      "properties": {
+        "station_id": "b19dc404-9675-5814-a1b7-9b294f768014",
+        "ground_truth_value": 10.223443817239264,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          118.312256,
+          24.432132999999997
+        ]
+      },
+      "properties": {
+        "station_id": "b2e7bbed-5051-5f57-8890-ff9532f99c1e",
+        "ground_truth_value": 19.898084725933206,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.455227,
+          31.765685
+        ]
+      },
+      "properties": {
+        "station_id": "b2f0bc48-645a-547e-b0a9-57d84e8e509d",
+        "ground_truth_value": 17.329679141104297,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.23475,
+          43.160056
+        ]
+      },
+      "properties": {
+        "station_id": "b38d76f5-1057-540c-b7e1-9e43f6c834b5",
+        "ground_truth_value": 8.262746510180495,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.18347,
+          38.76835
+        ]
+      },
+      "properties": {
+        "station_id": "b479e170-9297-51fc-b0ae-4f49f2d2e7f4",
+        "ground_truth_value": 28.68236511775051,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.812778,
+          46.411389
+        ]
+      },
+      "properties": {
+        "station_id": "b53562c4-c609-55df-881e-52db47bd20b4",
+        "ground_truth_value": 2.9008245876687115,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.657936,
+          40.136378
+        ]
+      },
+      "properties": {
+        "station_id": "b5437809-e786-59cf-b8ee-f376c0cf5a4b",
+        "ground_truth_value": 9.473525943006134,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.741185,
+          45.468297
+        ]
+      },
+      "properties": {
+        "station_id": "b6bc40de-35c4-5a71-93e3-2201eccc2669",
+        "ground_truth_value": 14.267554370054238,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.80277,
+          43.314603
+        ]
+      },
+      "properties": {
+        "station_id": "b6e2af7b-2b44-5722-b217-9679a77124d2",
+        "ground_truth_value": 10.880646394594118,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.48593000000001,
+          53.549509
+        ]
+      },
+      "properties": {
+        "station_id": "b7223d06-d7f3-509e-a72b-98854a0c8f3e",
+        "ground_truth_value": 17.924863846733402,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.717307,
+          48.786114
+        ]
+      },
+      "properties": {
+        "station_id": "b89289a6-2208-55e5-a8b6-ff94dc29b60d",
+        "ground_truth_value": 6.462940339646128,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.095767,
+          33.503833
+        ]
+      },
+      "properties": {
+        "station_id": "b91d5514-04d1-5558-88dc-0e6ddd6cf1a2",
+        "ground_truth_value": 19.129758636748466,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -101.571583,
+          47.940861
+        ]
+      },
+      "properties": {
+        "station_id": "ba695ade-a690-5a3b-bff7-ac0c38d8079d",
+        "ground_truth_value": 2.0619364041513295,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.82835,
+          40.766528
+        ]
+      },
+      "properties": {
+        "station_id": "baca2e56-c79b-54a1-9183-2a35b80cceb4",
+        "ground_truth_value": 3.7945919700817994,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -106.584434,
+          31.796218
+        ]
+      },
+      "properties": {
+        "station_id": "bad7fa64-4d95-5da7-abd4-bcc035142d7a",
+        "ground_truth_value": 8.020386247443763,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.713611,
+          40.341389
+        ]
+      },
+      "properties": {
+        "station_id": "baee2359-c751-5104-86d0-e92b914dd074",
+        "ground_truth_value": 12.465702965235174,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.000138,
+          42.43084
+        ]
+      },
+      "properties": {
+        "station_id": "bb77f972-38ef-5948-8f0d-36fde0665de4",
+        "ground_truth_value": 12.606824130879346,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.676944,
+          47.8679
+        ]
+      },
+      "properties": {
+        "station_id": "bbf85b74-a9e2-5735-adb8-e16cdd5899e3",
+        "ground_truth_value": 2.1168174846625765,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.46746099999999,
+          49.862119
+        ]
+      },
+      "properties": {
+        "station_id": "bd370a60-fc5b-591d-a611-a373a1e7a849",
+        "ground_truth_value": 11.78873041700009,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.84047,
+          39.76168
+        ]
+      },
+      "properties": {
+        "station_id": "bd584018-8367-57d1-9a2a-456f90c0937c",
+        "ground_truth_value": 4.916742320511247,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.115572,
+          33.153088
+        ]
+      },
+      "properties": {
+        "station_id": "bd6e655c-de7d-5941-8822-ec82e592a614",
+        "ground_truth_value": 4.649157774294478,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.425978,
+          45.806311
+        ]
+      },
+      "properties": {
+        "station_id": "bddf9a5b-95fb-5f75-bd61-ca85cb241ae2",
+        "ground_truth_value": 10.192084812617587,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.94984,
+          39.838119
+        ]
+      },
+      "properties": {
+        "station_id": "be2b6be4-4c34-5e16-a6ee-6d26044e1ffe",
+        "ground_truth_value": 27.037996834662575,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.4575,
+          34.63782
+        ]
+      },
+      "properties": {
+        "station_id": "be8af099-179f-50f6-822b-5b1721450742",
+        "ground_truth_value": 3.720466666615542,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.78092600000001,
+          17.414174
+        ]
+      },
+      "properties": {
+        "station_id": "bed1487a-21c6-5cb5-a581-4264aab91ab1",
+        "ground_truth_value": 14.207317350764443,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.99389,
+          49.20083
+        ]
+      },
+      "properties": {
+        "station_id": "c047ccfe-e216-5b6d-bd12-bdda6d1874e9",
+        "ground_truth_value": 9.007211789810615,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.28676111,
+          22.63390278
+        ]
+      },
+      "properties": {
+        "station_id": "c1a1a2d8-8a56-51d5-8895-010ff64ad9d5",
+        "ground_truth_value": 18.16935009771581,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.44884,
+          38.75264
+        ]
+      },
+      "properties": {
+        "station_id": "c2142b44-0d43-5d6f-af4c-8c34c20a6ba0",
+        "ground_truth_value": 12.693064216012269,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          104.846219,
+          15.245413
+        ]
+      },
+      "properties": {
+        "station_id": "c2360ef5-cb8b-5a37-805d-7022c42c957e",
+        "ground_truth_value": 17.039074074074076,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.63462,
+          38.85287
+        ]
+      },
+      "properties": {
+        "station_id": "c2abc654-d544-54d5-a864-cfa7cddc457e",
+        "ground_truth_value": 5.754606905173825,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.50264,
+          54.216473
+        ]
+      },
+      "properties": {
+        "station_id": "c2f42404-fe63-5dc2-a4bc-a48641be9dcb",
+        "ground_truth_value": 2.5769951987196595,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.477175,
+          32.987891
+        ]
+      },
+      "properties": {
+        "station_id": "c3a05139-0f51-508f-8b0f-c9d7e1531b82",
+        "ground_truth_value": 7.038952515316973,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.31201699999998,
+          22.608711
+        ]
+      },
+      "properties": {
+        "station_id": "c3fa9b14-7303-59b4-b35b-a4fc1f334853",
+        "ground_truth_value": 27.8949503375004,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.48307,
+          32.67618
+        ]
+      },
+      "properties": {
+        "station_id": "c4153ece-c2fc-5668-aad4-56b1d4ee3cc0",
+        "ground_truth_value": 10.577951475030673,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.699444,
+          39.965278
+        ]
+      },
+      "properties": {
+        "station_id": "c4acd7c6-7c65-5d38-901d-35ece9b22177",
+        "ground_truth_value": 12.557738426237218,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.953663,
+          12.577835
+        ]
+      },
+      "properties": {
+        "station_id": "c5b6c342-ebbd-59d2-b71b-53f590c0ec62",
+        "ground_truth_value": 15.8226761479829,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -124.996222,
+          49.682603
+        ]
+      },
+      "properties": {
+        "station_id": "c6bb9862-a816-5cc3-9f23-f2d2a29232e2",
+        "ground_truth_value": 6.252095277932702,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.47445,
+          39.021881
+        ]
+      },
+      "properties": {
+        "station_id": "c801459a-3547-5e1e-8a5f-41a2bd8a6f64",
+        "ground_truth_value": 8.843593047034766,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.85611100000001,
+          56.244722
+        ]
+      },
+      "properties": {
+        "station_id": "c803a1e7-04b2-5f7c-bfd7-d66144551475",
+        "ground_truth_value": 11.731463857028542,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.927795,
+          53.800117
+        ]
+      },
+      "properties": {
+        "station_id": "c88c0d51-60a8-5aee-885b-81515c1d7fb9",
+        "ground_truth_value": 4.008659198008359,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.573896,
+          45.651722
+        ]
+      },
+      "properties": {
+        "station_id": "c8ce170c-a5a3-5167-9cab-f88974b1e5b8",
+        "ground_truth_value": 6.899256987048396,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.272606,
+          35.503587
+        ]
+      },
+      "properties": {
+        "station_id": "c8f38418-0ec9-5b20-b22c-b718dec8f531",
+        "ground_truth_value": 9.179011715153376,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02466400000002,
+          13.428581
+        ]
+      },
+      "properties": {
+        "station_id": "c9012cdb-0d43-5c71-ae14-7fd595151881",
+        "ground_truth_value": 9.49767844970299,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.549444,
+          43.081667
+        ]
+      },
+      "properties": {
+        "station_id": "c91a776f-41e6-5804-9bcb-77e6252b501f",
+        "ground_truth_value": 1.3092901873824132,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.64041,
+          38.45934
+        ]
+      },
+      "properties": {
+        "station_id": "c9732280-c174-56bf-920c-4181b16d8c3e",
+        "ground_truth_value": 11.14243613760736,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.125495,
+          29.802707
+        ]
+      },
+      "properties": {
+        "station_id": "ca232201-7399-5b8e-be52-935d67f04dfc",
+        "ground_truth_value": 18.4868726993865,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.746814,
+          39.371679
+        ]
+      },
+      "properties": {
+        "station_id": "cab717dd-b542-5661-8e27-8869dab5bd3d",
+        "ground_truth_value": 24.583715365787324,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.62068,
+          33.36985
+        ]
+      },
+      "properties": {
+        "station_id": "cbc5fbf9-97e9-58a6-96d6-50ae82a9da95",
+        "ground_truth_value": 11.681695862229038,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.087717,
+          40.807897
+        ]
+      },
+      "properties": {
+        "station_id": "cceecd52-dd6f-5148-a89b-5139daca53f2",
+        "ground_truth_value": 6.373972648261758,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.66152699999999,
+          49.317698
+        ]
+      },
+      "properties": {
+        "station_id": "ce0a0467-1354-597d-93d9-4c8281f5deff",
+        "ground_truth_value": 10.74157046323464,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.196284,
+          33.219069
+        ]
+      },
+      "properties": {
+        "station_id": "ce5028b7-8a1c-5540-ae85-e64817866d05",
+        "ground_truth_value": 6.8813371078323105,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.651472,
+          22.260899
+        ]
+      },
+      "properties": {
+        "station_id": "ceec8a7b-4295-5769-9298-04c45ad0496f",
+        "ground_truth_value": 5.6918869834728465,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.07407,
+          60.37288
+        ]
+      },
+      "properties": {
+        "station_id": "cf05f43c-ca4a-53d7-83b8-492d4f3a765a",
+        "ground_truth_value": 0.903,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.357422,
+          22.628126000000005
+        ]
+      },
+      "properties": {
+        "station_id": "cf27353e-0c67-53c1-a442-b66ad2d14578",
+        "ground_truth_value": 27.74428501383331,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96618,
+          40.85355
+        ]
+      },
+      "properties": {
+        "station_id": "d0048305-cb9d-567c-91f2-b6693f76f5a2",
+        "ground_truth_value": 27.502947798302657,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100.99686111111,
+          25.421472222222004
+        ]
+      },
+      "properties": {
+        "station_id": "d041465f-061d-5240-b557-e58b67b6d51b",
+        "ground_truth_value": 31.557044657464218,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.761803,
+          30.354944
+        ]
+      },
+      "properties": {
+        "station_id": "d0ede4a7-8522-584d-9d40-2704ec0dfe3f",
+        "ground_truth_value": 7.021846748425357,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.038611,
+          42.14175
+        ]
+      },
+      "properties": {
+        "station_id": "d1c7df6e-4e95-5731-b013-7459acdd9124",
+        "ground_truth_value": 7.9541025767484665,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.631667,
+          41.784722
+        ]
+      },
+      "properties": {
+        "station_id": "d2558d47-2c27-5c6a-bb02-36022ed59212",
+        "ground_truth_value": 8.131851270531698,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.762264,
+          49.238008
+        ]
+      },
+      "properties": {
+        "station_id": "d2c6a836-8d69-5b94-8f43-c90f46565669",
+        "ground_truth_value": 11.791457396046352,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.016715,
+          38.970092
+        ]
+      },
+      "properties": {
+        "station_id": "d2cee5bb-2c88-556b-a84e-b348d8e841e9",
+        "ground_truth_value": 11.893377610695298,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.870189,
+          32.175417
+        ]
+      },
+      "properties": {
+        "station_id": "d2e3961c-014d-560a-ab7f-128614683cc3",
+        "ground_truth_value": 7.173659253578731,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.683685,
+          34.276316
+        ]
+      },
+      "properties": {
+        "station_id": "d39319b5-bb80-5139-b711-2e74a9ffaff9",
+        "ground_truth_value": 10.062552517096115,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.03255,
+          44.76323
+        ]
+      },
+      "properties": {
+        "station_id": "d3a80380-608b-56bc-b93d-6aa715e01605",
+        "ground_truth_value": 11.626816663333331,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.52579,
+          34.06812
+        ]
+      },
+      "properties": {
+        "station_id": "d3c23f10-2732-5e99-bc24-817952656351",
+        "ground_truth_value": 38.43983813572597,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.2183,
+          39.8723
+        ]
+      },
+      "properties": {
+        "station_id": "d438dd0a-ed22-5527-b315-18792a45b86f",
+        "ground_truth_value": 0.7631004727198365,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.753682,
+          49.507103
+        ]
+      },
+      "properties": {
+        "station_id": "d469087b-39d8-5761-9342-28a9095b3600",
+        "ground_truth_value": 7.866993676091401,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.785683,
+          35.2401
+        ]
+      },
+      "properties": {
+        "station_id": "d574e638-766a-5555-bc6d-9305c4b736e8",
+        "ground_truth_value": 10.234351542535787,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.037677,
+          51.268227
+        ]
+      },
+      "properties": {
+        "station_id": "d5a7d876-1871-5235-9a3c-5733ccc7fef3",
+        "ground_truth_value": 10.55795387411952,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.561472,
+          40.46471
+        ]
+      },
+      "properties": {
+        "station_id": "d6a62f92-ab00-5d46-93d1-e1e2b20d99c2",
+        "ground_truth_value": 4.900041100961145,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.65452,
+          38.22876
+        ]
+      },
+      "properties": {
+        "station_id": "d713eb61-6bd9-5e88-a751-67646d1b7b04",
+        "ground_truth_value": 12.639547306768916,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.494833,
+          41.44013
+        ]
+      },
+      "properties": {
+        "station_id": "d78bedb8-512e-5b93-813a-14504da36b4b",
+        "ground_truth_value": 12.465702965235174,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.851825,
+          35.345607
+        ]
+      },
+      "properties": {
+        "station_id": "d8cb3ba5-4726-5a25-ba70-7c556e7e8c56",
+        "ground_truth_value": 4.188639896871166,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.144105,
+          53.554691
+        ]
+      },
+      "properties": {
+        "station_id": "d8f38fdb-95df-57d0-8312-4b8996d27c8a",
+        "ground_truth_value": 9.697557023753344,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.643447,
+          36.31567
+        ]
+      },
+      "properties": {
+        "station_id": "d9619231-d427-54b8-9e66-01f6b299d46d",
+        "ground_truth_value": 10.332522951820042,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.091943,
+          42.312158
+        ]
+      },
+      "properties": {
+        "station_id": "d9bbe43f-7af0-55ce-89b8-81412bda3684",
+        "ground_truth_value": 18.652535776543967,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.30971999999998,
+          49.04278
+        ]
+      },
+      "properties": {
+        "station_id": "d9f77067-ca1c-5d55-9d09-86dd28d4311d",
+        "ground_truth_value": 13.285841913399128,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.985166,
+          40.054171
+        ]
+      },
+      "properties": {
+        "station_id": "db06f727-3067-54aa-a10a-91660a653468",
+        "ground_truth_value": 24.139560017116562,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.449444,
+          46.32255
+        ]
+      },
+      "properties": {
+        "station_id": "dbac20df-407a-522a-a031-d913977567e9",
+        "ground_truth_value": 5.566445978186777,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.679765,
+          42.885368
+        ]
+      },
+      "properties": {
+        "station_id": "dbe57018-53d3-580d-9615-4b80510a4cbe",
+        "ground_truth_value": 17.965337793169734,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.2326,
+          -22.9244
+        ]
+      },
+      "properties": {
+        "station_id": "dc7ec9e7-ecb4-5f47-b801-6152e8180704",
+        "ground_truth_value": 34.44369565217391,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.38014,
+          42.862531
+        ]
+      },
+      "properties": {
+        "station_id": "dc7f98b7-da40-5541-b8b3-d025f48c22fc",
+        "ground_truth_value": 2.9008245876687115,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.742889,
+          43.333083
+        ]
+      },
+      "properties": {
+        "station_id": "de380ee8-38b7-5e41-a057-1ed19bd38f26",
+        "ground_truth_value": 3.59961234106873,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.97238,
+          51.81437
+        ]
+      },
+      "properties": {
+        "station_id": "df36b3dc-e413-579d-8a13-e1f171085d73",
+        "ground_truth_value": 5.6,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.702446,
+          44.382338
+        ]
+      },
+      "properties": {
+        "station_id": "dfdb301a-fefb-59c1-bb94-419ea372d555",
+        "ground_truth_value": 7.212859577368782,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.66617,
+          35.49453
+        ]
+      },
+      "properties": {
+        "station_id": "e0c7cfaa-7e3d-5b6a-8ac1-77f7c06bb952",
+        "ground_truth_value": 4.49951477186094,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.3955,
+          44.150528
+        ]
+      },
+      "properties": {
+        "station_id": "e10b2c94-e408-5f99-914e-ef34e9245ffd",
+        "ground_truth_value": 5.8016479209270635,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.79146,
+          34.54166
+        ]
+      },
+      "properties": {
+        "station_id": "e12cc10b-c161-5b24-8aa4-0cd51e2f972a",
+        "ground_truth_value": 1.2658135786707565,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.26498,
+          38.74643
+        ]
+      },
+      "properties": {
+        "station_id": "e16afff9-b1b6-5e63-8b0f-7a869a43c51b",
+        "ground_truth_value": 7.191043499570552,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.142665,
+          32.710177
+        ]
+      },
+      "properties": {
+        "station_id": "e1b3d941-b32a-5009-a229-23fc7833c531",
+        "ground_truth_value": 14.591072392535787,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.32554,
+          34.510961
+        ]
+      },
+      "properties": {
+        "station_id": "e2096f2f-91df-57a4-8084-324064cb832a",
+        "ground_truth_value": 12.42762282989775,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.655389,
+          36.511708
+        ]
+      },
+      "properties": {
+        "station_id": "e24b1cd8-1524-50c6-8c17-6475e7d0d698",
+        "ground_truth_value": 1.611645107198364,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.24535000000002,
+          22.87985556
+        ]
+      },
+      "properties": {
+        "station_id": "e33bf77a-2c16-5856-9000-b3eb5b6a342d",
+        "ground_truth_value": 21.431601240912904,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.960757,
+          40.46542
+        ]
+      },
+      "properties": {
+        "station_id": "e3694123-1330-5f6d-a3dc-577740ace957",
+        "ground_truth_value": 13.970995398773004,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87658,
+          62.78246
+        ]
+      },
+      "properties": {
+        "station_id": "e454c4a5-a4e4-5006-b52a-7c878bd78dfd",
+        "ground_truth_value": 0.256,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.49265,
+          29.7216
+        ]
+      },
+      "properties": {
+        "station_id": "e5176032-0f0b-581a-a14e-28b50d4c0956",
+        "ground_truth_value": 19.329679347269938,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.40027,
+          37.55652
+        ]
+      },
+      "properties": {
+        "station_id": "e61c2887-5591-5c60-9e1b-0c03e12a2215",
+        "ground_truth_value": 8.004705804325154,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.164457,
+          38.683304
+        ]
+      },
+      "properties": {
+        "station_id": "e664a899-6b2d-50bc-bdd7-303c7034201c",
+        "ground_truth_value": 2.508820095357873,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.128508,
+          29.670025
+        ]
+      },
+      "properties": {
+        "station_id": "e672cf6a-5689-5824-8305-97e83691fd19",
+        "ground_truth_value": 12.990987931226993,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.473138,
+          36.796667
+        ]
+      },
+      "properties": {
+        "station_id": "e6838803-6053-5f96-8a26-504f899f6062",
+        "ground_truth_value": 3.3163473926380367,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.080833,
+          39.991389
+        ]
+      },
+      "properties": {
+        "station_id": "e70992e0-7acd-5836-83d9-3c1167529e47",
+        "ground_truth_value": 20.235207767627813,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.24583056000002,
+          23.17904722
+        ]
+      },
+      "properties": {
+        "station_id": "e7b03549-7d26-5ee7-9eab-eb30a3a7089b",
+        "ground_truth_value": 21.040998537289568,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.994424,
+          40.002707
+        ]
+      },
+      "properties": {
+        "station_id": "e8cbd8c9-da4e-578c-b60c-4b6ec1f4dd17",
+        "ground_truth_value": 14.889304692699387,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.479185,
+          49.438848
+        ]
+      },
+      "properties": {
+        "station_id": "e8d4efdf-52d9-5d90-8c7d-8376f47ebe61",
+        "ground_truth_value": 4.851295723303993,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.00264,
+          33.41046
+        ]
+      },
+      "properties": {
+        "station_id": "e924b2dd-46a1-5ba5-911b-d766dbfa4591",
+        "ground_truth_value": 20.540970293190185,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.503795,
+          38.593322
+        ]
+      },
+      "properties": {
+        "station_id": "e946afe9-572c-510f-aa47-ad55479c99dc",
+        "ground_truth_value": 11.603296469059305,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.356529,
+          32.80581
+        ]
+      },
+      "properties": {
+        "station_id": "e99d6593-6c44-5228-8786-2ab391fb3dc7",
+        "ground_truth_value": 13.817602336564416,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.10589600000002,
+          14.945452000000001
+        ]
+      },
+      "properties": {
+        "station_id": "e9d251cb-0cf5-5a4c-b5e9-848be9a8af5f",
+        "ground_truth_value": 7.954102063580593,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.366399,
+          37.47689
+        ]
+      },
+      "properties": {
+        "station_id": "eba1b228-c19c-5f07-ad63-3e08523a396d",
+        "ground_truth_value": 5.30772321396728,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.317802,
+          29.863957
+        ]
+      },
+      "properties": {
+        "station_id": "ec4c0cea-e356-55b9-8e6a-c869b00b98b2",
+        "ground_truth_value": 4.249314471635992,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.3721,
+          35.77446
+        ]
+      },
+      "properties": {
+        "station_id": "ec5937db-61c5-5678-958d-83697a8ff427",
+        "ground_truth_value": 3.5873404854089976,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.285803,
+          44.706123
+        ]
+      },
+      "properties": {
+        "station_id": "ec627379-8ca2-5907-a40b-15ac8dc91558",
+        "ground_truth_value": 8.969034710368097,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.8197,
+          35.8652
+        ]
+      },
+      "properties": {
+        "station_id": "eca9bee0-6734-5575-8100-2a80e12a0ba9",
+        "ground_truth_value": 12.426843841063393,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.083611,
+          49.323891
+        ]
+      },
+      "properties": {
+        "station_id": "ecb93158-c79e-5061-a02d-5ab240df361f",
+        "ground_truth_value": 17.757746676891617,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.9869,
+          46.4783
+        ]
+      },
+      "properties": {
+        "station_id": "efa06db4-82d2-5c08-8fdc-44a8fedd4a1b",
+        "ground_truth_value": 0.6115250511247444,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.47594,
+          37.67696
+        ]
+      },
+      "properties": {
+        "station_id": "efb5310e-ff42-58c3-bcf4-d7bb82e17c57",
+        "ground_truth_value": 5.621326431492842,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.57079,
+          39.104686
+        ]
+      },
+      "properties": {
+        "station_id": "f0312e81-5a57-5162-b869-c197f0c12de4",
+        "ground_truth_value": 29.1650408997955,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.46925,
+          37.59088
+        ]
+      },
+      "properties": {
+        "station_id": "f1afcbce-7e31-5746-bc41-84aa4a7e3116",
+        "ground_truth_value": 26.013334867075663,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.499219,
+          29.695729
+        ]
+      },
+      "properties": {
+        "station_id": "f1cdf640-0171-54b1-97e2-ce444b9ae441",
+        "ground_truth_value": 8.55351002378323,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.49944,
+          49.36972
+        ]
+      },
+      "properties": {
+        "station_id": "f288f714-c37a-5fed-995f-3df5de3fa11d",
+        "ground_truth_value": 13.116428340149964,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.084472,
+          -12.008889
+        ]
+      },
+      "properties": {
+        "station_id": "f2f7eb1a-6291-57ca-b8ad-04c00f6cc2b9",
+        "ground_truth_value": 44.533840579710144,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.796996,
+          35.278292
+        ]
+      },
+      "properties": {
+        "station_id": "f330431f-522b-5944-869d-9240f4fbfca3",
+        "ground_truth_value": 25.746772038098158,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.763424,
+          38.770081
+        ]
+      },
+      "properties": {
+        "station_id": "f51b8486-6755-54ab-9b09-9b20e7bcbb3a",
+        "ground_truth_value": 2.947864976216769,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.53393,
+          30.378287
+        ]
+      },
+      "properties": {
+        "station_id": "f5643042-7c1a-55d3-9e30-ce8df50ac17c",
+        "ground_truth_value": 6.491573619631902,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -107.652192,
+          36.809735
+        ]
+      },
+      "properties": {
+        "station_id": "f60a59b7-8a96-5938-a6e7-5c3f3e487105",
+        "ground_truth_value": 8.137987218813906,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.94056,
+          49.156110000000005
+        ]
+      },
+      "properties": {
+        "station_id": "f6f03002-e5ed-54b1-afe9-9a3eca970951",
+        "ground_truth_value": 12.199140763462843,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.48325,
+          44.044306
+        ]
+      },
+      "properties": {
+        "station_id": "f7d8aff6-c192-5517-aa16-a7dd2d7b7fd2",
+        "ground_truth_value": 6.611684651260539,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.055525,
+          37.74743
+        ]
+      },
+      "properties": {
+        "station_id": "f8f44ea0-d977-50d1-99f9-d953a1e3a1ae",
+        "ground_truth_value": 6.789495453231083,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.663913,
+          45.502648
+        ]
+      },
+      "properties": {
+        "station_id": "f91f5d9a-6bd7-5bd1-aae6-36a8173ab2ec",
+        "ground_truth_value": 17.961588360599865,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.658797,
+          43.546174
+        ]
+      },
+      "properties": {
+        "station_id": "f986bae5-1589-5b6d-8278-8265653518c7",
+        "ground_truth_value": 9.721680299931839,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.420838,
+          38.302591
+        ]
+      },
+      "properties": {
+        "station_id": "fa567016-6695-531e-8da8-1ccf30ce753c",
+        "ground_truth_value": 2.5872213701431495,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.577981,
+          35.50307
+        ]
+      },
+      "properties": {
+        "station_id": "fb2fc77b-8246-5b2e-b379-7e118ba55356",
+        "ground_truth_value": 17.718546980306748,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.160477,
+          38.612034
+        ]
+      },
+      "properties": {
+        "station_id": "fc22da60-3f63-566d-b891-b0575f5eddc1",
+        "ground_truth_value": 13.612704752934558,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.85036,
+          34.14435
+        ]
+      },
+      "properties": {
+        "station_id": "fcef8dc1-7ed7-5b42-a642-5f880ee9d4db",
+        "ground_truth_value": 10.207764314928424,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.15655600000001,
+          16.418417
+        ]
+      },
+      "properties": {
+        "station_id": "fe3b9b4b-d0b3-5847-8c82-069cf2874fea",
+        "ground_truth_value": 16.852730505912685,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.075165,
+          51.047611
+        ]
+      },
+      "properties": {
+        "station_id": "fe9bb806-5d7d-5599-b96e-cc22e0ce866b",
+        "ground_truth_value": 24.717585982524636,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.292917,
+          22.674860999999996
+        ]
+      },
+      "properties": {
+        "station_id": "fed24252-a6d1-5fbb-8ba0-4c249ecbb959",
+        "ground_truth_value": 22.962837018965836,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.3681,
+          53.5472
+        ]
+      },
+      "properties": {
+        "station_id": "fef7097c-79e4-5244-8ae6-62bd2021053d",
+        "ground_truth_value": 17.58901484840402,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.328289,
+          22.733667
+        ]
+      },
+      "properties": {
+        "station_id": "ff367382-424d-590a-842f-5514fabb9817",
+        "ground_truth_value": 26.083895388213588,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.089618,
+          44.657014
+        ]
+      },
+      "properties": {
+        "station_id": "ffd5ff94-b20c-5097-a83a-3ceffd274c9d",
+        "ground_truth_value": 1.9842482616564419,
+        "pollutant": "NO2",
+        "period_key": "2024-03",
+        "predicted_value": null
+      }
+    }
+  ]
+}

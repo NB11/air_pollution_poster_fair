@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.3275,
+          45.48278
+        ]
+      },
+      "properties": {
+        "station_id": "1696157f-edc1-575f-90fa-fc0444d61362",
+        "ground_truth_value": 88.34059541666666,
+        "pollutant": "O3",
+        "period_key": "2024-08",
+        "predicted_value": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.16698,
+          45.5476
+        ]
+      },
+      "properties": {
+        "station_id": "1b00760d-d62b-5edf-bbeb-8147e75df16c",
+        "ground_truth_value": 85.13948958333336,
+        "pollutant": "O3",
+        "period_key": "2024-08",
+        "predicted_value": 54.55990219116211
+      }
+    }
+  ]
+}

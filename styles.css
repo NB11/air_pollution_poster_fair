@@ -59,7 +59,7 @@ body {
 .title-widget {
     background: #000000;
     color: white;
-    padding: 0.75rem 1.5rem 0.5rem 1.5rem;
+    padding: 0.75rem 1.5rem 0.5rem 0.50rem;
     width: 100%;
     box-sizing: border-box;
     position: relative;
@@ -109,14 +109,14 @@ body {
 .explanation-widget {
     top: 20px;
     left: 20px;
-    width: 400px;
-    min-width: 220px;
-    max-width: 500px;
+    width: calc(100vw / 3);
+    min-width: calc(100vw / 6);
+    max-width: calc(100vw / 3);
     height: calc(100vh - 100px);
     max-height: calc(100vh - 100px);
     position: absolute;
     overflow: hidden;
-    resize: horizontal;
+    resize: none;
     background: #000000;
     color: white;
     padding: 0;
@@ -222,8 +222,8 @@ body {
 .collapsed-icon-vertical {
     display: none;
     align-items: center;
-    justify-content: center;
-    padding: 0.75rem 0.5rem;
+    justify-content: flex-start;
+    padding: 0.2rem 0 0.5rem 0.50rem;
     opacity: 0;
     transform: translateX(-20px) scale(0.8);
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, 
@@ -233,6 +233,7 @@ body {
     flex-shrink: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 0.5rem;
+    box-sizing: border-box;
 }
 
 .explanation-widget.collapsed .collapsed-icon-vertical {
@@ -558,16 +559,16 @@ body {
     min-height: 0;
 }
 
-/* Desktop: Vertical scrolling with snap */
+/* Desktop: Vertical scrolling without snap - locked to single slide */
 @media (min-width: 769px) {
     .carousel-container {
         flex-direction: column;
-        overflow-y: auto;
+        overflow-y: hidden;
         overflow-x: hidden;
-        scroll-snap-type: y mandatory;
         scroll-behavior: smooth;
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+        position: relative;
     }
     
     .carousel-container::-webkit-scrollbar {
@@ -593,24 +594,44 @@ body {
         min-width: 100%;
         width: 100%;
         padding: 0.75rem 1.5rem 1.5rem 1.5rem;
-        position: relative;
-        opacity: 1;
-        visibility: visible;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
         overflow-y: auto;
         overflow-x: hidden;
         box-sizing: border-box;
-        min-height: 100%;
-        height: auto;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
-        transition: none;
-        /* Hide scrollbar but keep scrolling */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
+        height: 100%;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        /* Custom scrollbar for slides */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+    }
+    
+    .carousel-slide.active {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
     }
     
     .carousel-slide::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+        width: 8px;
+    }
+    
+    .carousel-slide::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+    
+    .carousel-slide::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+
+    }
+    
+    .carousel-slide::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5);
     }
 }
 
@@ -741,9 +762,80 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Carousel Navigation Arrows */
+.carousel-nav-arrows {
+    position: fixed;
+    bottom: calc(20px + 0.3cm);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: auto;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.carousel-nav-arrows.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.carousel-arrow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+.carousel-arrow .arrow-icon {
+    width: 50px;
+    height: auto;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    filter: invert(1);
+}
+
+.carousel-arrow:hover:not(:disabled) .arrow-icon {
+    opacity: 1;
+    transform: translateY(3px);
+}
+
+.carousel-arrow:active:not(:disabled) .arrow-icon {
+    transform: translateY(5px);
+}
+
+.carousel-arrow:disabled {
+    opacity: 0;
+    visibility: hidden;
+    cursor: default;
+}
+
+/* Hide previous arrow */
+.carousel-arrow-prev {
+    display: none;
+}
+
 /* Hide indicators on desktop */
 @media (min-width: 769px) {
     .carousel-indicators {
+        display: none;
+    }
+}
+
+/* Hide arrows on mobile */
+@media (max-width: 768px) {
+    .carousel-nav-arrows {
         display: none;
     }
 }
@@ -1313,6 +1405,23 @@ select:focus {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.base-map-btn img {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Invert only the OSM map icon (black on white -> white on black) */
+.base-map-btn img.osm-icon {
+    filter: invert(1) !important;
+}
+
+/* Satellite icon stays as is (white on black) */
+.base-map-btn img.satellite-icon {
+    filter: invert(0) !important;
 }
 
 .base-map-btn:hover {
@@ -2193,5 +2302,23 @@ select:focus {
     .mobile-month-slider-labels span:nth-child(11) { /* Nov */
         display: none;
     }
+}
+
+/* Ground Station Popup Styling */
+.ground-station-popup .maplibregl-popup-content {
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    min-width: auto;
+}
+
+.ground-station-popup .maplibregl-popup-tip {
+    border-top-color: #000000;
+}
+
+.ground-station-popup .maplibregl-popup-close-button {
+    display: none;
 }
 

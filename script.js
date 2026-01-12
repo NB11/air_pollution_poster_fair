@@ -30,9 +30,9 @@ function initMap() {
                 }
             ]
         },
-        center: [-111.85, 40.62], // Center on predicted area (Salt Lake City region)
-        zoom: 10, // Zoomed out to show the entire predicted area
-        minZoom: 6, // Minimum zoom level - allows zooming out to see context
+        center: [11.34, 44.49], // Center on Bologna
+        zoom: 13, // Initial zoom level to show Bologna detail
+        minZoom: 0, // Minimum zoom level - allows zooming out to see global context
         maxZoom: 16.4, // MAXIMUM ZOOM LIMIT - Change this value to adjust how far users can zoom in (higher = more zoom)
         antialias: false // Disable antialiasing to preserve raw pixels
     });
@@ -47,7 +47,7 @@ function initMap() {
 
     // Wait for map to load before adding data
     map.on('load', () => {
-        loadSaharaGeoJSON();
+        
         setupEventHandlers();
         // Load predicted raster layer with pollutant, year, and month selector
         initCompositeLayer();
@@ -205,12 +205,13 @@ async function loadSaharaGeoJSON() {
 }
 
 // Composite layer management
-let currentCompositeYear = '2023';
+let currentCity = 'Bologna'; // Default city
+let currentCompositeYear = '2024';
 let currentCompositeMonth = '01'; // Default to January
-let currentPollutant = 'NO2'; // Default pollutant
+let currentPollutant = 'O3'; // Default pollutant
 
 // Available pollutants
-const pollutants = ['NO2', 'O3', 'SO2', 'PM2.5', 'PM10', 'CTRL'];
+const pollutants = ['NO2', 'O3', 'PM2.5', 'PM10', 'CTRL'];
 
 // Pollutant color bar info (vmin, vmax)
 const pollutantInfo = {
@@ -239,21 +240,27 @@ function updateColorBar(pollutant) {
     }
 }
 
-// Available years
-const availableYears = ['2023'];
+// Available years (all years with data)
+const availableYears = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
 
 // All years to display (2018-2025)
 const allYears = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
 
-// Available months per year (all 12 months for 2023)
+// Available months per year (all 12 months for all available years)
 const availableMonths = {
-    '2023': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'] // All months
+    '2018': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    '2019': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    '2020': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    '2021': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    '2022': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    '2023': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    '2024': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 };
 
 // Initialize composite layer with year/month slider
 function initCompositeLayer() {
-    // Load default month (January) with default pollutant
-    loadPredictedLayer('2023', '01', 'NO2');
+    // Load default month (January) with default pollutant (O3) for current city
+    loadPredictedLayer(currentCompositeYear, '01', currentPollutant);
     
     // Store references to all dropdowns for closing
     let allDropdowns = [];
@@ -342,6 +349,10 @@ function initCompositeLayer() {
                     originalMonthLabelsHTML,
                     originalMobileMonthLabelsHTML
                 });
+                
+                // Load ground stations for new pollutant
+                const monthNum = parseInt(currentCompositeMonth || '1');
+                loadGroundStations(pollutant, currentCompositeYear, monthNum);
             }
         });
     }
@@ -652,9 +663,13 @@ function initCompositeLayer() {
         // If layers are already preloaded for this pollutant, just switch visibility (instant)
         if (loadedPollutant === currentPollutant && loadedYear === currentCompositeYear) {
             showMonth(monthNum);
+            // Load ground stations for new month
+            loadGroundStations(currentPollutant, currentCompositeYear, monthNum);
         } else {
             // Otherwise load the predicted layer (will preload all months)
             loadPredictedLayer(currentCompositeYear, monthStr, currentPollutant);
+            // Load ground stations for new month
+            loadGroundStations(currentPollutant, currentCompositeYear, monthNum);
         }
     }
     
@@ -693,67 +708,80 @@ function initCompositeLayer() {
 // Track which pollutant's layers are currently loaded
 let loadedPollutant = null;
 let loadedYear = null;
+let loadedMonth = null;
 // Track current opacity (shared across modes) - default 90%
 let ctrlOpacity = 0.9;
+// Cache for bounds data (avoids repeated fetches)
+let cachedBoundsCoords = null;
+let cachedBoundsKey = null;
 
-// Preload all 12 months for a pollutant (makes month switching instant)
-async function preloadPollutantLayers(year, pollutant) {
-    // If we're in CTRL mode, do not preload
-    if (pollutant === 'CTRL') return;
-
-    // If already loaded for this pollutant and year, skip
-    if (loadedPollutant === pollutant && loadedYear === year) {
-        console.log(`📦 Layers already preloaded for ${pollutant} ${year}`);
+// Lazy load a single month's layer on demand (memory efficient)
+async function loadMonthLayer(year, month, pollutant) {
+    // If we're in CTRL mode or N/A, skip loading
+    if (pollutant === 'CTRL' || pollutant === 'N/A') {
         return;
     }
     
-    // Remove all existing predicted layers
-    for (let m = 1; m <= 12; m++) {
-        const monthStr = String(m).padStart(2, '0');
-        const layerId = `predicted-layer-${monthStr}`;
-        const sourceId = `predicted-source-${monthStr}`;
-        
-        if (map.getLayer(layerId)) {
-            map.removeLayer(layerId);
-        }
-        if (map.getSource(sourceId)) {
-            map.removeSource(sourceId);
-        }
-    }
+    const monthStr = String(month).padStart(2, '0');
+    const sourceId = 'predicted-source-current';
+    const layerId = 'predicted-layer-current';
     
-    // If pollutant is N/A, don't load any layers
-    if (pollutant === 'N/A') {
-        console.log(`📅 No pollutant layer - showing basemap only`);
-        loadedPollutant = pollutant;
-        loadedYear = year;
+    // Check if this exact layer is already loaded
+    if (loadedPollutant === pollutant && loadedYear === year && loadedMonth === monthStr) {
+        console.log(`📅 Layer already loaded for ${pollutant} ${year}-${monthStr}`);
         return;
     }
     
-    console.log(`📦 Preloading all 12 months for ${pollutant} ${year}...`);
+    // Remove previous layer if exists
+    if (map.getLayer(layerId)) {
+        map.removeLayer(layerId);
+    }
+    if (map.getSource(sourceId)) {
+        map.removeSource(sourceId);
+    }
     
     // Format pollutant name for folder/filename (PM2.5 becomes PM2_5)
-    const pollutantFolder = pollutant.replace('.', '_');
     const pollutantFileName = pollutant.replace('.', '_');
     
-    // Load bounds once (same for all months)
-    const boundsPath = `map/predicted/${year}/${pollutantFileName}_month01_bounds.geojson`;
-    let boundsCoords = null;
+    // Build paths for bounds and image (WebP format)
+    // Using consolidated bounds.json instead of individual *_bounds.geojson files
+    let boundsPath, imagePath;
+    if (currentCity) {
+        boundsPath = `map/predicted/${currentCity}/${year}/bounds.json`;
+        imagePath = `map/predicted/${currentCity}/${year}/${pollutantFileName}_month${monthStr}_inferno.webp`;
+    } else {
+        boundsPath = `map/predicted/${year}/bounds.json`;
+        imagePath = `map/predicted/${year}/${pollutantFileName}_month${monthStr}_inferno.webp`;
+    }
     
-    try {
-        const boundsResponse = await fetch(boundsPath);
-        if (boundsResponse.ok) {
-            const boundsData = await boundsResponse.json();
-            const coordinates = boundsData.features[0].geometry.coordinates[0];
-            boundsCoords = [
-                coordinates[0], // top-left
-                coordinates[1], // top-right
-                coordinates[2], // bottom-right
-                coordinates[3]  // bottom-left
-            ];
+    // Cache key for bounds (now per city/year, not per pollutant)
+    const boundsKey = `${currentCity || 'default'}-${year}`;
+    
+    // Load bounds (use cache if available)
+    let boundsCoords = null;
+    if (cachedBoundsKey === boundsKey && cachedBoundsCoords) {
+        boundsCoords = cachedBoundsCoords;
+    } else {
+        try {
+            const boundsResponse = await fetch(boundsPath);
+            if (boundsResponse.ok) {
+                const boundsData = await boundsResponse.json();
+                // New consolidated format: coordinates is an array of [lon, lat] pairs
+                const coordinates = boundsData.coordinates;
+                boundsCoords = [
+                    coordinates[0], // top-left [lon, lat]
+                    coordinates[1], // top-right [lon, lat]
+                    coordinates[2], // bottom-right [lon, lat]
+                    coordinates[3]  // bottom-left [lon, lat]
+                ];
+                // Cache the bounds
+                cachedBoundsCoords = boundsCoords;
+                cachedBoundsKey = boundsKey;
+            }
+        } catch (error) {
+            console.error('Failed to load bounds:', error);
+            return;
         }
-    } catch (error) {
-        console.error('Failed to load bounds:', error);
-        return;
     }
     
     if (!boundsCoords) {
@@ -761,65 +789,50 @@ async function preloadPollutantLayers(year, pollutant) {
         return;
     }
     
-    // Preload all 12 months
-    for (let m = 1; m <= 12; m++) {
-        const monthStr = String(m).padStart(2, '0');
-        const pngPath = `map/predicted/${year}/${pollutantFileName}_month${monthStr}_inferno.png`;
-        const sourceId = `predicted-source-${monthStr}`;
-        const layerId = `predicted-layer-${monthStr}`;
-        
-        try {
-            // Add image source
-            map.addSource(sourceId, {
-                type: 'image',
-                url: pngPath,
-                coordinates: boundsCoords
-            });
-            
-            // Add layer (hidden by default)
-            map.addLayer({
-                id: layerId,
-                type: 'raster',
-                source: sourceId,
-                paint: {
-                    'raster-opacity': 0 // Start hidden
-                }
-            });
-            
-            console.log(`  ✓ Month ${monthStr} loaded`);
-        } catch (error) {
-            console.error(`  ✗ Month ${monthStr} failed:`, error);
-        }
-    }
+    console.log(`📅 Loading ${pollutant} ${year}-${monthStr}...`);
     
-    loadedPollutant = pollutant;
-    loadedYear = year;
-    console.log(`📦 Preloading complete for ${pollutant} ${year}`);
+    try {
+        // Add image source (WebP)
+        map.addSource(sourceId, {
+            type: 'image',
+            url: imagePath,
+            coordinates: boundsCoords
+        });
+        
+        // Add layer with current opacity
+        map.addLayer({
+            id: layerId,
+            type: 'raster',
+            source: sourceId,
+            paint: {
+                'raster-opacity': ctrlOpacity
+            }
+        });
+        
+        loadedPollutant = pollutant;
+        loadedYear = year;
+        loadedMonth = monthStr;
+        console.log(`  ✓ Loaded ${pollutant} ${year}-${monthStr}`);
+    } catch (error) {
+        console.error(`  ✗ Failed to load ${pollutant} ${year}-${monthStr}:`, error);
+    }
 }
 
-// Show only the selected month's layer (instant switching)
-function showMonth(month) {
+// Show the selected month's layer (lazy loads on demand)
+async function showMonth(month) {
     const monthStr = String(month).padStart(2, '0');
-    
-    // Hide all months, show only the selected one
-    for (let m = 1; m <= 12; m++) {
-        const mStr = String(m).padStart(2, '0');
-        const layerId = `predicted-layer-${mStr}`;
-        
-        if (map.getLayer(layerId)) {
-            const opacity = (mStr === monthStr) ? ctrlOpacity : 0;
-            map.setPaintProperty(layerId, 'raster-opacity', opacity);
-        }
-    }
-    
     currentCompositeMonth = monthStr;
+    
+    // Lazy load the layer for this month
+    await loadMonthLayer(currentCompositeYear, month, currentPollutant);
+    
     console.log(`📅 Showing month ${monthStr}`);
 }
 
-// Set opacity for the currently visible month layer
+// Set opacity for the currently visible layer
 function setCurrentLayerOpacity(opacity) {
     ctrlOpacity = Math.max(0, Math.min(1, opacity));
-    const layerId = `predicted-layer-${currentCompositeMonth}`;
+    const layerId = 'predicted-layer-current';
     if (map.getLayer(layerId)) {
         map.setPaintProperty(layerId, 'raster-opacity', ctrlOpacity);
     }
@@ -847,6 +860,9 @@ function loadSlideHTML() {
         { path: 'texts/results.html', targets: ['slide-results', 'mobile-slide-results'] }
     ];
 
+    let loadedCount = 0;
+    const totalSections = sections.length;
+
     sections.forEach(section => {
         fetch(section.path)
             .then(resp => resp.text())
@@ -855,6 +871,21 @@ function loadSlideHTML() {
                     const el = document.getElementById(id);
                     if (el) el.innerHTML = html;
                 });
+                // Initialize toggle button after data-collection HTML is loaded
+                if (section.path === 'texts/data-collection.html') {
+                    initAllStationsToggle();
+                }
+                
+                loadedCount++;
+                // Setup arrow listeners after all slides are loaded
+                if (loadedCount === totalSections) {
+                    setTimeout(() => {
+                        setupArrowListeners();
+                        if (typeof updateArrowVisibility === 'function') {
+                            updateArrowVisibility();
+                        }
+                    }, 100);
+                }
             })
             .catch(err => console.error(`Failed to load ${section.path}:`, err));
     });
@@ -877,6 +908,10 @@ function initExplanationCollapse() {
     const btn = document.getElementById('explanation-collapse');
     const collapsedButtons = document.querySelectorAll('.collapsed-title-btn');
     if (!widget || !btn) return;
+    
+    // Set initial button text based on collapsed state
+    btn.textContent = widget.classList.contains('collapsed') ? '›' : '‹';
+    
     btn.addEventListener('click', () => {
         widget.classList.toggle('collapsed');
         btn.textContent = widget.classList.contains('collapsed') ? '›' : '‹';
@@ -889,10 +924,18 @@ function initExplanationCollapse() {
             // expand
             widget.classList.remove('collapsed');
             btn.textContent = '‹';
-            // trigger desktop indicator click if exists
-            const indicators = document.querySelectorAll('.indicator');
-            if (indicators && indicators[slideIdx]) {
-                indicators[slideIdx].click();
+            // Navigate to slide
+            if (window.innerWidth >= 769) {
+                // Desktop: use goToSlide function
+                if (window.goToSlideDesktop) {
+                    window.goToSlideDesktop(slideIdx);
+                }
+            } else {
+                // Mobile: use indicators
+                const indicators = document.querySelectorAll('.indicator');
+                if (indicators && indicators[slideIdx]) {
+                    indicators[slideIdx].click();
+                }
             }
         });
     });
@@ -965,7 +1008,7 @@ async function loadPredictedLayer(year, month, pollutant, sliderLabelState = {})
     // CTRL mode: slider becomes opacity control; do not reload layers
     if (pollutant === 'CTRL') {
         setSliderToOpacityMode();
-        // Ensure currently visible layer is at 100% opacity initially
+        // Ensure currently visible layer is at correct opacity
         setCurrentLayerOpacity(ctrlOpacity);
         return;
     } else {
@@ -975,16 +1018,415 @@ async function loadPredictedLayer(year, month, pollutant, sliderLabelState = {})
         setCurrentLayerOpacity(ctrlOpacity);
     }
     
-    // Preload all months for this pollutant (if not already loaded)
-    await preloadPollutantLayers(year, pollutant);
+    // Handle N/A pollutant - remove layer and show basemap only
+    if (pollutant === 'N/A') {
+        const layerId = 'predicted-layer-current';
+        const sourceId = 'predicted-source-current';
+        if (map.getLayer(layerId)) map.removeLayer(layerId);
+        if (map.getSource(sourceId)) map.removeSource(sourceId);
+        loadedPollutant = pollutant;
+        console.log(`📅 No pollutant layer - showing basemap only`);
+        return;
+    }
     
-    // Show the selected month
-    showMonth(month);
+    // Lazy load only the selected month (on demand)
+    await loadMonthLayer(year, month, pollutant);
+    
+    // Load ground stations for the selected pollutant and month
+    const monthNum = parseInt(month || '1');
+    loadGroundStations(pollutant, year, monthNum);
 }
 
 // Legacy function for backward compatibility
 async function loadCompositeLayer(year, month) {
     loadPredictedLayer(year, month, currentPollutant);
+}
+
+// Track if "show all stations" toggle is active
+let showAllStationsEnabled = false;
+
+// Load all ground stations (all pollutants, all months) - shows unique station locations
+async function loadAllStations() {
+    try {
+        console.log('Loading all ground stations...');
+        
+        // Use consolidated station files (one per pollutant)
+        const pollutants = ['NO2', 'O3', 'PM2.5', 'PM10'];
+        
+        // Collect all unique stations by station_id
+        const stationMap = new Map();
+        
+        // Load consolidated files (4 files instead of hundreds)
+        const loadPromises = pollutants.map(async (pollutant) => {
+            const geojsonPath = `map/ground_truth_stations/stations_${pollutant}.geojson`;
+            
+            try {
+                // Check cache first
+                if (stationDataCache.has(pollutant)) {
+                    console.log(`  Using cached ${pollutant} data`);
+                    const geojsonData = stationDataCache.get(pollutant);
+                    if (geojsonData && geojsonData.features) {
+                        geojsonData.features.forEach(feature => {
+                            const stationId = feature.properties.station_id;
+                            if (!stationMap.has(stationId)) {
+                                stationMap.set(stationId, feature);
+                            }
+                        });
+                    }
+                    return;
+                }
+                
+                const resp = await fetch(geojsonPath);
+                if (resp.ok) {
+                    const geojsonData = await resp.json();
+                    // Cache for future use
+                    stationDataCache.set(pollutant, geojsonData);
+                    
+                    if (geojsonData && geojsonData.features) {
+                        geojsonData.features.forEach(feature => {
+                            const stationId = feature.properties.station_id;
+                            // Use first occurrence of each station (or could merge data)
+                            if (!stationMap.has(stationId)) {
+                                stationMap.set(stationId, feature);
+                            }
+                        });
+                        console.log(`  Loaded ${geojsonData.features.length} features from ${pollutant}, ${stationMap.size} unique stations so far`);
+                    }
+                }
+            } catch (error) {
+                console.warn(`  Failed to load ${pollutant} stations:`, error);
+            }
+        });
+        
+        await Promise.all(loadPromises);
+        
+        // Create combined GeoJSON
+        const combinedGeoJSON = {
+            type: 'FeatureCollection',
+            features: Array.from(stationMap.values())
+        };
+        
+        console.log(`Loaded ${combinedGeoJSON.features.length} unique ground stations from all pollutants and months`);
+        
+        // Remove existing source/layer if present
+        if (map.getLayer('all-stations-layer')) {
+            map.removeLayer('all-stations-layer');
+        }
+        if (map.getSource('all-stations-source')) {
+            map.removeSource('all-stations-source');
+        }
+        
+        // Add source
+        map.addSource('all-stations-source', {
+            type: 'geojson',
+            data: combinedGeoJSON
+        });
+        
+        // Add circle layer with neutral gray color
+        map.addLayer({
+            id: 'all-stations-layer',
+            type: 'circle',
+            source: 'all-stations-source',
+            paint: {
+                'circle-radius': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    6, 3,   // At zoom 6, radius 3
+                    10, 5,  // At zoom 10, radius 5
+                    14, 8   // At zoom 14, radius 8
+                ],
+                'circle-color': '#888888',  // Neutral gray
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#ffffff',
+                'circle-opacity': 0.6
+            }
+        });
+        
+        // Add click handler for popups
+        let popup = null;
+        map.on('click', 'all-stations-layer', (e) => {
+            if (popup) {
+                popup.remove();
+            }
+            const feature = e.features[0];
+            const props = feature.properties;
+            
+            popup = new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(`
+                    <div style="font-family: 'Poppins', sans-serif; padding: 8px;">
+                        <strong>Ground Station</strong><br>
+                        Station ID: ${props.station_id.substring(0, 8)}...
+                    </div>
+                `)
+                .addTo(map);
+        });
+        
+        // Change cursor on hover
+        map.on('mouseenter', 'all-stations-layer', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        
+        map.on('mouseleave', 'all-stations-layer', () => {
+            map.getCanvas().style.cursor = '';
+        });
+        
+    } catch (error) {
+        console.error('Error loading all ground stations:', error);
+    }
+}
+
+// Initialize toggle button for showing all stations
+function initAllStationsToggle() {
+    const toggle = document.getElementById('show-all-stations-toggle');
+    if (!toggle) return;
+    
+    toggle.addEventListener('change', (e) => {
+        showAllStationsEnabled = e.target.checked;
+        
+        if (showAllStationsEnabled) {
+            // Show all stations
+            loadAllStations();
+        } else {
+            // Remove all stations layer and reload filtered stations
+            if (map.getLayer('all-stations-layer')) {
+                map.removeLayer('all-stations-layer');
+            }
+            if (map.getSource('all-stations-source')) {
+                map.removeSource('all-stations-source');
+            }
+            // Reload filtered stations based on current selection
+            const monthNum = parseInt(currentCompositeMonth || '1');
+            loadGroundStations(currentPollutant, currentCompositeYear, monthNum);
+        }
+    });
+}
+
+// Cache for consolidated station data
+const stationDataCache = new Map();
+
+// Load ground station markers for selected pollutant and month
+async function loadGroundStations(pollutant, year, month) {
+    // Don't load filtered stations if "show all" toggle is enabled
+    if (showAllStationsEnabled) {
+        return;
+    }
+    // Skip if CTRL mode (no stations for control layer)
+    if (pollutant === 'CTRL') {
+        // Remove stations if switching to CTRL mode
+        if (map.getLayer('ground-stations-layer')) {
+            map.removeLayer('ground-stations-layer');
+        }
+        if (map.getSource('ground-stations-source')) {
+            map.removeSource('ground-stations-source');
+        }
+        return;
+    }
+    
+    // Format month as two digits
+    const monthStr = String(month).padStart(2, '0');
+    const periodKey = `${year}-${monthStr}`;
+    
+    // Try to load station predictions (with predicted values) first if we have a city selected
+    let geojsonPath = null;
+    let hasPredictions = false;
+    let geojsonData = null;
+    
+    if (currentCity) {
+        // Try prediction data with both ground truth and predicted values
+        geojsonPath = `map/station_predictions/${currentCity}/${year}/stations_${pollutant}_${year}_${monthStr}.geojson`;
+        hasPredictions = true;
+    }
+    
+    try {
+        console.log(`Loading ground stations for ${pollutant} ${year}-${monthStr}...`);
+        
+        let response = null;
+        
+        if (geojsonPath) {
+            response = await fetch(geojsonPath);
+        }
+        
+        // If prediction data doesn't exist, fall back to consolidated ground truth file
+        if (!response || !response.ok) {
+            hasPredictions = false;
+            
+            // Use consolidated station file (one file per pollutant with all months/years)
+            const consolidatedPath = `map/ground_truth_stations/stations_${pollutant}.geojson`;
+            
+            // Check cache first
+            if (stationDataCache.has(pollutant)) {
+                console.log(`  Using cached ${pollutant} station data`);
+                geojsonData = stationDataCache.get(pollutant);
+            } else {
+                console.log(`  Loading consolidated file: ${consolidatedPath}`);
+                response = await fetch(consolidatedPath);
+                
+                if (response.ok) {
+                    geojsonData = await response.json();
+                    stationDataCache.set(pollutant, geojsonData);
+                }
+            }
+            
+            // Filter by period_key to get only the requested month/year
+            if (geojsonData && geojsonData.features) {
+                const filteredFeatures = geojsonData.features.filter(
+                    f => f.properties.period_key === periodKey
+                );
+                geojsonData = {
+                    type: 'FeatureCollection',
+                    features: filteredFeatures
+                };
+                console.log(`  Filtered to ${filteredFeatures.length} stations for ${periodKey}`);
+            }
+        } else {
+            geojsonData = await response.json();
+        }
+        
+        if (!geojsonData || !geojsonData.features || geojsonData.features.length === 0) {
+            // No data for this combination - remove existing stations
+            if (map.getLayer('ground-stations-layer')) {
+                map.removeLayer('ground-stations-layer');
+            }
+            if (map.getSource('ground-stations-source')) {
+                map.removeSource('ground-stations-source');
+            }
+            console.log(`No ground station data available for ${pollutant} ${year}-${monthStr}`);
+            return;
+        }
+        console.log(`  Loaded ${geojsonData.features.length} stations${hasPredictions ? ' (with predictions)' : ' (ground truth only)'}`);
+        
+        // Remove existing source/layer if present
+        if (map.getLayer('ground-stations-layer')) {
+            map.removeLayer('ground-stations-layer');
+        }
+        if (map.getSource('ground-stations-source')) {
+            map.removeSource('ground-stations-source');
+        }
+        
+        // Add source
+        map.addSource('ground-stations-source', {
+            type: 'geojson',
+            data: geojsonData
+        });
+        
+        // Add circle layer - simple black/white style
+        map.addLayer({
+            id: 'ground-stations-layer',
+            type: 'circle',
+            source: 'ground-stations-source',
+            paint: {
+                'circle-radius': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    6, 3,   // At zoom 6, radius 3
+                    10, 5,  // At zoom 10, radius 5
+                    14, 8   // At zoom 14, radius 8
+                ],
+                'circle-color': '#000000',  // Black circles
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#ffffff',
+                'circle-opacity': 0.7
+            }
+        });
+        
+        console.log(`Loaded ${geojsonData.features.length} ground stations`);
+        
+        // Store popup instance to close it when needed
+        let popup = null;
+        
+        // Conversion factors from ppb to µg/m³ (at 25°C, 1 atm)
+        const ppbToUgPerM3 = {
+            'NO2': 1.88,
+            'O3': 1.96,
+            'SO2': 2.62
+        };
+        
+        // Add click handler for popups
+        map.on('click', 'ground-stations-layer', (e) => {
+            // Close existing popup if any
+            if (popup) {
+                popup.remove();
+            }
+            const feature = e.features[0];
+            const props = feature.properties;
+            
+            // Convert ground truth value to µg/m³
+            let groundTruthUgPerM3 = null;
+            if (props.ground_truth_value !== undefined && !isNaN(props.ground_truth_value)) {
+                if (pollutant === 'PM2.5' || pollutant === 'PM10') {
+                    // Already in µg/m³
+                    groundTruthUgPerM3 = props.ground_truth_value;
+                } else {
+                    // Convert from ppb to µg/m³
+                    const conversionFactor = ppbToUgPerM3[pollutant] || 1.0;
+                    groundTruthUgPerM3 = props.ground_truth_value * conversionFactor;
+                }
+            }
+            
+            // Convert predicted value to µg/m³ if available
+            let predictedUgPerM3 = null;
+            if (props.predicted_value !== undefined && !isNaN(props.predicted_value)) {
+                // Predicted values are already in µg/m³
+                predictedUgPerM3 = props.predicted_value;
+            }
+            
+            // Build popup HTML
+            let popupHTML = `<div style="font-family: 'Poppins', sans-serif; font-size: 11px; color: #000000; padding: 4px 6px; line-height: 1.4;">
+                <strong>${pollutant}</strong><br>`;
+            
+            // Show measured (ground truth) value
+            if (groundTruthUgPerM3 !== null) {
+                popupHTML += `Measured: ${groundTruthUgPerM3.toFixed(2)} &micro;g/m³<br>`;
+            } else {
+                popupHTML += `Measured: N/A<br>`;
+            }
+            
+            // Show predicted value if available
+            if (predictedUgPerM3 !== null) {
+                popupHTML += `Predicted: ${predictedUgPerM3.toFixed(2)} &micro;g/m³`;
+                
+                // Calculate and show error if both values available
+                if (groundTruthUgPerM3 !== null) {
+                    const error = predictedUgPerM3 - groundTruthUgPerM3;
+                    const errorPercent = (error / groundTruthUgPerM3 * 100).toFixed(1);
+                    popupHTML += `<br><span style="font-size: 10px; color: #666;">Error: ${error >= 0 ? '+' : ''}${error.toFixed(2)} (${errorPercent}%)</span>`;
+                }
+            }
+            
+            popupHTML += `</div>`;
+            
+            popup = new maplibregl.Popup({
+                closeButton: false,
+                closeOnClick: true,
+                className: 'ground-station-popup'
+            })
+                .setLngLat(e.lngLat)
+                .setHTML(popupHTML)
+                .addTo(map);
+        });
+        
+        // Change cursor on hover
+        map.on('mouseenter', 'ground-stations-layer', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+        
+        map.on('mouseleave', 'ground-stations-layer', () => {
+            map.getCanvas().style.cursor = '';
+        });
+        
+    } catch (error) {
+        console.error('Error loading ground stations:', error);
+        // Remove stations on error
+        if (map.getLayer('ground-stations-layer')) {
+            map.removeLayer('ground-stations-layer');
+        }
+        if (map.getSource('ground-stations-source')) {
+            map.removeSource('ground-stations-source');
+        }
+    }
 }
 
 // Load PNG Raster layer with bounds JSON (recommended method)
@@ -1498,29 +1940,17 @@ function initDesktopTabSwitcher() {
                 
                 // Navigate to the specific slide
                 const slideIdx = parseInt(slideIndex, 10);
-                const container = document.querySelector('.carousel-container');
-                const slides = document.querySelectorAll('.carousel-slide');
                 
-                if (container && slides[slideIdx]) {
-                    // Desktop: scroll to top of slide
-                    if (window.innerWidth >= 769) {
-                        // Small delay to ensure panel is visible
-                        setTimeout(() => {
-                            const slide = slides[slideIdx];
-                            if (slide) {
-                                const slideTop = slide.offsetTop;
-                                container.scrollTo({
-                                    top: slideTop,
-                                    behavior: 'smooth'
-                                });
-                            }
-                        }, 50);
-                    } else {
-                        // Mobile: use indicators
-                        const indicators = document.querySelectorAll('.indicator');
-                        if (indicators && indicators[slideIdx]) {
-                            indicators[slideIdx].click();
-                        }
+                if (window.innerWidth >= 769) {
+                    // Desktop: use goToSlide function
+                    if (window.goToSlideDesktop) {
+                        window.goToSlideDesktop(slideIdx);
+                    }
+                } else {
+                    // Mobile: use indicators
+                    const indicators = document.querySelectorAll('.indicator');
+                    if (indicators && indicators[slideIdx]) {
+                        indicators[slideIdx].click();
                     }
                 }
             } else if (tabName === 'controls') {
@@ -1555,6 +1985,19 @@ function initDesktopLocationSelector() {
     
     if (!locationButtons.length || !map) return;
     
+    // Map location IDs to city names
+    const cityMap = {
+        'frascati': 'Frascati',
+        'bologna': 'Bologna',
+        'milano': 'Milano',
+        'salt-lake-city': null, // Legacy - no city-specific folder
+        'los-angeles': null,
+        'cook': null,
+        'harris': null,
+        'maricopa': null,
+        'san-diego': null
+    };
+    
     locationButtons.forEach(button => {
         button.addEventListener('click', () => {
             const location = button.getAttribute('data-location');
@@ -1566,6 +2009,16 @@ function initDesktopLocationSelector() {
             // Parse center coordinates
             const center = JSON.parse(centerStr);
             const zoom = parseFloat(zoomStr);
+            
+            // Update current city and reload layers if changed
+            const newCity = cityMap[location] || null;
+            if (newCity !== currentCity) {
+                currentCity = newCity;
+                // Force reload of prediction layers for new city
+                loadedPollutant = null;
+                loadedYear = null;
+                loadPredictedLayer(currentCompositeYear, currentCompositeMonth, currentPollutant);
+            }
             
             // Update active button
             locationButtons.forEach(btn => btn.classList.remove('active'));
@@ -1848,18 +2301,29 @@ function addBaseMapSwitcher() {
         
         const button = document.createElement('button');
         button.className = 'base-map-btn';
-        button.innerHTML = satelliteIcon;
+        
+        // Create image element for the icon
+        const icon = document.createElement('img');
+        icon.src = 'images/osm_map.png';
+        icon.style.width = '20px';
+        icon.style.height = '20px';
+        icon.style.display = 'block';
+        icon.className = 'base-map-icon osm-icon'; // Add class to identify OSM icon
+        button.appendChild(icon);
+        
         button.setAttribute('aria-label', 'Switch base map');
         button.setAttribute('title', 'Switch base map');
         
         button.addEventListener('click', () => {
             if (this.currentMap === 'satellite') {
                 this.currentMap = 'osm';
-                button.innerHTML = osmIcon;
+                icon.src = 'images/satellite.png';
+                icon.className = 'base-map-icon satellite-icon'; // Update class for satellite
                 switchBaseMap('osm');
             } else {
                 this.currentMap = 'satellite';
-                button.innerHTML = satelliteIcon;
+                icon.src = 'images/osm_map.png';
+                icon.className = 'base-map-icon osm-icon'; // Update class for OSM
                 switchBaseMap('satellite');
             }
         });
@@ -1890,15 +2354,30 @@ function switchBaseMap(layerType) {
         map.removeLayer('satellite-layer');
     }
     
-    // Find the first predicted layer to add base layer before it (so PNGs stay on top)
+    // Find the predicted layer to add base layer before it (so predictions stay on top)
     let beforeId = null;
-    for (let m = 1; m <= 12; m++) {
-        const monthStr = String(m).padStart(2, '0');
-        const layerId = `predicted-layer-${monthStr}`;
-        if (map.getLayer(layerId)) {
-            beforeId = layerId;
-            break;
+    
+    // Check for current predicted layer
+    if (map.getLayer('predicted-layer-current')) {
+        beforeId = 'predicted-layer-current';
+    } else {
+        // Fallback: check for month-based predicted layers
+        for (let m = 1; m <= 12; m++) {
+            const monthStr = String(m).padStart(2, '0');
+            const layerId = `predicted-layer-${monthStr}`;
+            if (map.getLayer(layerId)) {
+                beforeId = layerId;
+                break;
+            }
         }
+    }
+    
+    // Also check for ground stations layer (should be above base map)
+    if (!beforeId && map.getLayer('ground-stations-layer')) {
+        beforeId = 'ground-stations-layer';
+    }
+    if (!beforeId && map.getLayer('all-stations-layer')) {
+        beforeId = 'all-stations-layer';
     }
     
     // Add new base layer - before predicted layers if they exist, otherwise at bottom
@@ -1911,10 +2390,10 @@ function switchBaseMap(layerType) {
     };
     
     if (beforeId) {
-        // Add before the first predicted layer so PNGs stay visible on top
+        // Add before the predicted layer so predictions stay visible on top
         map.addLayer(layerConfig, beforeId);
     } else {
-        // No predicted layers, add normally
+        // No predicted layers, add at bottom
         map.addLayer(layerConfig);
     }
 }
@@ -1939,73 +2418,90 @@ function initExplanationCarousel() {
     const isDesktop = window.innerWidth >= 769;
     
     if (isDesktop) {
-        // Desktop: Vertical scrolling with snap
-        let isScrolling = false;
-        let scrollTimeout;
-        
-        // Handle scroll events to update active slide
-        let lastScrollTop = container.scrollTop;
-        container.addEventListener('scroll', () => {
-            if (isScrolling) {
-                lastScrollTop = container.scrollTop;
-                return;
-            }
-            
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                updateActiveSlideFromScroll();
-            }, 150);
-        }, { passive: true });
-        
-        // Update active slide based on scroll position
-        function updateActiveSlideFromScroll() {
-            const scrollTop = container.scrollTop;
-            const containerHeight = container.clientHeight;
-            const threshold = containerHeight * 0.3; // 30% of viewport height
-            
-            let activeIndex = 0;
-            
-            slides.forEach((slide, index) => {
-                const slideTop = slide.offsetTop;
-                const slideBottom = slideTop + slide.offsetHeight;
-                
-                // Check if slide is in viewport (with threshold)
-                if (scrollTop + threshold >= slideTop && scrollTop < slideBottom - threshold) {
-                    activeIndex = index;
+        // Desktop: Manual navigation with arrows only
+        // Show slide based on currentSlide index
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                    // Reset scroll to top when switching slides
+                    slide.scrollTop = 0;
+                    // Add scroll listener to this slide
+                    setupSlideScrollListener(slide);
+                } else {
+                    slide.classList.remove('active');
                 }
             });
+        }
+        
+        // Check if user has scrolled to bottom of current slide
+        function checkScrollPosition(slide) {
+            if (!slide) return;
             
-            if (activeIndex !== currentSlide) {
-                currentSlide = activeIndex;
-                updateCarousel();
+            const scrollTop = slide.scrollTop;
+            const scrollHeight = slide.scrollHeight;
+            const clientHeight = slide.clientHeight;
+            
+            // Show arrow only when very close to bottom (10px threshold)
+            const showThreshold = 10;
+            // Hide arrow sooner when scrolling up (50px from bottom)
+            const hideThreshold = 50;
+            
+            const distanceFromBottom = scrollHeight - (scrollTop + clientHeight);
+            
+            // Find arrow in this slide
+            const arrow = slide.querySelector('.carousel-nav-arrows');
+            if (arrow && currentSlide < totalSlides - 1) {
+                // Show only when very close to bottom, hide when more than 50px away
+                if (distanceFromBottom <= showThreshold) {
+                    arrow.classList.add('visible');
+                } else if (distanceFromBottom > hideThreshold) {
+                    arrow.classList.remove('visible');
+                }
+            } else if (arrow) {
+                // Hide arrow if on last slide
+                arrow.classList.remove('visible');
             }
         }
         
-        // Scroll to slide when tab is clicked
-        function scrollToSlide(index) {
+        // Make checkScrollPosition available globally
+        window.checkScrollPosition = checkScrollPosition;
+        
+        // Setup scroll listener for active slide
+        function setupSlideScrollListener(slide) {
+            if (!slide) return;
+            
+            // Remove previous listeners
+            const oldSlide = document.querySelector('.carousel-slide.active');
+            if (oldSlide && oldSlide !== slide) {
+                oldSlide.removeEventListener('scroll', oldSlide._scrollHandler);
+            }
+            
+            // Add new listener
+            slide._scrollHandler = () => checkScrollPosition(slide);
+            slide.addEventListener('scroll', slide._scrollHandler, { passive: true });
+            
+            // Initial check
+            checkScrollPosition(slide);
+        }
+        
+        // Navigate to specific slide
+        function goToSlide(index) {
             if (index < 0 || index >= totalSlides) return;
             
-            const slide = slides[index];
-            if (slide) {
-                isScrolling = true;
-                container.scrollTo({
-                    top: slide.offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                setTimeout(() => {
-                    isScrolling = false;
-                    currentSlide = index;
-                    updateCarousel();
-                }, 500);
-            }
+            currentSlide = index;
+            showSlide(index);
+            updateCarousel();
+            updateArrows();
         }
         
         // Override goToSlide for desktop
-        window.goToSlideDesktop = scrollToSlide;
+        window.goToSlideDesktop = goToSlide;
         
-        // Initial update
-        updateActiveSlideFromScroll();
+        // Initial setup
+        showSlide(currentSlide);
+        updateCarousel();
+        updateArrows();
         
     } else {
         // Mobile: Horizontal swipe carousel
@@ -2097,18 +2593,28 @@ function initExplanationCarousel() {
         });
     }
     
+    // Navigation arrow update function (available throughout scope)
+    function updateArrows() {
+        // Arrow visibility is handled by updateArrowVisibility
+        if (typeof updateArrowVisibility === 'function') {
+            updateArrowVisibility();
+        }
+        // Also check scroll position if function exists
+        if (window.checkScrollPosition) {
+            const activeSlide = document.querySelector('.carousel-slide.active');
+            if (activeSlide) {
+                window.checkScrollPosition(activeSlide);
+            }
+        }
+    }
+    
     function goToSlide(index) {
         if (index < 0 || index >= totalSlides) return;
         
         if (isDesktop) {
-            // Desktop: scroll to top of slide
-            const slide = slides[index];
-            if (slide) {
-                const slideTop = slide.offsetTop;
-                container.scrollTo({
-                    top: slideTop,
-                    behavior: 'smooth'
-                });
+            // Desktop: handled by goToSlide in desktop branch
+            if (window.goToSlideDesktop) {
+                window.goToSlideDesktop(index);
             }
         } else {
             // Mobile: switch slide
