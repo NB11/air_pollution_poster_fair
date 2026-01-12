@@ -1,0 +1,35 @@
+Raw maps directory: G:\My Drive\ETH\Master\2_Herbst\Semester Project\web_map_repo\air_pollution_poster_fair\raw_maps
+Output directory: G:\My Drive\ETH\Master\2_Herbst\Semester Project\web_map_repo\air_pollution_poster_fair\map\predicted
+
+Scanning for TIF files...
+Found 96 TIF files to convert
+Cities/years: [('Frascati', '2024'), ('Frascati', '2025')]
+
+Converting files (without clipping)...
+Traceback (most recent call last):
+  File "C:\Users\Noe\anaconda3\envs\geo_env\Lib\site-packages\PIL\ImageFile.py", line 536, in _save
+    fh = fp.fileno()
+         ^^^^^^^^^
+AttributeError: '_idat' object has no attribute 'fileno'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\My Drive\ETH\Master\2_Herbst\Semester Project\web_map_repo\air_pollution_poster_fair\processing\png_converter_for_webmap.py", line 567, in <module>
+    main()
+  File "G:\My Drive\ETH\Master\2_Herbst\Semester Project\web_map_repo\air_pollution_poster_fair\processing\png_converter_for_webmap.py", line 536, in main
+    success, message = convert_single_tif(tif_path, output_dir, args.skip_existing, city_name=city_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\My Drive\ETH\Master\2_Herbst\Semester Project\web_map_repo\air_pollution_poster_fair\processing\png_converter_for_webmap.py", line 383, in convert_single_tif
+    img.save(png_path, 'PNG', optimize=True)
+  File "C:\Users\Noe\anaconda3\envs\geo_env\Lib\site-packages\PIL\Image.py", line 2439, in save
+    save_handler(self, fp, filename)
+  File "C:\Users\Noe\anaconda3\envs\geo_env\Lib\site-packages\PIL\PngImagePlugin.py", line 1402, in _save
+    ImageFile._save(im, _idat(fp, chunk), [("zip", (0, 0) + im.size, 0, rawmode)])
+  File "C:\Users\Noe\anaconda3\envs\geo_env\Lib\site-packages\PIL\ImageFile.py", line 540, in _save
+    _encode_tile(im, fp, tile, bufsize, None, exc)
+  File "C:\Users\Noe\anaconda3\envs\geo_env\Lib\site-packages\PIL\ImageFile.py", line 559, in _encode_tile
+    errcode, data = encoder.encode(bufsize)[1:]
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+^C

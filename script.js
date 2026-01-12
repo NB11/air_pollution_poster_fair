@@ -31,7 +31,7 @@ function initMap() {
             ]
         },
         center: [11.34, 44.49], // Center on Bologna
-        zoom: 13, // Initial zoom level to show Bologna detail
+        zoom: 11, // Initial zoom level to show Bologna detail
         minZoom: 0, // Minimum zoom level - allows zooming out to see global context
         maxZoom: 16.4, // MAXIMUM ZOOM LIMIT - Change this value to adjust how far users can zoom in (higher = more zoom)
         antialias: false // Disable antialiasing to preserve raw pixels
@@ -240,11 +240,55 @@ function updateColorBar(pollutant) {
     }
 }
 
-// Available years (all years with data)
-const availableYears = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
-
 // All years to display (2018-2025)
 const allYears = ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+
+// Available years per city (only cities have specific year data)
+const cityYearData = {
+    'Bologna': ['2024', '2025'],
+    'Milano': ['2024', '2025'],
+    'Frascati': ['2024', '2025']
+};
+
+// Get available years for current city
+function getAvailableYears() {
+    if (currentCity && cityYearData[currentCity]) {
+        return cityYearData[currentCity];
+    }
+    // Default: all years (for global/no city selected)
+    return allYears;
+}
+
+// Update year dropdown options based on current city
+function updateYearDropdownOptions(dropdown) {
+    const availableYears = getAvailableYears();
+    dropdown.innerHTML = allYears.map(year => {
+        const isAvailable = availableYears.includes(year);
+        const disabledClass = isAvailable ? '' : ' disabled';
+        const disabledAttr = isAvailable ? '' : ' data-disabled="true"';
+        return '<div class="year-option' + disabledClass + '" data-year="' + year + '"' + disabledAttr + '>' + year + '</div>';
+    }).join('');
+}
+
+// Update all year dropdowns (called when city changes)
+function updateAllYearDropdowns() {
+    const yearDropdown = document.getElementById('desktop-year-dropdown');
+    const mobileYearDropdown = document.getElementById('mobile-year-dropdown');
+    
+    if (yearDropdown) updateYearDropdownOptions(yearDropdown);
+    if (mobileYearDropdown) updateYearDropdownOptions(mobileYearDropdown);
+    
+    // If current year is not available for new city, switch to first available year
+    const availableYears = getAvailableYears();
+    if (!availableYears.includes(currentCompositeYear)) {
+        currentCompositeYear = availableYears[0] || '2024';
+        // Update button text
+        const yearSelector = document.getElementById('year-selector');
+        const mobileYearBtn = document.getElementById('mobile-year-btn');
+        if (yearSelector) yearSelector.textContent = currentCompositeYear;
+        if (mobileYearBtn) mobileYearBtn.textContent = currentCompositeYear;
+    }
+}
 
 // Available months per year (all 12 months for all available years)
 const availableMonths = {
@@ -442,14 +486,10 @@ function initCompositeLayer() {
         // Create mobile year dropdown
         const mobileYearDropdown = document.createElement('div');
         mobileYearDropdown.className = 'year-dropdown';
+        mobileYearDropdown.id = 'mobile-year-dropdown';
         mobileYearDropdown.style.display = 'none';
         // Generate year options with strikethrough for unavailable years
-        mobileYearDropdown.innerHTML = allYears.map(year => {
-            const isAvailable = availableYears.includes(year);
-            const disabledClass = isAvailable ? '' : ' disabled';
-            const disabledAttr = isAvailable ? '' : ' data-disabled="true"';
-            return '<div class="year-option' + disabledClass + '" data-year="' + year + '"' + disabledAttr + '>' + year + '</div>';
-        }).join('');
+        updateYearDropdownOptions(mobileYearDropdown);
         document.body.appendChild(mobileYearDropdown);
         allDropdowns.push(mobileYearDropdown);
         
@@ -500,7 +540,7 @@ function initCompositeLayer() {
         mobileYearDropdown.addEventListener('click', (e) => {
             if (e.target.classList.contains('year-option') && !e.target.classList.contains('disabled')) {
                 const year = e.target.getAttribute('data-year');
-                if (availableYears.includes(year)) {
+                if (getAvailableYears().includes(year)) {
                     currentCompositeYear = year;
                     mobileYearBtn.textContent = year;
                     mobileYearDropdown.style.display = 'none';
@@ -524,14 +564,10 @@ function initCompositeLayer() {
         // Create year dropdown menu
         const yearDropdown = document.createElement('div');
         yearDropdown.className = 'year-dropdown';
+        yearDropdown.id = 'desktop-year-dropdown';
         yearDropdown.style.display = 'none';
         // Generate year options with strikethrough for unavailable years
-        yearDropdown.innerHTML = allYears.map(year => {
-            const isAvailable = availableYears.includes(year);
-            const disabledClass = isAvailable ? '' : ' disabled';
-            const disabledAttr = isAvailable ? '' : ' data-disabled="true"';
-            return '<div class="year-option' + disabledClass + '" data-year="' + year + '"' + disabledAttr + '>' + year + '</div>';
-        }).join('');
+        updateYearDropdownOptions(yearDropdown);
         document.body.appendChild(yearDropdown);
         allDropdowns.push(yearDropdown);
         
@@ -582,7 +618,7 @@ function initCompositeLayer() {
         yearDropdown.addEventListener('click', (e) => {
             if (e.target.classList.contains('year-option') && !e.target.classList.contains('disabled')) {
                 const year = e.target.getAttribute('data-year');
-                if (availableYears.includes(year)) {
+                if (getAvailableYears().includes(year)) {
                     currentCompositeYear = year;
                     yearSelector.textContent = year;
                     yearDropdown.style.display = 'none';
@@ -799,15 +835,24 @@ async function loadMonthLayer(year, month, pollutant) {
             coordinates: boundsCoords
         });
         
-        // Add layer with current opacity
-        map.addLayer({
+        // Add layer with current opacity - add BEFORE ground stations so they stay on top
+        const layerConfig = {
             id: layerId,
             type: 'raster',
             source: sourceId,
             paint: {
                 'raster-opacity': ctrlOpacity
             }
-        });
+        };
+        
+        // Add before ground stations layer so stations remain visible on top
+        if (map.getLayer('ground-stations-layer')) {
+            map.addLayer(layerConfig, 'ground-stations-layer');
+        } else if (map.getLayer('all-stations-layer')) {
+            map.addLayer(layerConfig, 'all-stations-layer');
+        } else {
+            map.addLayer(layerConfig);
+        }
         
         loadedPollutant = pollutant;
         loadedYear = year;
@@ -2014,6 +2059,8 @@ function initDesktopLocationSelector() {
             const newCity = cityMap[location] || null;
             if (newCity !== currentCity) {
                 currentCity = newCity;
+                // Update year dropdowns to show available years for new city
+                updateAllYearDropdowns();
                 // Force reload of prediction layers for new city
                 loadedPollutant = null;
                 loadedYear = null;

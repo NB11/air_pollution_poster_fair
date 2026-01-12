@@ -966,9 +966,13 @@ body {
 
 .year-option.disabled {
     text-decoration: line-through;
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
-    pointer-events: none;
+    color: #888;
+}
+
+.year-option.disabled:hover {
+    background: transparent;
 }
 
 .month-slider-wrapper {
