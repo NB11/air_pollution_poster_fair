@@ -130,12 +130,24 @@ def utm_to_wgs84(easting, northing, zone, northern=True):
 
 
 def extract_utm_zone(crs_str):
-    """Extract UTM zone number from CRS string."""
-    match = re.search(r'UTM zone (\d+)([NS])', str(crs_str), re.IGNORECASE)
+    """Extract UTM zone number from CRS string or EPSG code."""
+    crs_str = str(crs_str)
+    
+    # Try EPSG code format (EPSG:326XX for northern, EPSG:327XX for southern)
+    epsg_match = re.search(r'EPSG:32([67])(\d{2})', crs_str, re.IGNORECASE)
+    if epsg_match:
+        hemisphere = epsg_match.group(1)  # 6 = northern, 7 = southern
+        zone = int(epsg_match.group(2))
+        northern = (hemisphere == '6')
+        return zone, northern
+    
+    # Try UTM zone format (UTM zone 33N)
+    match = re.search(r'UTM zone (\d+)([NS])', crs_str, re.IGNORECASE)
     if match:
         zone = int(match.group(1))
         northern = match.group(2).upper() == 'N'
         return zone, northern
+    
     return None, None
 
 

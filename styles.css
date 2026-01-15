@@ -870,10 +870,9 @@ body {
 
 /* Year/Month Slider Widget */
 .time-selector-widget {
-    position: fixed;
-    left: 20px;
-    right: 20px;
-    bottom: 10px;
+    position: absolute;
+    bottom: 20px;
+    top: auto;
     width: auto;
     padding: 0.75rem 1rem;
     background: #000000;
@@ -882,6 +881,7 @@ body {
     align-items: center;
     line-height: 1.5;
     z-index: 1500;
+    /* Left and right positions will be set dynamically via JavaScript to match colorbar offset */
 }
 
 .time-selector-content {
@@ -2326,3 +2326,70 @@ select:focus {
     display: none;
 }
 
+/* Desktop Color Bar - Vertical Sidebar */
+.desktop-colorbar-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 4px;
+    background: #000000;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+    width: 24px;
+    min-width: 24px;
+    z-index: 1248;
+}
+
+.desktop-colorbar-unit {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.desktop-colorbar-value {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    white-space: nowrap;
+    margin: 2px 0;
+}
+
+.desktop-colorbar-max {
+    margin-bottom: 4px;
+}
+
+.desktop-colorbar-min {
+    margin-top: 4px;
+}
+
+.desktop-colorbar-gradient {
+    width: 8px;
+    flex: 1;
+    min-height: 200px;
+    border-radius: 4px;
+    margin: 4px 0;
+    /* Inferno colormap gradient - vertical (top to bottom) */
+    background: linear-gradient(to bottom, 
+        #f0f921,
+        #fcce25,
+        #fb9a06,
+        #ed6925,
+        #cf4446,
+        #a52c60,
+        #781c6d,
+        #4b0c7a,
+        #1b0c42,
+        #000004
+    );
+}
+
+/* Hide desktop color bar on mobile */
+@media (max-width: 768px) {
+    .desktop-colorbar-container {
+        display: none !important;
+    }
+}

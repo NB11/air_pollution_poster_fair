@@ -18,6 +18,31 @@
         <div class="map-container">
             <div id="map-view"></div>
             
+            <!-- Year/Month Slider Widget -->
+            <div class="floating-widget time-selector-widget">
+                <div class="time-selector-content">
+                    <button id="pollutant-selector" class="year-selector-btn">O3</button>
+                    <button id="year-selector" class="year-selector-btn">2024</button>
+                    <div class="month-slider-wrapper">
+                        <input type="range" id="month-slider" class="month-slider" min="1" max="12" value="1" step="1">
+                        <div class="month-slider-labels">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                            <span>Jul</span>
+                            <span>Aug</span>
+                            <span>Sep</span>
+                            <span>Oct</span>
+                            <span>Nov</span>
+                            <span>Dec</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Floating Explanation Widget -->
             <div class="floating-widget explanation-widget collapsed">
                 <button class="collapse-btn" id="explanation-collapse" aria-label="Expand info panel">›</button>
@@ -201,32 +226,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Year/Month Slider Widget -->
-            <div class="floating-widget time-selector-widget">
-                <div class="time-selector-content">
-                    <button id="pollutant-selector" class="year-selector-btn">O3</button>
-                    <button id="year-selector" class="year-selector-btn">2024</button>
-                    <div class="month-slider-wrapper">
-                        <input type="range" id="month-slider" class="month-slider" min="1" max="12" value="1" step="1">
-                        <div class="month-slider-labels">
-                            <span>Jan</span>
-                            <span>Feb</span>
-                            <span>Mar</span>
-                            <span>Apr</span>
-                            <span>May</span>
-                            <span>Jun</span>
-                            <span>Jul</span>
-                            <span>Aug</span>
-                            <span>Sep</span>
-                            <span>Oct</span>
-                            <span>Nov</span>
-                            <span>Dec</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             
             <!-- Mobile Toggle Button -->
             <button id="mobile-toggle" class="mobile-toggle-btn">

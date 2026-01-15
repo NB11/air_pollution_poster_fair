@@ -229,14 +229,23 @@ function updateColorBar(pollutant) {
     
     const minEl = document.getElementById('colorbar-min');
     const maxEl = document.getElementById('colorbar-max');
+    const desktopMinEl = document.getElementById('desktop-colorbar-min');
+    const desktopMaxEl = document.getElementById('desktop-colorbar-max');
     
     if (minEl) minEl.textContent = info.vmin;
     if (maxEl) maxEl.textContent = info.vmax;
+    if (desktopMinEl) desktopMinEl.textContent = info.vmin;
+    if (desktopMaxEl) desktopMaxEl.textContent = info.vmax;
     
     // Hide color bar if N/A selected
     const colorbar = document.getElementById('mobile-colorbar');
     if (colorbar) {
         colorbar.style.display = (pollutant === 'CTRL') ? 'none' : 'flex';
+    }
+    
+    const desktopColorbar = document.getElementById('desktop-colorbar');
+    if (desktopColorbar) {
+        desktopColorbar.style.display = (pollutant === 'CTRL') ? 'none' : 'flex';
     }
 }
 
@@ -2385,6 +2394,119 @@ function addBaseMapSwitcher() {
     };
     
     map.addControl(new BaseMapSwitcher(), 'top-right');
+    
+    // Add desktop color bar as a sidebar
+    map.on('load', () => {
+        const mapContainer = document.getElementById('map-view');
+        if (!mapContainer) return;
+        
+        // Create color bar container
+        const colorbarContainer = document.createElement('div');
+        colorbarContainer.className = 'desktop-colorbar-container';
+        colorbarContainer.id = 'desktop-colorbar';
+        
+        // Unit label at top
+        const unitLabel = document.createElement('div');
+        unitLabel.className = 'desktop-colorbar-unit';
+        unitLabel.textContent = 'µg/m³';
+        colorbarContainer.appendChild(unitLabel);
+        
+        // Max value at top
+        const maxValue = document.createElement('div');
+        maxValue.className = 'desktop-colorbar-value desktop-colorbar-max';
+        maxValue.id = 'desktop-colorbar-max';
+        maxValue.textContent = '80';
+        colorbarContainer.appendChild(maxValue);
+        
+        // Vertical gradient
+        const gradient = document.createElement('div');
+        gradient.className = 'desktop-colorbar-gradient';
+        colorbarContainer.appendChild(gradient);
+        
+        // Min value at bottom
+        const minValue = document.createElement('div');
+        minValue.className = 'desktop-colorbar-value desktop-colorbar-min';
+        minValue.id = 'desktop-colorbar-min';
+        minValue.textContent = '20';
+        colorbarContainer.appendChild(minValue);
+        
+        // Append to map container
+        mapContainer.appendChild(colorbarContainer);
+        
+        // Position color bar: directly below compass control, matching controls width and alignment
+        // Also position time selector widget and explanation widget with same offset
+        const updateColorBarPosition = () => {
+            const compassControl = mapContainer.querySelector('.maplibregl-ctrl-compass');
+            const zoomControls = mapContainer.querySelector('.maplibregl-ctrl-zoom-in');
+            const baseMapBtn = mapContainer.querySelector('.base-map-btn');
+            const timeSelector = document.querySelector('.time-selector-widget');
+            const explanationWidget = document.querySelector('.explanation-widget');
+            
+            if (compassControl && zoomControls) {
+                const compassRect = compassControl.getBoundingClientRect();
+                const zoomRect = zoomControls.getBoundingClientRect();
+                const mapRect = mapContainer.getBoundingClientRect();
+                
+                // Position directly below compass control (add small spacing)
+                const topPosition = compassRect.bottom - mapRect.top + 10;
+                
+                // Match the width of the zoom controls (plus/minus buttons)
+                const controlWidth = zoomRect.width;
+                
+                // Align horizontal position with controls (same distance from right edge)
+                const rightPosition = mapRect.right - compassRect.right;
+                
+                // Calculate bottom position if time selector exists
+                let bottomStyle = '';
+                if (timeSelector) {
+                    const timeRect = timeSelector.getBoundingClientRect();
+                    const bottomPosition = mapRect.bottom - timeRect.top + 10;
+                    bottomStyle = `${bottomPosition}px`;
+                }
+                
+                colorbarContainer.style.top = `${topPosition}px`;
+                if (bottomStyle) {
+                    colorbarContainer.style.bottom = bottomStyle;
+                }
+                colorbarContainer.style.right = `${rightPosition}px`;
+                colorbarContainer.style.left = 'auto';
+                colorbarContainer.style.width = `${controlWidth}px`;
+                
+                // Position time selector widget with same offset on both left and right sides
+                if (timeSelector) {
+                    timeSelector.style.left = `${rightPosition}px`;
+                    timeSelector.style.right = `${rightPosition}px`;
+                }
+                
+                // Position explanation widget with same offset from left as colorbar from right
+                // Top position matches base map button, bottom matches colorbar (same distance to slider)
+                if (explanationWidget) {
+                    explanationWidget.style.left = `${rightPosition}px`;
+                    
+                    // Match top position with base map button
+                    if (baseMapBtn) {
+                        const baseMapRect = baseMapBtn.getBoundingClientRect();
+                        const explanationTopPosition = baseMapRect.top - mapRect.top;
+                        explanationWidget.style.top = `${explanationTopPosition}px`;
+                    }
+                    
+                    // Match bottom position with colorbar (same distance to slider)
+                    if (bottomStyle) {
+                        explanationWidget.style.bottom = bottomStyle;
+                        // Remove height constraint when bottom is set to allow proper sizing
+                        explanationWidget.style.height = 'auto';
+                    }
+                }
+            }
+        };
+        
+        // Update position on load and resize
+        updateColorBarPosition();
+        window.addEventListener('resize', updateColorBarPosition);
+        
+        // Also update when controls might change
+        setTimeout(updateColorBarPosition, 100);
+    });
 }
 
 // Switch base map layer
