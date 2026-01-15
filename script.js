@@ -1436,8 +1436,7 @@ async function loadGroundStations(pollutant, year, month) {
                 // Calculate and show error if both values available
                 if (groundTruthUgPerM3 !== null) {
                     const error = predictedUgPerM3 - groundTruthUgPerM3;
-                    const errorPercent = (error / groundTruthUgPerM3 * 100).toFixed(1);
-                    popupHTML += `<br><span style="font-size: 10px; color: #666;">Error: ${error >= 0 ? '+' : ''}${error.toFixed(2)} (${errorPercent}%)</span>`;
+                    popupHTML += `<br><span style="font-size: 10px; color: #666;">Error: ${error >= 0 ? '+' : ''}${error.toFixed(2)}</span>`;
                 }
             }
             
