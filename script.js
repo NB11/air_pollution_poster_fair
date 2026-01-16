@@ -208,7 +208,7 @@ async function loadSaharaGeoJSON() {
 let currentCity = 'Bologna'; // Default city
 let currentCompositeYear = '2024';
 let currentCompositeMonth = '01'; // Default to January
-let currentPollutant = 'O3'; // Default pollutant
+let currentPollutant = 'PM10'; // Default pollutant
 
 // Available pollutants
 const pollutants = ['NO2', 'O3', 'PM2.5', 'PM10', 'CTRL'];
@@ -312,7 +312,7 @@ const availableMonths = {
 
 // Initialize composite layer with year/month slider
 function initCompositeLayer() {
-    // Load default month (January) with default pollutant (O3) for current city
+    // Load default month (January) with default pollutant (PM10) for current city
     loadPredictedLayer(currentCompositeYear, '01', currentPollutant);
     
     // Store references to all dropdowns for closing
