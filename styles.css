@@ -109,9 +109,9 @@ body {
 .explanation-widget {
     top: 20px;
     left: 20px;
-    width: calc(100vw / 3);
-    min-width: calc(100vw / 6);
-    max-width: calc(100vw / 3);
+    width: 520px;
+    min-width: 520px;
+    max-width: 520px;
     height: calc(100vh - 100px);
     max-height: calc(100vh - 100px);
     position: absolute;
