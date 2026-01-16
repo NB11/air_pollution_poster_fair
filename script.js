@@ -313,7 +313,10 @@ const availableMonths = {
 // Initialize composite layer with year/month slider
 function initCompositeLayer() {
     // Load default month (January) with default pollutant (PM10) for current city
-    loadPredictedLayer(currentCompositeYear, '01', currentPollutant);
+    // Explicitly use PM10 to ensure correct default
+    const defaultPollutant = 'PM10';
+    console.log(`Initializing with pollutant: ${defaultPollutant}, currentPollutant variable: ${currentPollutant}`);
+    loadPredictedLayer(currentCompositeYear, '01', defaultPollutant);
     
     // Store references to all dropdowns for closing
     let allDropdowns = [];
@@ -798,6 +801,8 @@ async function loadMonthLayer(year, month, pollutant) {
         boundsPath = `map/predicted/${year}/bounds.json`;
         imagePath = `map/predicted/${year}/${pollutantFileName}_month${monthStr}_inferno.webp`;
     }
+    
+    console.log(`📅 Constructed image path: ${imagePath} for pollutant: ${pollutant}`);
     
     // Cache key for bounds (now per city/year, not per pollutant)
     const boundsKey = `${currentCity || 'default'}-${year}`;
